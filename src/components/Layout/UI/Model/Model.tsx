@@ -28,7 +28,7 @@ export const Model = ({
         onClick={(e) => e.stopPropagation()}
         className={
           active
-            ? 'bg-white  fixed top-[30%] left-[28%] z-10 w-2/5 mx-4 p-4 rounded-xl '
+            ? 'bg-white fixed top-1/3 left-[50vh] w-1/2 z-10  mx-4 p-4 rounded-xl '
             : 'bg-white opacity-0 pointer-events-none fixed top-[30%] left-[30%] z-10 w-2/5 mx-4 p-4 rounded-xl '
         }
       >

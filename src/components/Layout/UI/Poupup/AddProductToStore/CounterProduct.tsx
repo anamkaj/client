@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { IGProduct } from '../../../../../helpers/model/model.products'
-import { useCountProductStore } from './hook/dispatch.inc.dec'
+import { useCountProductStore } from '../hook/dispatch.inc.dec'
 
 export type PropCount = {
   setCountPopupProduct: React.Dispatch<React.SetStateAction<number>>

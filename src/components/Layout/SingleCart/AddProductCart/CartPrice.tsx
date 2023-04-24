@@ -13,6 +13,8 @@ type PropCartPrise = {
   product: IGProduct[]
   setActive: React.Dispatch<React.SetStateAction<boolean>>
   setCountPopupProduct: React.Dispatch<React.SetStateAction<number>>
+  setFastOrderModel: React.Dispatch<React.SetStateAction<boolean>>
+  setCountFastOrderProduct: React.Dispatch<React.SetStateAction<number>>
 }
 
 export type PropCart = {
@@ -23,6 +25,8 @@ export const CartPrice = ({
   product,
   setActive,
   setCountPopupProduct,
+  setFastOrderModel,
+  setCountFastOrderProduct,
 }: PropCartPrise) => {
   const cartStore = useAppSelector((state) => state.cartReducer.cart)
   const price = Math.round(product[0].price / (product[0].discount * 0.11))
@@ -54,11 +58,16 @@ export const CartPrice = ({
         ) : (
           <RemoveStore
             product={product}
-            setPopup={setActive}
+            setActive={setActive}
             setCountPopupProduct={setCountPopupProduct}
+            setCountFastOrderProduct={setCountFastOrderProduct}
           />
         )}
-        <OrderOneClick />
+        <OrderOneClick
+          setFastOrderModel={setFastOrderModel}
+          product={product}
+          setCountPopupProduct={setCountPopupProduct}
+        />
       </div>
 
       <CallSingleCart />

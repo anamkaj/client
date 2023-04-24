@@ -16,14 +16,18 @@ import { useParams } from 'react-router-dom'
 import { Crumbs } from '../components/Layout/SingleCart/Crumbs'
 import { Model } from '../components/Layout/UI/Model/Model'
 import { Popup } from '../components/Layout/UI/Poupup/AddProductToStore/Popup'
+import { FastOrderPopup } from '../components/Layout/UI/Poupup/FastOrder/FastOrderPopup'
 
 export const SingleProductCart = () => {
   const { id } = useParams()
   const [activeTab, setActiveTab] = useState(1)
   const { data: product, isLoading } = useOneProduct(Number(id))
   const [active, setActive] = useState(false)
+  const [fastOrderModel, setFastOrderModel] = useState(false)
   const [countPopupProduct, setCountPopupProduct] = useState(1)
+  const [countFastOrderProduct, setCountFastOrderProduct] = useState(1)
   const titleModel = 'Товар добавлен в корзину'
+  const titleFastOrderModel = 'Заявка на покупку товара'
 
   if (isLoading) {
     return <LazyLoad />
@@ -58,12 +62,14 @@ export const SingleProductCart = () => {
           </div>
         </div>
 
-        {/*Карточка добавления в карзину (справа)*/}
+        {/*Карточка добавления в корзину (справа)*/}
 
         <CartPrice
           product={product}
           setActive={setActive}
+          setFastOrderModel={setFastOrderModel}
           setCountPopupProduct={setCountPopupProduct}
+          setCountFastOrderProduct={setCountFastOrderProduct}
         />
       </div>
 
@@ -79,6 +85,17 @@ export const SingleProductCart = () => {
           product={product}
           countPopupProduct={countPopupProduct}
           setCountPopupProduct={setCountPopupProduct}
+        />
+      </Model>
+      <Model
+        setActive={setFastOrderModel}
+        active={fastOrderModel}
+        titleModel={titleFastOrderModel}
+      >
+        <FastOrderPopup
+          product={product}
+          countFastOrderProduct={countFastOrderProduct}
+          setCountFastOrderProduct={setCountFastOrderProduct}
         />
       </Model>
     </div>

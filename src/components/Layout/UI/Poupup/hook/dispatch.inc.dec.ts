@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import {
   incrementCounter,
   decrementCounter,
-} from '../../../../../../store/Product/cartSlise'
-import { useAppDispatch } from '../../../../../../store/storeHook'
-import { PropCount } from '../CounterProduct'
+} from '../../../../../store/Product/cartSlise'
+import { useAppDispatch } from '../../../../../store/storeHook'
+import { PropCount } from '../AddProductToStore/CounterProduct'
 
 export const useCountProductStore = ({
   setCountPopupProduct,

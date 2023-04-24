@@ -5,14 +5,16 @@ import { useAppDispatch } from '../../../../../../store/storeHook'
 
 type PropBtn = {
   product: IGProduct[]
-  setPopup: React.Dispatch<React.SetStateAction<boolean>>
+  setActive: React.Dispatch<React.SetStateAction<boolean>>
   setCountPopupProduct: React.Dispatch<React.SetStateAction<number>>
+  setCountFastOrderProduct: React.Dispatch<React.SetStateAction<number>>
 }
 
 export const RemoveStore = ({
   product,
-  setPopup,
+  setActive,
   setCountPopupProduct,
+  setCountFastOrderProduct,
 }: PropBtn) => {
   const dispatch = useAppDispatch()
   const removeProduct = () => {
@@ -25,8 +27,9 @@ export const RemoveStore = ({
         totalCount: 1,
       }),
     )
-    setPopup(() => false)
+    setActive(() => false)
     setCountPopupProduct(1)
+    setCountFastOrderProduct(1)
   }
   return (
     <button
