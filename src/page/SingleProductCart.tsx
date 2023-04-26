@@ -77,7 +77,7 @@ export const SingleProductCart = () => {
 
       <TabSingleCart activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      {/*Модальное окно */}
+      {/*Модальное окно/ Добавление в корзину */}
 
       <Model setActive={setActive} active={active} titleModel={titleModel}>
         <Popup
@@ -87,6 +87,9 @@ export const SingleProductCart = () => {
           setCountPopupProduct={setCountPopupProduct}
         />
       </Model>
+
+      {/*Модальное окно/ Быстрый заказ */}
+
       <Model
         setActive={setFastOrderModel}
         active={fastOrderModel}

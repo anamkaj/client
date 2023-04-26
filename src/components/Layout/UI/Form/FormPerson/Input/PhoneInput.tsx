@@ -19,6 +19,7 @@ export const PhoneInput = ({ register, errors }: InputName) => {
           pattern: mobilePhoneRegexp,
         })}
         placeholder='Телефон'
+        type='number'
       />
       {errors.phone?.type == 'pattern' && (
         <p className=' text-red-500 font-extralight text-sm'>

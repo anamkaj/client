@@ -1,27 +1,27 @@
 import React, { useEffect } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
-
 import { Person } from '../type.form'
 import { NameInput } from './Input/NameInput'
 import { PhoneInput } from './Input/PhoneInput'
 import { EmailInput } from './Input/EmailInput'
+import { IGProduct } from '../../../../../helpers/model/model.products'
+import { useFormRequest } from '../hook/form.query.hook'
 
 type PropForm = {
   status: boolean
+  product: IGProduct[]
 }
 
-export const FormPerson = ({ status }: PropForm) => {
+export const FormPerson = ({ status, product }: PropForm) => {
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm<Person>()
 
-  const onSubmit: SubmitHandler<Person> = (data: Person) => {
-    console.log(data)
-    reset()
-  }
+  const price = Math.round(product[0].price / (product[0].discount * 0.11))
+  const { mutation, onSubmit } = useFormRequest({ product, reset, price })
 
   return (
     <div className='  mt-4'>
@@ -34,7 +34,11 @@ export const FormPerson = ({ status }: PropForm) => {
             Отправить
           </button>
         </div>
-        {isSubmitSuccessful && <p>Форма успешно отправленна </p>}
+        {mutation.data?.data === true ? (
+          <p>Форма успешно отправленна </p>
+        ) : (
+          <p>Ошибка отправки формы </p>
+        )}
       </form>
     </div>
   )

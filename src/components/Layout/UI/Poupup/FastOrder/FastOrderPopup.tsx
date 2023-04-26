@@ -15,16 +15,17 @@ export const FastOrderPopup = ({
   setCountFastOrderProduct,
 }: PropPopup) => {
   return (
-    <div className=' flex'>
-      <div className=' flex flex-col'>
-        <div className=' w-1/4'>
+    <>
+      <div className=' flex flex-col items-center '>
+        <div className=' '>
           <img
+            className=' w-[15vh]'
             src={`http://localhost:4000/img/${product[0].imgFolder}/${product[0].imgLink[0]}`}
             alt={product[0].altImg}
           />
         </div>
 
-        <div className=' w-1/2'>
+        <div className=' text-center'>
           <h2>
             {product[0].title.length > 50
               ? product[0].title.slice(0, 50) + '...'
@@ -38,7 +39,7 @@ export const FastOrderPopup = ({
               ₽
             </p>
           </div>
-          <div>
+          <div className=' flex justify-center'>
             <CounterProduct
               setCountPopupProduct={setCountFastOrderProduct}
               countPopupProduct={countFastOrderProduct}
@@ -50,7 +51,7 @@ export const FastOrderPopup = ({
 
       {/* Форма для быстрого заказа  */}
 
-      <FormFastOrder />
-    </div>
+      <FormFastOrder product={product} />
+    </>
   )
 }

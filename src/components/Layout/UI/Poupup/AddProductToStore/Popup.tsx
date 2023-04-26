@@ -26,18 +26,18 @@ export const Popup = ({
 
   return (
     <>
-      <div className=' flex my-2 mx-4 justify-between'>
-        <div className=' w-1/4'>
-          <img
+      <div className=' flex my-2 mx-4 gap-2 '>
+        <div className=' '>
+          <img className=' w-[15vh]'
             src={`http://localhost:4000/img/${product[0].imgFolder}/${product[0].imgLink[0]}`}
             alt={product[0].altImg}
           />
         </div>
-        <div className=' w-1/3'>
+        <div className=' '>
           <h2>
             {product[0].title.length > 50
-              ? product[0].title.slice(0, 50) + '...'
-              : product[0].title}
+              ? product[0].title.slice(0, 50) + '...' 
+              : product[0].title} 
           </h2>
           <div className=' mt-2'>
             <p className=' text-sm'>

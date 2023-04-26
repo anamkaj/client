@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
 import { FormPerson } from '../../Form/FormPerson/FormPerson'
+import { IGProduct } from '../../../../../helpers/model/model.products'
 
-export const FormFastOrder = () => {
+type PropProduct = {
+  product: IGProduct[]
+}
+
+export const FormFastOrder = ({ product }: PropProduct) => {
   const [status, setStatus] = useState(true)
 
   return (
     <>
-      <div className=' w-full'>
-        <p className=' font-bold text-center text-xl'>Данные покупателя</p>
-        <div className=' flex justify-between items-center'>
+      <div className=' mb-4'>
+        <p className=' font-bold text-center text-xl mt-4'>Данные покупателя</p>
+        <div className=' flex justify-between items-center mt-4 gap-4'>
           <label className='flex items-center justify-between gap-2'>
             <input
               onClick={() => setStatus(true)}
@@ -31,7 +36,7 @@ export const FormFastOrder = () => {
             Юридическое Лицо
           </label>
         </div>
-        <FormPerson status={status} />
+        <FormPerson status={status} product={product} />
       </div>
     </>
   )

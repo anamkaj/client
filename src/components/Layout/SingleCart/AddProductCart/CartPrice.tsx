@@ -63,6 +63,9 @@ export const CartPrice = ({
             setCountFastOrderProduct={setCountFastOrderProduct}
           />
         )}
+
+        {/* Заказ в один клик */}
+        
         <OrderOneClick
           setFastOrderModel={setFastOrderModel}
           product={product}
