@@ -15,19 +15,27 @@ import { useOneProduct } from '../components/Layout/SingleCart/hook/getOneProduc
 import { useParams } from 'react-router-dom'
 import { Crumbs } from '../components/Layout/SingleCart/Crumbs'
 import { Model } from '../components/Layout/UI/Model/Model'
-import { Popup } from '../components/Layout/UI/Poupup/AddProductToStore/Popup'
+import { Popup } from '../components/Layout/UI/Poupup/AddProductToStore/PopupAddStore'
 import { FastOrderPopup } from '../components/Layout/UI/Poupup/FastOrder/FastOrderPopup'
+import { CallSingleCart } from '../components/Layout/SingleCart/CallingSpecialist'
+import { SpecialistCall } from '../components/Layout/UI/Poupup/CallingSpecialist/SpecialistCall'
 
 export const SingleProductCart = () => {
   const { id } = useParams()
   const [activeTab, setActiveTab] = useState(1)
   const { data: product, isLoading } = useOneProduct(Number(id))
+  //Состаяние модальных окон
   const [active, setActive] = useState(false)
   const [fastOrderModel, setFastOrderModel] = useState(false)
+  const [specialist, setSpecialist] = useState(false)
+  //_______________________________________________________________________
+  //Счетчики количество товаров в popup
   const [countPopupProduct, setCountPopupProduct] = useState(1)
   const [countFastOrderProduct, setCountFastOrderProduct] = useState(1)
+  //_______________________________________________________________________
   const titleModel = 'Товар добавлен в корзину'
   const titleFastOrderModel = 'Заявка на покупку товара'
+  const titleSpecialistCall = 'Спецификация обьета'
 
   if (isLoading) {
     return <LazyLoad />
@@ -63,14 +71,16 @@ export const SingleProductCart = () => {
         </div>
 
         {/*Карточка добавления в корзину (справа)*/}
-
-        <CartPrice
-          product={product}
-          setActive={setActive}
-          setFastOrderModel={setFastOrderModel}
-          setCountPopupProduct={setCountPopupProduct}
-          setCountFastOrderProduct={setCountFastOrderProduct}
-        />
+        <div>
+          <CartPrice
+            product={product}
+            setActive={setActive}
+            setFastOrderModel={setFastOrderModel}
+            setCountPopupProduct={setCountPopupProduct}
+            setCountFastOrderProduct={setCountFastOrderProduct}
+          />
+          <CallSingleCart setSpecialist={setSpecialist} />
+        </div>
       </div>
 
       {/*описание и характеристики TAB*/}
@@ -96,10 +106,19 @@ export const SingleProductCart = () => {
         titleModel={titleFastOrderModel}
       >
         <FastOrderPopup
+          setFastOrderModel={setFastOrderModel}
           product={product}
           countFastOrderProduct={countFastOrderProduct}
           setCountFastOrderProduct={setCountFastOrderProduct}
         />
+      </Model>
+
+      <Model
+        setActive={setSpecialist}
+        active={specialist}
+        titleModel={titleSpecialistCall}
+      >
+        <SpecialistCall setSpecialist={setSpecialist} specialist={specialist} />
       </Model>
     </div>
   )

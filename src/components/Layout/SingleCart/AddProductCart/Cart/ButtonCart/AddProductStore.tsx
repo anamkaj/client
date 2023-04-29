@@ -26,7 +26,7 @@ export const AddStore = ({ product, setActive, price }: PropBtn) => {
 
   return (
     <button
-      className=' uppercase mt-10 rounded-xl bg-gradient-to-br from-[#6025F5] to-[#FF5555] px-5 py-3 text-base font-medium text-white transition duration-200 hover:shadow-lg hover:shadow-[#6025F5]/50'
+      className=' uppercase mt-10 rounded-xl bg-gradient-to-br from-[#6025F5] to-[#FF5555] px-5 py-3 text-base font-medium text-white transition duration-200 hover:shadow-lg hover:shadow-[#6025F5]/50 focus:outline-none'
       onClick={() => addProduct()}
     >
       Добавить в корзину

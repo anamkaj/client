@@ -2,16 +2,10 @@ import React from 'react'
 import { IGProduct } from '../../../../../../helpers/model/model.products'
 
 type PropFastOrder = {
-  product: IGProduct[]
   setFastOrderModel: React.Dispatch<React.SetStateAction<boolean>>
-  setCountPopupProduct: React.Dispatch<React.SetStateAction<number>>
 }
 
-export const OrderOneClick = ({
-  product,
-  setFastOrderModel,
-  setCountPopupProduct,
-}: PropFastOrder) => {
+export const OrderOneClick = ({ setFastOrderModel }: PropFastOrder) => {
   return (
     <div>
       <button

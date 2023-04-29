@@ -7,12 +7,14 @@ type PropPopup = {
   product: IGProduct[]
   countFastOrderProduct: number
   setCountFastOrderProduct: React.Dispatch<React.SetStateAction<number>>
+  setFastOrderModel: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export const FastOrderPopup = ({
   product,
   countFastOrderProduct,
   setCountFastOrderProduct,
+  setFastOrderModel
 }: PropPopup) => {
   return (
     <>
@@ -51,7 +53,7 @@ export const FastOrderPopup = ({
 
       {/* Форма для быстрого заказа  */}
 
-      <FormFastOrder product={product} />
+      <FormFastOrder product={product} setFastOrderModel={setFastOrderModel} />
     </>
   )
 }

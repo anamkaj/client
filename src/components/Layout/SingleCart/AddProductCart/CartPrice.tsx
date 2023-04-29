@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { CallSingleCart } from '../CallSingleCart'
 import { IGProduct } from '../../../../helpers/model/model.products'
 import { OrderOneClick } from './Cart/ButtonCart/OrderOneClick'
 import { useAppSelector } from '../../../../store/storeHook'
@@ -38,7 +37,7 @@ export const CartPrice = ({
 
   return (
     <div className='flex flex-wrap gap-6 justify-end'>
-      <div className='flex flex-col mt-5 w-full shadow-lg border rounded-lg p-4 h-[400px]'>
+      <div className='flex flex-col mt-5 w-full shadow-lg border rounded-lg p-4 h-[350px]'>
         <>
           <CartHeader product={product} />
           <div className=' flex gap-1 items-center justify-end'>
@@ -65,15 +64,9 @@ export const CartPrice = ({
         )}
 
         {/* Заказ в один клик */}
-        
-        <OrderOneClick
-          setFastOrderModel={setFastOrderModel}
-          product={product}
-          setCountPopupProduct={setCountPopupProduct}
-        />
-      </div>
 
-      <CallSingleCart />
+        <OrderOneClick setFastOrderModel={setFastOrderModel} />
+      </div>
     </div>
   )
 }

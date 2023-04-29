@@ -18,12 +18,17 @@ export const PhoneInput = ({ register, errors }: InputName) => {
           required: true,
           pattern: mobilePhoneRegexp,
         })}
-        placeholder='Телефон'
+        placeholder='Телефон (обязательное поле)'
         type='number'
       />
       {errors.phone?.type == 'pattern' && (
         <p className=' text-red-500 font-extralight text-sm'>
           Проверьте правильность ввода номера
+        </p>
+      )}
+      {errors.phone?.type == 'required' && (
+        <p className=' text-red-500 font-extralight text-sm'>
+          Заполнение обязательные поля !
         </p>
       )}
     </div>

@@ -4,10 +4,12 @@ import { IGProduct } from '../../../../../helpers/model/model.products'
 
 type PropProduct = {
   product: IGProduct[]
+  setFastOrderModel: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const FormFastOrder = ({ product }: PropProduct) => {
+export const FormFastOrder = ({ product,setFastOrderModel }: PropProduct) => {
   const [status, setStatus] = useState(true)
+  const price = Math.round(product[0].price / (product[0].discount * 0.11))
 
   return (
     <>
@@ -36,7 +38,7 @@ export const FormFastOrder = ({ product }: PropProduct) => {
             Юридическое Лицо
           </label>
         </div>
-        <FormPerson status={status} product={product} />
+        <FormPerson price={price} status={status} product={product} setFastOrderModel={setFastOrderModel} />
       </div>
     </>
   )
