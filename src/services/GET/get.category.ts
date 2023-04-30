@@ -1,10 +1,11 @@
 import axios from 'axios'
+import { ICategory } from '../../helpers/model/query.category.model'
 
 export const CategoryServices = {
   // Запрос всех групп !!! не продуктов , только категории
 
   async getAllCategory(id: number) {
-    const { data } = await axios.get(
+    const { data } = await axios.get<ICategory[]>(
       `http://localhost:4000/api/category/all-category`,
       {
         params: {
@@ -12,7 +13,7 @@ export const CategoryServices = {
         },
       },
     )
-    
+
     return data
   },
 }

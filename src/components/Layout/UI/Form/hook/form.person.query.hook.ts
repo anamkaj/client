@@ -1,11 +1,11 @@
 // Отправка заявки из "Быстрый Заказ"
 
 import { useMutation } from 'react-query'
-import { FormServices } from '../../../../../services/catalogReq/postForm/post.form'
+import { FormServices } from '../../../../../services/POST/FORM/post.form'
 import { SubmitHandler } from 'react-hook-form'
 import { Person } from '../type.form'
 import { IGProduct } from '../../../../../helpers/model/model.products'
-import { FormReq } from '../../../../../services/catalogReq/postForm/models/post.req.form'
+import { FormReq } from '../../../../../services/POST/FORM/models/post.req.form'
 
 type PropFormHook = {
   product?: IGProduct[]

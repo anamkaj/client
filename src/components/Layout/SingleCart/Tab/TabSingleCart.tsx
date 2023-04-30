@@ -1,17 +1,28 @@
 import React from 'react'
 import { tab } from '../helper/tabName'
+import { IGProduct } from '../../../../helpers/model/model.products'
+import { TableParamsProduct } from './TableParamsProduct'
+import { TabReviews } from './TabReviews'
 
-type IProps = {
+type TabProps = {
   activeTab: number
   setActiveTab: React.Dispatch<React.SetStateAction<number>>
+  product: IGProduct[]
 }
 
-export const TabSingleCart = ({ activeTab, setActiveTab }: IProps) => {
+export const TabSingleCart = ({
+  activeTab,
+  setActiveTab,
+  product,
+}: TabProps) => {
   const styleActive =
     'uppercase text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none' +
     ' text-blue-500 border-b-2 font-medium border-blue-500'
   const styleDisable =
     'uppercase text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none'
+  console.log(activeTab)
+
+  const description = product[0].descriptionOne
 
   return (
     <div>
@@ -30,18 +41,11 @@ export const TabSingleCart = ({ activeTab, setActiveTab }: IProps) => {
           )
         })}
       </nav>
+      <div id={'tab'}>{activeTab == 1 && description}</div>
       <div id={'tab'}>
-        {tab.map((e) => {
-          return (
-            <div key={e.id}>
-              <h4>
-                Технические характеристики HIWATCH DS-T200 B 2.8 мм 00-00002940
-              </h4>
-              <p key={e.id}>{activeTab === e.id && e.description}</p>
-            </div>
-          )
-        })}
+        {activeTab == 2 && <TableParamsProduct product={product} />}
       </div>
+      <div>{activeTab == 3 && <TabReviews />}</div>
     </div>
   )
 }

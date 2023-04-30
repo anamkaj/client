@@ -1,12 +1,11 @@
 import React from 'react'
-import { HiChevronRight } from 'react-icons/hi2'
 import { Scrollchor } from 'react-scrollchor'
 
-type IProps = {
+type Props = {
   setActiveTab: React.Dispatch<React.SetStateAction<number>>
 }
 
-export const CharacteristicsBtn = ({ setActiveTab }: IProps) => {
+export const CharacteristicsBtn = ({ setActiveTab }: Props) => {
   return (
     <div>
       <Scrollchor to={''}>
@@ -23,7 +22,7 @@ export const CharacteristicsBtn = ({ setActiveTab }: IProps) => {
   )
 }
 
-export const ServicesBtn = ({ setActiveTab }: IProps) => {
+export const ServicesBtn = ({ setActiveTab }: Props) => {
   return (
     <div>
       <Scrollchor to={''}>
@@ -40,7 +39,7 @@ export const ServicesBtn = ({ setActiveTab }: IProps) => {
   )
 }
 
-export const ReviewsBtn = ({ setActiveTab }: IProps) => {
+export const ReviewsBtn = ({ setActiveTab }: Props) => {
   return (
     <div>
       <Scrollchor to={''}>
@@ -57,7 +56,7 @@ export const ReviewsBtn = ({ setActiveTab }: IProps) => {
   )
 }
 
-export const DescriptionBtn = ({ setActiveTab }: IProps) => {
+export const DescriptionBtn = ({ setActiveTab }: Props) => {
   return (
     <div>
       <Scrollchor to={''}>

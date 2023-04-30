@@ -24,6 +24,7 @@ export const SingleProductCart = () => {
   const { id } = useParams()
   const [activeTab, setActiveTab] = useState(1)
   const { data: product, isLoading } = useOneProduct(Number(id))
+  
   //Состаяние модальных окон
   const [active, setActive] = useState(false)
   const [fastOrderModel, setFastOrderModel] = useState(false)
@@ -84,8 +85,13 @@ export const SingleProductCart = () => {
       </div>
 
       {/*описание и характеристики TAB*/}
-
-      <TabSingleCart activeTab={activeTab} setActiveTab={setActiveTab} />
+      <div>
+        <TabSingleCart
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          product={product}
+        />
+      </div>
 
       {/*Модальное окно/ Добавление в корзину */}
 

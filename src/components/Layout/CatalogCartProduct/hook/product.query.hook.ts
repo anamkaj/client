@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query'
 import { hookParams } from '../../../../helpers/model/hook.model.request'
 import { IGProduct } from '../../../../helpers/model/model.products'
-import { ProductServices } from '../../../../services/catalogReq/get.product'
+import { ProductServices } from '../../../../services/GET/get.product'
 
 //Запрос на все товары всех групп
 

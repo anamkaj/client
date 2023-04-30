@@ -1,13 +1,10 @@
 import React from 'react'
 import { Person } from '../type.form'
 import {
-  Control,
   FieldErrors,
-  FieldValues,
   SubmitHandler,
   UseFormHandleSubmit,
   UseFormRegister,
-  UseFormWatch,
 } from 'react-hook-form'
 import { EmailInput } from './Input/EmailInput'
 import { NameInput } from './Input/NameInput'
@@ -21,8 +18,6 @@ type PropAllInput = {
   errors: FieldErrors<Person>
   status?: boolean
   specialist?: boolean
-  
-  
 }
 
 export const AllInput = ({
@@ -32,21 +27,12 @@ export const AllInput = ({
   errors,
   status,
   specialist,
-  
-  
 }: PropAllInput) => {
- 
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className=' flex flex-col gap-2'>
-          {specialist && (
-            <CheckBox
-              register={register}
-              errors={errors}
-              
-            />
-          )}
+          {specialist && <CheckBox register={register} errors={errors} />}
           <NameInput register={register} errors={errors} />
           <PhoneInput register={register} errors={errors} />
           {!status && <EmailInput register={register} errors={errors} />}

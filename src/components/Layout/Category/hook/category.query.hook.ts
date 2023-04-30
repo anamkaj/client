@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query'
 import { ICategory } from '../../../../helpers/model/query.category.model'
-import { CategoryServices } from '../../../../services/catalogReq/get.category'
+import { CategoryServices } from '../../../../services/GET/get.category'
 
 
 // Запрос все категории и подкатегории
