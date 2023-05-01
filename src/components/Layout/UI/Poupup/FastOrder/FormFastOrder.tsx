@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FormPerson } from '../../Form/FormPerson/FormPerson'
-import { IGProduct } from '../../../../../helpers/model/model.products'
+import { IGProduct } from '../../../../../helpers/Model/GetServer/model.products'
 
 type PropProduct = {
   product: IGProduct[]

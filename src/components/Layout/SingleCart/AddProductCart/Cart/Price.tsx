@@ -1,6 +1,6 @@
 import React from 'react'
 import { DiscountBadges } from './Badges/Badges'
-import { IGProduct } from '../../../../../helpers/model/model.products'
+import { IGProduct } from '../../../../../helpers/Model/GetServer/model.products'
 
 type PropPrice = {
   price: number

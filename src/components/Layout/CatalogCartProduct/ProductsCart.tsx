@@ -1,5 +1,5 @@
 import React from 'react'
-import { IGProduct } from '../../../helpers/model/model.products'
+import { IGProduct } from '../../../helpers/Model/GetServer/model.products'
 import { ButtonCard } from './Button/ButtonCard/ButtonCard'
 import { Link } from 'react-router-dom'
 import { CountView } from './CountView'

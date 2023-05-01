@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useForm, useController } from 'react-hook-form'
 import { Person } from '../type.form'
-import { IGProduct } from '../../../../../helpers/model/model.products'
+import { IGProduct } from '../../../../../helpers/Model/GetServer/model.products'
 import { useFormRequest } from '../hook/form.person.query.hook'
 import { AllInput } from '../InputForm/AllInput'
 import { useClosePopupAll } from './close.allPopup'

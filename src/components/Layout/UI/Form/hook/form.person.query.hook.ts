@@ -4,8 +4,8 @@ import { useMutation } from 'react-query'
 import { FormServices } from '../../../../../services/POST/FORM/post.form'
 import { SubmitHandler } from 'react-hook-form'
 import { Person } from '../type.form'
-import { IGProduct } from '../../../../../helpers/model/model.products'
-import { FormReq } from '../../../../../services/POST/FORM/models/post.req.form'
+import { IGProduct } from '../../../../../helpers/Model/GetServer/model.products'
+import { FormReq } from '../../../../../helpers/Model/PostServer/post.req.form'
 
 type PropFormHook = {
   product?: IGProduct[]

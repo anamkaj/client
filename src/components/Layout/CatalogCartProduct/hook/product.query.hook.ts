@@ -1,6 +1,6 @@
 import { useQuery } from 'react-query'
-import { hookParams } from '../../../../helpers/model/hook.model.request'
-import { IGProduct } from '../../../../helpers/model/model.products'
+import { hookParams } from '../../../../helpers/Model/GetServer/hook.model.request'
+import { IGProduct } from '../../../../helpers/Model/GetServer/model.products'
 import { ProductServices } from '../../../../services/GET/get.product'
 
 //Запрос на все товары всех групп

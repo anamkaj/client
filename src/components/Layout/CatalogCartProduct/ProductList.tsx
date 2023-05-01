@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { IGProduct } from '../../../helpers/model/model.products'
+import { IGProduct } from '../../../helpers/Model/GetServer/model.products'
 import { HeaderFilter } from './HeaderFilter'
 import { ProductsCart } from './ProductsCart'
 import { Pagination } from './Pagination'

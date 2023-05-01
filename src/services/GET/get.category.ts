@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ICategory } from '../../helpers/model/query.category.model'
+import { ICategory } from '../../helpers/Model/GetServer/query.category.model'
 
 export const CategoryServices = {
   // Запрос всех групп !!! не продуктов , только категории

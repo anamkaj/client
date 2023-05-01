@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FormReq } from './models/post.req.form'
+import { FormReq } from '../../../helpers/Model/PostServer/post.req.form'
 
 export const FormServices = {
   async postForm(params: FormReq) {

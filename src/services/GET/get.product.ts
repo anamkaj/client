@@ -1,9 +1,9 @@
 //Запросы к продуктам
 
 import axios from 'axios'
-import { IGProduct } from '../../helpers/model/model.products'
+import { IGProduct } from '../../helpers/Model/GetServer/model.products'
 
-import { hookParams } from '../../helpers/model/hook.model.request'
+import { hookParams } from '../../helpers/Model/GetServer/hook.model.request'
 
 // Запрос Всех продуктов (товаров)
 

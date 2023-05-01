@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ReviewsQuery } from '../../../helpers/model/query.reviws.model'
+import { ReviewsQuery } from '../../helpers/Model/GetServer/query.reviws.model'
 
 export const ReviewsServices = {
   // Запрос всех групп отзывов о товаре для Tab

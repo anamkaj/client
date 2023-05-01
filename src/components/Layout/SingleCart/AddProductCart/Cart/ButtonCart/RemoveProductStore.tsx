@@ -1,5 +1,5 @@
 import React from 'react'
-import { IGProduct } from '../../../../../../helpers/model/model.products'
+import { IGProduct } from '../../../../../../helpers/Model/GetServer/model.products'
 import { removeToCart } from '../../../../../../store/Product/cartSlise'
 import { useAppDispatch } from '../../../../../../store/storeHook'
 

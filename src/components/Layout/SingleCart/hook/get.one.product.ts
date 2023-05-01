@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query'
-import { IGProduct } from '../../../../helpers/model/model.products'
+import { IGProduct } from '../../../../helpers/Model/GetServer/model.products'
 import { ProductServices } from '../../../../services/GET/get.product'
 
 export const useOneProduct = (id: number) => {

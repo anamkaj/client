@@ -1,7 +1,7 @@
 import React, { useEffect, useState, Suspense } from 'react'
 import FsLightbox from 'fslightbox-react'
 
-import { IGProduct } from '../../../helpers/model/model.products'
+import { IGProduct } from '../../../helpers/Model/GetServer/model.products'
 
 type Props = {
   product: IGProduct[]

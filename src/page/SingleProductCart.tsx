@@ -9,9 +9,9 @@ import {
   DescriptionBtn,
   ReviewsBtn,
   ServicesBtn,
-} from '../components/Layout/SingleCart/Tab/TabButton'
+} from '../components/Layout/SingleCart/Tab/TabComponent/TabButton'
 import { CartPrice } from '../components/Layout/SingleCart/AddProductCart/CartPrice'
-import { useOneProduct } from '../components/Layout/SingleCart/hook/getOneProduct'
+import { useOneProduct } from '../components/Layout/SingleCart/hook/get.one.product'
 import { useParams } from 'react-router-dom'
 import { Crumbs } from '../components/Layout/SingleCart/Crumbs'
 import { Model } from '../components/Layout/UI/Model/Model'

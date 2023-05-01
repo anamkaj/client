@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { IGProduct } from '../../../../helpers/model/model.products'
+import { IGProduct } from '../../../../helpers/Model/GetServer/model.products'
 import { OrderOneClick } from './Cart/ButtonCart/OrderOneClick'
 import { useAppSelector } from '../../../../store/storeHook'
 import { CartHeader } from './Cart/CartHeader'

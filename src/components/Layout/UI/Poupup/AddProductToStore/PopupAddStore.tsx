@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { CounterProduct } from './CounterProduct'
 import { ContinueShopping, LinkToCart } from './Button'
-import { IGProduct } from '../../../../../helpers/model/model.products'
+import { IGProduct } from '../../../../../helpers/Model/GetServer/model.products'
 import { useAppSelector } from '../../../../../store/storeHook'
 
 type PropPopup = {

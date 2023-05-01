@@ -3,7 +3,7 @@ import React from 'react'
 import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2'
 import { HiOutlineArrowTrendingUp } from 'react-icons/hi2'
 import { HiUserGroup } from 'react-icons/hi2'
-import { IGProduct } from '../../../../helpers/model/model.products'
+import { IGProduct } from '../../../../helpers/Model/GetServer/model.products'
 import { Reviews } from '../Reviews'
 
 interface IProductProps {

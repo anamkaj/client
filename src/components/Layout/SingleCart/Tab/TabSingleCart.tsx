@@ -1,8 +1,9 @@
 import React from 'react'
-import { tab } from '../helper/tabName'
-import { IGProduct } from '../../../../helpers/model/model.products'
-import { TableParamsProduct } from './TableParamsProduct'
-import { TabReviews } from './TabReviews'
+import { tab } from './TabComponent/helper/tabName'
+import { IGProduct } from '../../../../helpers/Model/GetServer/model.products'
+import { TableParamsProduct } from './TabComponent/TableParamsProduct'
+import { TabReviews } from './TabComponent/TabReviews/TabReviews'
+import { TabReviewsPostForm } from './TabComponent/TabReviews/TabReviewsPostForm'
 
 type TabProps = {
   activeTab: number
@@ -43,9 +44,20 @@ export const TabSingleCart = ({
       </nav>
       <div id={'tab'}>{activeTab == 1 && description}</div>
       <div id={'tab'}>
-        {activeTab == 2 && <TableParamsProduct product={product} />}
+        {activeTab == 2 && (
+          <div>
+            <TableParamsProduct product={product} />
+          </div>
+        )}
       </div>
-      <div>{activeTab == 3 && <TabReviews />}</div>
+      <div>
+        {activeTab == 3 && (
+          <>
+            <TabReviewsPostForm product={product} />
+            <TabReviews id={product[0].id} />
+          </>
+        )}
+      </div>
     </div>
   )
 }

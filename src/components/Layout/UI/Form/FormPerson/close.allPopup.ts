@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { UseFormReset } from 'react-hook-form'
 import {  UseMutationResult } from 'react-query'
 import { Person } from '../type.form'
-import { FormReq } from '../../../../../services/POST/FORM/models/post.req.form'
+import { FormReq } from '../../../../../helpers/Model/PostServer/post.req.form'
 
 type FormClose = {
   setFastOrderModel?: React.Dispatch<React.SetStateAction<boolean>>

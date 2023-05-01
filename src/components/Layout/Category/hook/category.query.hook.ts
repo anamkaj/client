@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query'
-import { ICategory } from '../../../../helpers/model/query.category.model'
+import { ICategory } from '../../../../helpers/Model/GetServer/query.category.model'
 import { CategoryServices } from '../../../../services/GET/get.category'
 
 

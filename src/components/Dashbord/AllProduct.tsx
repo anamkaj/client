@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { IArrProduct } from '../../helpers/model/model.products'
+import { IArrProduct } from '../../helpers/Model/GetServer/model.products'
 import { getAllProduct } from './post.del.req'
 import { BiChevronsDown, BiChevronsUp } from 'react-icons/bi'
 

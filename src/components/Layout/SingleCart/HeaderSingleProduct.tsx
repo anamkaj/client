@@ -2,7 +2,7 @@ import React from 'react'
 import { BsStar } from 'react-icons/bs'
 import { BsStarFill } from 'react-icons/bs'
 import { Scrollchor } from 'react-scrollchor'
-import { IGProduct } from '../../../helpers/model/model.products'
+import { IGProduct } from '../../../helpers/Model/GetServer/model.products'
 import { BsChatDots } from 'react-icons/bs'
 
 type Props = {

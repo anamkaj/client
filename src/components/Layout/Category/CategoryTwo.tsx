@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { ICategory } from '../../../helpers/model/query.category.model'
+import { ICategory } from '../../../helpers/Model/GetServer/query.category.model'
 import { FadeLoader } from 'react-spinners'
 
 type Props = {

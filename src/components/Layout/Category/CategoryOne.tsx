@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { ICategory } from '../../../helpers/model/query.category.model'
+import { ICategory } from '../../../helpers/Model/GetServer/query.category.model'
 import { Link } from 'react-router-dom'
 import { CategoryTwo } from './CategoryTwo'
 import { catStore } from './categoryStore/category.store'

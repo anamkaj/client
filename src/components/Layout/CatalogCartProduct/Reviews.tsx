@@ -1,5 +1,5 @@
 import React from 'react'
-import { IGProduct } from '../../../helpers/model/model.products'
+import { IGProduct } from '../../../helpers/Model/GetServer/model.products'
 import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2'
 
 interface IProductProps {

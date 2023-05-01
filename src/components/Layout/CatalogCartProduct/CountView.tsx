@@ -1,5 +1,5 @@
 import React from 'react'
-import { IGProduct } from '../../../helpers/model/model.products'
+import { IGProduct } from '../../../helpers/Model/GetServer/model.products'
 import { HiOutlineArrowTrendingUp } from 'react-icons/hi2'
 import { HiUserGroup } from 'react-icons/hi2'
 import { CountViewGrid } from './Grid/CountViewGrid'
