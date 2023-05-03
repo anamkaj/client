@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { BreadCrumbs } from '../Category/BreadСrumbs'
-import { addCatStore } from '../Category/categoryStore/add.store'
+import { addCatStore } from '../../../store/NanoStore/CategoryStore/add.store'
 import { useGetAllCategory } from '../Category/hook/category.query.hook'
 import { MiniSpinner } from '../LazyLoad/LazyLoad'
 

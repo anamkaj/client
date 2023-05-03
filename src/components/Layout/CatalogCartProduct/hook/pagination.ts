@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useGetProductAll } from './product.query.hook'
 import { useParams } from 'react-router-dom'
 import { useStore } from '@nanostores/react'
-import { headerFilter } from '../nanoStore/header.filter.state'
+import { headerFilter } from '../../../../store/NanoStore/CatalogStore/header.filter.state'
 
 export type hookParam = {
   skip: number

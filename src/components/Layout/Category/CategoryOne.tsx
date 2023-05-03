@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { ICategory } from '../../../helpers/Model/GetServer/query.category.model'
 import { Link } from 'react-router-dom'
 import { CategoryTwo } from './CategoryTwo'
-import { catStore } from './categoryStore/category.store'
+import { catStore } from '../../../store/NanoStore/CategoryStore/category.store'
 import { useStore } from '@nanostores/react'
 import { FadeLoader } from 'react-spinners'
 

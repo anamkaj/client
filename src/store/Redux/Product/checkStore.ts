@@ -1,4 +1,4 @@
-import { IPropStore, Increment, addCartStore } from './model/type.product'
+import { IPropStore, Increment, addCartStore } from '../../../helpers/Model/Store/Redux/type.product'
 
 export const storeFun = {
   // Проверка сушествования товара в корзине

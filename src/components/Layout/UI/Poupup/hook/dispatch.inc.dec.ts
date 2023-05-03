@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import {
   incrementCounter,
   decrementCounter,
-} from '../../../../../store/Product/cartSlise'
-import { useAppDispatch } from '../../../../../store/storeHook'
+} from '../../../../../store/Redux/Product/cartSlise'
+import { useAppDispatch } from '../../../../../store/Redux/storeHook'
 import { PropCount } from '../AddProductToStore/CounterProduct'
 
 export const useCountProductStore = ({

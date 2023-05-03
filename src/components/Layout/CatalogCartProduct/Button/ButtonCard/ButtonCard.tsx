@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { IGProduct } from '../../../../../helpers/Model/GetServer/model.products'
-import { addToCart, removeToCart } from '../../../../../store/Product/cartSlise'
-import { useAppDispatch, useAppSelector } from '../../../../../store/storeHook'
+import { addToCart, removeToCart } from '../../../../../store/Redux/Product/cartSlise'
+import { useAppDispatch, useAppSelector } from '../../../../../store/Redux/storeHook'
 import { BsFillCartCheckFill } from 'react-icons/bs'
 import { BsCartDash } from 'react-icons/bs'
 

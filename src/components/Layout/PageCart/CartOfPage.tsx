@@ -1,12 +1,12 @@
 import React, { FC, ReactNode, useEffect } from 'react'
 
-import { useAppDispatch, useAppSelector } from '../../../store/storeHook'
+import { useAppDispatch, useAppSelector } from '../../../store/Redux/storeHook'
 import {
   removeToCart,
   incrementCart,
   decrementCart,
-} from '../../../store/Product/cartSlise'
-import { addCartStore } from '../../../store/Product/helper/model/type.product'
+} from '../../../store/Redux/Product/cartSlise'
+import { addCartStore } from '../../../helpers/Model/Store/Redux/type.product'
 
 interface IOrderCart {
   orderCart: addCartStore

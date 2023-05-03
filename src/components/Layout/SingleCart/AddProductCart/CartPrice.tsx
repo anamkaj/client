@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { IGProduct } from '../../../../helpers/Model/GetServer/model.products'
 import { OrderOneClick } from './Cart/ButtonCart/OrderOneClick'
-import { useAppSelector } from '../../../../store/storeHook'
+import { useAppSelector } from '../../../../store/Redux/storeHook'
 import { CartHeader } from './Cart/CartHeader'
 import { BsGear } from 'react-icons/bs'
 import { Price } from './Cart/Price'

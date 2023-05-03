@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { CounterProduct } from './CounterProduct'
 import { ContinueShopping, LinkToCart } from './Button'
 import { IGProduct } from '../../../../../helpers/Model/GetServer/model.products'
-import { useAppSelector } from '../../../../../store/storeHook'
+import { useAppSelector } from '../../../../../store/Redux/storeHook'
 
 type PropPopup = {
   setActive: React.Dispatch<React.SetStateAction<boolean>>

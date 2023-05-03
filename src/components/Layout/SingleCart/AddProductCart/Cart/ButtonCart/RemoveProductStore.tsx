@@ -1,7 +1,7 @@
 import React from 'react'
 import { IGProduct } from '../../../../../../helpers/Model/GetServer/model.products'
-import { removeToCart } from '../../../../../../store/Product/cartSlise'
-import { useAppDispatch } from '../../../../../../store/storeHook'
+import { removeToCart } from '../../../../../../store/Redux/Product/cartSlise'
+import { useAppDispatch } from '../../../../../../store/Redux/storeHook'
 
 type PropBtn = {
   product: IGProduct[]

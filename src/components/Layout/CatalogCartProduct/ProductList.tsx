@@ -6,9 +6,9 @@ import { Pagination } from './Pagination'
 import { LazyLoad } from '../LazyLoad/LazyLoad'
 import { usePagination } from './hook/pagination'
 import { useStore } from '@nanostores/react'
-import { catStore } from '../Category/categoryStore/category.store'
+import { catStore } from '../../../store/NanoStore/CategoryStore/category.store'
 import { useParams } from 'react-router-dom'
-import { gridState } from './nanoStore/grid.store'
+import { gridState } from '../../../store/NanoStore/CatalogStore/grid.store'
 
 export const ProductList = () => {
   const { id } = useParams()

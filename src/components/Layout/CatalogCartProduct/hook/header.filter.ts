@@ -4,7 +4,7 @@ import { useStore } from '@nanostores/react'
 import {
   changeFilterHeader,
   headerFilter,
-} from '../nanoStore/header.filter.state'
+} from '../../../../store/NanoStore/CatalogStore/header.filter.state'
 
 export const useFilterChange = () => {
   const [select, setSelect] = useState(selectValue[0].sort)

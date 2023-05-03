@@ -1,6 +1,6 @@
 import React from 'react';
 import {FormCart} from "./FormCart";
-import {useAppSelector} from "../../../store/storeHook";
+import {useAppSelector} from "../../../store/Redux/storeHook";
 
 
 export const PayTotal = () => {

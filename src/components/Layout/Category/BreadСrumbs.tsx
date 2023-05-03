@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import { useStore } from '@nanostores/react'
-import { catStore } from './categoryStore/category.store'
+import { catStore } from '../../../store/NanoStore/CategoryStore/category.store'
 import { Link } from 'react-router-dom'
 import { catCrams } from './helper/crumb.Array'
 

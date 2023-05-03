@@ -6,4 +6,6 @@ export type ReviewsQuery = {
   categoryId: number
   userId: number
   rating: number
+  like:number
+  dislike:number
 }

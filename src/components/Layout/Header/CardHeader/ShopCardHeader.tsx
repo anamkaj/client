@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from "react-router-dom";
-import {useAppDispatch, useAppSelector} from "../../../../store/storeHook";
-import {getLocalStore} from "../../../../store/Product/cartSlise";
+import {useAppDispatch, useAppSelector} from "../../../../store/Redux/storeHook";
+import {getLocalStore} from "../../../../store/Redux/Product/cartSlise";
 
 
 export const ShopCardHeader = () => {

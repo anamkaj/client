@@ -3,7 +3,7 @@ import { BsFillGrid3X3GapFill } from 'react-icons/bs'
 import { BsFillGrid3X2GapFill } from 'react-icons/bs'
 import { selectValue } from './helper/filter.header'
 import { HiAdjustmentsVertical } from 'react-icons/hi2'
-import { changeGrid } from './nanoStore/grid.store'
+import { changeGrid } from '../../../store/NanoStore/CatalogStore/grid.store'
 import { useFilterChange } from './hook/header.filter'
 
 export const HeaderFilter = () => {

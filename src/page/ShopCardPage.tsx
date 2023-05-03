@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { CartOfPage } from '../components/Layout/PageCart/CartOfPage'
-import { useAppSelector } from '../store/storeHook'
+import { useAppSelector } from '../store/Redux/storeHook'
 import { HeaderCartPay } from '../components/Layout/PageCart/HeaderCartPay'
 import { PayTotal } from '../components/Layout/PageCart/PayTotal'
 import { HeadTableTitle } from '../components/Layout/PageCart/HeadTableTitle'

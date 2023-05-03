@@ -1,10 +1,8 @@
-import React from 'react'
-
-import { useParams } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
 import { LazyLoad } from '../../../../LazyLoad/LazyLoad'
 import { useReviews } from '../../../hook/get.reviwes.product'
-import { BsHeart, BsStarFill, BsStar } from 'react-icons/bs'
-import { BsHeartFill } from 'react-icons/bs'
+import { ReviewsLike } from './ReviewsLike'
+import { ReviewsStar } from './ReviewsStar'
 
 // Рендеринг комментариев о продукте
 
@@ -47,29 +45,25 @@ export const TabReviews = ({ id }: TabReviews) => {
                       {x.createdAt.toString().slice(0, 10)}
                     </span>
                   </div>
-                  <div className=' flex mt-2'>
-                    {x.rating !== null
-                      ? [...Array(x.rating).splice(0, 5)].map((_, index) => {
-                          return (
-                            <BsStarFill
-                              className='h-4 w-4 text-amber-400 '
-                              key={index}
-                            />
-                          )
-                        })
-                      : [...Array(5)].map((_) => {
-                          return <BsStar className='h-4 w-4  ' />
-                        })}
-                  </div>
+                  <ReviewsStar rating={x.rating} like={x.like} />
                 </div>
               </div>
               <p className='mb-4 text-gray-600 text-lg md:text-left '>
                 {x.text}
               </p>
-              <div className=' flex justify-end'>
-                <BsHeart />
-                <BsHeartFill />
+              <div className='flex justify-end gap-4'>
+                <ReviewsLike id={x.id} />
               </div>
+              {x.like > 1 && (
+                <p className=' font-extralight text-xs text-gray-400'>
+                  {x.like} человека считают этот отзыв полезным
+                </p>
+              )}
+              {x.like == 1 && (
+                <p className=' font-extralight text-xs text-gray-400'>
+                  {x.like} человек считает этот отзыв полезным
+                </p>
+              )}
             </div>
           )
         })}

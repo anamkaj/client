@@ -1,10 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { changeCounter, storeFun } from './helper/checkStore'
+import { changeCounter, storeFun } from './checkStore'
 import {
   addCartStore,
   Increment,
   IPropStore,
-} from './helper/model/type.product'
+} from '../../../helpers/Model/Store/Redux/type.product'
 
 const initialState: IPropStore = {
   cart: [],
