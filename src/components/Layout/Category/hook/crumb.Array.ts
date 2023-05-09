@@ -1,3 +1,7 @@
+import { useStore } from '@nanostores/react'
+import { catStore } from '../../../../store/NanoStore/CategoryStore/category.store'
+import { useParams } from 'react-router-dom'
+
 type Cat = {
   id: number
   name: string
@@ -5,7 +9,8 @@ type Cat = {
   parentCategoryId: number
 }
 
-export const catCrams = (category: Cat[], id: number | undefined) => {
+export const useCramsArray = (id: number | undefined) => {
+  const category = useStore(catStore)
   const linkCrumb: Cat[] = []
   let count = 0
   const searchParent = (id: number) => {
@@ -34,5 +39,6 @@ export const catCrams = (category: Cat[], id: number | undefined) => {
       })
     }
   }
-  return linkCrumb
+
+  return { linkCrumb }
 }

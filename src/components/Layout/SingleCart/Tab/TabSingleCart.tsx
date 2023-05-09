@@ -4,6 +4,8 @@ import { IGProduct } from '../../../../helpers/Model/GetServer/model.products'
 import { TableParamsProduct } from './TabComponent/TableParamsProduct'
 import { TabReviews } from './TabComponent/TabReviews/TabReviews'
 import { TabReviewsPostForm } from './TabComponent/TabReviews/TabReviewsPostForm'
+import { motion } from 'framer-motion'
+import { item } from '../../UI/animation/category'
 
 type TabProps = {
   activeTab: number
@@ -51,10 +53,10 @@ export const TabSingleCart = ({
       </div>
       <div>
         {activeTab == 3 && (
-          <>
+          <motion.div variants={item} initial='hidden' animate='visible'>
             <TabReviewsPostForm product={product} />
             <TabReviews id={product[0].id} />
-          </>
+          </motion.div>
         )}
       </div>
     </div>

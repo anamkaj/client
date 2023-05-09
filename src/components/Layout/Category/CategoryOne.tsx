@@ -1,10 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, lazy, Suspense } from 'react'
+import { CategoryTwo } from './CategoryTwo'
 import { ICategory } from '../../../helpers/Model/GetServer/query.category.model'
 import { Link } from 'react-router-dom'
-import { CategoryTwo } from './CategoryTwo'
 import { catStore } from '../../../store/NanoStore/CategoryStore/category.store'
 import { useStore } from '@nanostores/react'
 import { FadeLoader } from 'react-spinners'
+
 
 type Props = {
   category: ICategory[] | undefined
@@ -15,6 +16,7 @@ type Props = {
 export const CategoryOne = ({ category, id, loadingCategory }: Props) => {
   const storeCat = useStore(catStore)
   const mainCategory = storeCat.filter((x) => x.parentCategoryId == Number(id))
+  
 
   if (loadingCategory) {
     return (

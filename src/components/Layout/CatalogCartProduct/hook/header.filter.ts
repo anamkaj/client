@@ -8,6 +8,7 @@ import {
 
 export const useFilterChange = () => {
   const [select, setSelect] = useState(selectValue[0].sort)
+
   const filterName = useStore(headerFilter)
 
   const handleChange = (event: string) => {
@@ -16,7 +17,9 @@ export const useFilterChange = () => {
   }
 
   useEffect(() => {
-    if (filterName !== '') setSelect(filterName)
+    if (filterName !== '') {
+      setSelect(filterName)
+    }
   }, [])
 
   return { handleChange, select }

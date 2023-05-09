@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
 
-import { useStore } from '@nanostores/react'
-import { catStore } from '../../../store/NanoStore/CategoryStore/category.store'
 import { Link } from 'react-router-dom'
-import { catCrams } from './helper/crumb.Array'
+import { useCramsArray } from './hook/crumb.Array'
 
-type TProp = {
+type CrumbsProp = {
   id: number | undefined
 }
 
-export const BreadCrumbs = ({ id }: TProp) => {
-  const catObj = useStore(catStore)
+export const BreadCrumbs = ({ id }: CrumbsProp) => {
+  const { linkCrumb } = useCramsArray(id)
+  
 
   return (
     <>
@@ -18,11 +17,12 @@ export const BreadCrumbs = ({ id }: TProp) => {
         <span>
           {' '}
           {id &&
-            catCrams(catObj, id)
+            linkCrumb
               .sort((a, b) => a.id - b.id)
               .map((d) => {
                 return (
                   <Link
+                    state={{ id: d.id, slug: d.slug }}
                     to={`/category/${d.slug}/${d.id}`}
                     className=' font-medium text-sm text-gray-500 hover:text-gray-800 hover:underline'
                     key={d.id}

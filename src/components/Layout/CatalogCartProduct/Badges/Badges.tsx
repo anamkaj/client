@@ -9,7 +9,7 @@ export const ArticleBadges = ({ data }: IProductProps) => {
   return (
     <>
       <div className=' relative '>
-        <p className=' absolute whitespace-nowrap right-16 font-light text-xs mt-0 bg-gray-100 p-1 rounded-sm'>
+        <p className=' absolute whitespace-nowrap right-12 font-light text-xs mt-0 bg-gray-100 p-1 rounded-sm'>
           <span className=' text-blue-500'>Артикул</span> : {data.article}
         </p>
       </div>

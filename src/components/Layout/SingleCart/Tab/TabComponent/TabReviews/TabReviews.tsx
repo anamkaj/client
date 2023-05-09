@@ -51,6 +51,9 @@ export const TabReviews = ({ id }: TabReviews) => {
               <p className='mb-4 text-gray-600 text-lg md:text-left '>
                 {x.text}
               </p>
+              
+              {/* Компонент рейтинга  */}
+
               <div className='flex justify-end gap-4'>
                 <ReviewsLike id={x.id} />
               </div>

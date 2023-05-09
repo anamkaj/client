@@ -3,8 +3,9 @@ import { ReviewsService } from '../../../../services/POST/FORM/post.reviews'
 import { SendReviews } from '../../../../helpers/Model/PostServer/post.req.reviews'
 import { SubmitHandler, UseFormReset } from 'react-hook-form'
 
-// Отправка на сервер комментария и сброс формы 
+import { Counters } from '../../../../services/POST/FORM/post.count.view.inc'
 
+// Отправка на сервер комментария и сброс формы
 
 type SendReviewsProp = {
   id: number
@@ -13,8 +14,15 @@ type SendReviewsProp = {
 
 export const usePostReviewsToServer = ({ id, reset }: SendReviewsProp) => {
   const mutation = useMutation({
+    mutationKey: ['addReviews'],
     mutationFn: (data: SendReviews) => ReviewsService.sendReviews(data),
   })
+  // Хук увеличения счетчика отзывов 
+  const { mutate } = useMutation({
+    mutationKey: ['countReviewInc'],
+    mutationFn: (id: number) => Counters.countReviewInc(id),
+  })
+  // Отправка формы на бэк
 
   const onSubmit: SubmitHandler<SendReviews> = (data: SendReviews) => {
     if (data) {
@@ -23,7 +31,16 @@ export const usePostReviewsToServer = ({ id, reset }: SendReviewsProp) => {
         text: data.text,
       })
       reset()
+      countReviewInc()
     }
+  }
+
+  // Увеличение счетчика комментариев
+
+  const countReviewInc = () => {
+    setTimeout(() => {
+      mutate(id)
+    }, 2000)
   }
 
   return { onSubmit, mutation }

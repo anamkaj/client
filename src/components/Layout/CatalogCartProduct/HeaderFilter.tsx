@@ -21,7 +21,7 @@ export const HeaderFilter = () => {
           className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
         + focus:ring-blue-500 focus:border-gray-500 block w-[200px] p-1 font-light to-blue-400 outline-none mb-2'
         >
-          {selectValue.map((item, index) => {
+          {selectValue.map((item) => {
             return (
               <option key={item.id} value={item.sort}>
                 {item.name}

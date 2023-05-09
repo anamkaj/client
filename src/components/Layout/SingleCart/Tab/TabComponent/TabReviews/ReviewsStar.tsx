@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react'
 import { BsStarFill, BsStar } from 'react-icons/bs'
 
-type DataProp = {
+type RatingProp = {
   rating: number
   like: number
 }
 
-export const ReviewsStar = ({ rating, like }: DataProp) => {
+export const ReviewsStar = ({ rating, like }: RatingProp) => {
   const ratingStar = Math.round(like / 3)
-  console.log(ratingStar)
 
   return (
     <>

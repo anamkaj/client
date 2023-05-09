@@ -9,6 +9,8 @@ import { useStore } from '@nanostores/react'
 import { catStore } from '../../../store/NanoStore/CategoryStore/category.store'
 import { useParams } from 'react-router-dom'
 import { gridState } from '../../../store/NanoStore/CatalogStore/grid.store'
+import { motion } from 'framer-motion'
+import { variants } from '../UI/animation/category'
 
 export const ProductList = () => {
   const { id } = useParams()
@@ -38,12 +40,21 @@ export const ProductList = () => {
       <div className='flex gap-y-2 gap-x-2 flex-wrap '>
         {product?.map((product: IGProduct) => {
           return (
-            <ProductsCart
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              variants={variants}
+              initial='hidden'
+              animate='visible'
               key={product.id}
-              data={product}
-              isLoading={isLoading}
-              gridStore={gridStore}
-            />
+            >
+              <ProductsCart
+                key={product.id}
+                data={product}
+                isLoading={isLoading}
+                gridStore={gridStore}
+                nameCategory={filterCat()[0].slug}
+              />
+            </motion.div>
           )
         })}
       </div>

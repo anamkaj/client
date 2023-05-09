@@ -1,16 +1,20 @@
-import React from 'react'
-import { BsStar } from 'react-icons/bs'
+import React, { useEffect, useRef } from 'react'
 import { BsStarFill } from 'react-icons/bs'
-import { Scrollchor } from 'react-scrollchor'
 import { IGProduct } from '../../../helpers/Model/GetServer/model.products'
 import { BsChatDots } from 'react-icons/bs'
+
 
 type Props = {
   setActiveTab: React.Dispatch<React.SetStateAction<number>>
   product: IGProduct[]
+  scroll: () => void
 }
 
-export const HeaderSingleProduct = ({ setActiveTab, product }: Props) => {
+export const HeaderSingleProduct = ({
+  setActiveTab,
+  product,
+  scroll,
+}: Props) => {
   return (
     <div>
       <div className={'flex gap-x-6 items-center mt-5'}>
@@ -25,8 +29,8 @@ export const HeaderSingleProduct = ({ setActiveTab, product }: Props) => {
               {product[0].rating}
             </p>
           </div>
-
-          <Scrollchor to={''}>
+          {/* Якорь на переход к отзывам  */}
+          <div onClick={() => scroll()}>
             <button
               className=' flex items-center gap-2  font-light hover:underline ml-6 text-gray-500 text-sm'
               onClick={() => setActiveTab(3)}
@@ -36,7 +40,7 @@ export const HeaderSingleProduct = ({ setActiveTab, product }: Props) => {
               </span>
               {product[0].countReviews} Отзыва(ов)
             </button>
-          </Scrollchor>
+          </div>
         </div>
         <p className=' text-gray-600 text-sm font-bold'>
           <span className='font-light '>Код товара:</span> {product[0].article}

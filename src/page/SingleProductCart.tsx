@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { CarouselProduct } from '../components/Layout/SingleCart/CaruselProduct'
 import { TablePropsProduct } from '../components/Layout/SingleCart/TablePropsProduct'
 import { TabSingleCart } from '../components/Layout/SingleCart/Tab/TabSingleCart'
@@ -8,7 +8,6 @@ import {
   CharacteristicsBtn,
   DescriptionBtn,
   ReviewsBtn,
-  ServicesBtn,
 } from '../components/Layout/SingleCart/Tab/TabComponent/TabButton'
 import { CartPrice } from '../components/Layout/SingleCart/AddProductCart/CartPrice'
 import { useOneProduct } from '../components/Layout/SingleCart/hook/get.one.product'
@@ -19,12 +18,15 @@ import { Popup } from '../components/Layout/UI/Poupup/AddProductToStore/PopupAdd
 import { FastOrderPopup } from '../components/Layout/UI/Poupup/FastOrder/FastOrderPopup'
 import { CallSingleCart } from '../components/Layout/SingleCart/CallingSpecialist'
 import { SpecialistCall } from '../components/Layout/UI/Poupup/CallingSpecialist/SpecialistCall'
+import { motion } from 'framer-motion'
+import { item } from '../components/Layout/UI/animation/category'
+import { useScrollToTop } from '../components/Layout/SingleCart/hook/scroll.elem'
 
 export const SingleProductCart = () => {
   const { id } = useParams()
   const [activeTab, setActiveTab] = useState(1)
   const { data: product, isLoading } = useOneProduct(Number(id))
-  
+
   //Состаяние модальных окон
   const [active, setActive] = useState(false)
   const [fastOrderModel, setFastOrderModel] = useState(false)
@@ -38,6 +40,9 @@ export const SingleProductCart = () => {
   const titleFastOrderModel = 'Заявка на покупку товара'
   const titleSpecialistCall = 'Спецификация обьета'
 
+  // Скрол к элементам
+  const { scroll, allToScroll } = useScrollToTop()
+
   if (isLoading) {
     return <LazyLoad />
   }
@@ -47,85 +52,95 @@ export const SingleProductCart = () => {
   }
 
   return (
-    <div className={'container mx-auto mt-10'}>
-      <Crumbs id={product[0].categoryId} />
-      <h1 className={'font-bold text-2xl mt-5'}>{product[0].title}</h1>
-      <div className={'grid grid-cols-[400px_minmax(450px,_1fr)_400px] gap-4'}>
-        {/*Артикул и количество отзывов Слайд с фото  */}
-        <div>
-          <HeaderSingleProduct setActiveTab={setActiveTab} product={product} />
-          <CarouselProduct product={product} />
-        </div>
+    <motion.div initial='hidden' animate='visible' variants={item}>
+      <div className={'container mx-auto mt-10'}>
+        <Crumbs id={product[0].categoryId} />
+        <h1 className={'font-bold text-2xl mt-5'}>{product[0].title}</h1>
+        {/*Модальное окно/ Добавление в корзину */}
+        <Model setActive={setActive} active={active} titleModel={titleModel}>
+          <Popup
+            setActive={setActive}
+            product={product}
+            countPopupProduct={countPopupProduct}
+            setCountPopupProduct={setCountPopupProduct}
+          />
+        </Model>
+        {/*Модальное окно/ Быстрый заказ */}
+        <Model
+          setActive={setFastOrderModel}
+          active={fastOrderModel}
+          titleModel={titleFastOrderModel}
+        >
+          <FastOrderPopup
+            setFastOrderModel={setFastOrderModel}
+            product={product}
+            countFastOrderProduct={countFastOrderProduct}
+            setCountFastOrderProduct={setCountFastOrderProduct}
+          />
+        </Model>
+        {/*Заявкаа на выезд специалиста  */}
+        <Model
+          setActive={setSpecialist}
+          active={specialist}
+          titleModel={titleSpecialistCall}
+        >
+          <SpecialistCall
+            setSpecialist={setSpecialist}
+            specialist={specialist}
+          />
+        </Model>
+        <div
+          className={'grid grid-cols-[400px_minmax(450px,_1fr)_400px] gap-4'}
+        >
+          {/*Артикул и количество отзывов Слайд с фото  */}
+          <div>
+            <HeaderSingleProduct
+              setActiveTab={setActiveTab}
+              product={product}
+              scroll={scroll}
+            />
+            <CarouselProduct product={product} />
+          </div>
 
-        {/*Характеристики*/}
+          {/*Характеристики*/}
 
-        <div className={' mt-20 '}>
-          <h2 className={'font-light'}>Технические характеристики</h2>
-          <TablePropsProduct product={product} setActiveTab={setActiveTab} />
+          <div className={' mt-20 '}>
+            <h2 className={'font-light'}>Технические характеристики</h2>
+            <TablePropsProduct product={product} setActiveTab={setActiveTab} />
 
-          <div className=' flex mt-2 items-center'>
-            <CharacteristicsBtn setActiveTab={setActiveTab} />
-            <ServicesBtn setActiveTab={setActiveTab} />
-            <DescriptionBtn setActiveTab={setActiveTab} />
-            <ReviewsBtn setActiveTab={setActiveTab} />
+            <div className=' flex mt-2 items-center'>
+              <CharacteristicsBtn
+                setActiveTab={setActiveTab}
+                scroll={scroll}
+              />
+              {/* <ServicesBtn setActiveTab={setActiveTab} /> */}
+              <DescriptionBtn setActiveTab={setActiveTab} scroll={scroll} />
+              <ReviewsBtn setActiveTab={setActiveTab} scroll={scroll} />
+            </div>
+          </div>
+
+          {/*Карточка добавления в корзину (справа)*/}
+          <div>
+            <CartPrice
+              product={product}
+              setActive={setActive}
+              setFastOrderModel={setFastOrderModel}
+              setCountPopupProduct={setCountPopupProduct}
+              setCountFastOrderProduct={setCountFastOrderProduct}
+            />
+            <CallSingleCart setSpecialist={setSpecialist} />
           </div>
         </div>
 
-        {/*Карточка добавления в корзину (справа)*/}
-        <div>
-          <CartPrice
+        {/*описание и характеристики TAB*/}
+        <div ref={allToScroll}>
+          <TabSingleCart
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
             product={product}
-            setActive={setActive}
-            setFastOrderModel={setFastOrderModel}
-            setCountPopupProduct={setCountPopupProduct}
-            setCountFastOrderProduct={setCountFastOrderProduct}
           />
-          <CallSingleCart setSpecialist={setSpecialist} />
         </div>
       </div>
-
-      {/*описание и характеристики TAB*/}
-      <div>
-        <TabSingleCart
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-          product={product}
-        />
-      </div>
-
-      {/*Модальное окно/ Добавление в корзину */}
-
-      <Model setActive={setActive} active={active} titleModel={titleModel}>
-        <Popup
-          setActive={setActive}
-          product={product}
-          countPopupProduct={countPopupProduct}
-          setCountPopupProduct={setCountPopupProduct}
-        />
-      </Model>
-
-      {/*Модальное окно/ Быстрый заказ */}
-
-      <Model
-        setActive={setFastOrderModel}
-        active={fastOrderModel}
-        titleModel={titleFastOrderModel}
-      >
-        <FastOrderPopup
-          setFastOrderModel={setFastOrderModel}
-          product={product}
-          countFastOrderProduct={countFastOrderProduct}
-          setCountFastOrderProduct={setCountFastOrderProduct}
-        />
-      </Model>
-
-      <Model
-        setActive={setSpecialist}
-        active={specialist}
-        titleModel={titleSpecialistCall}
-      >
-        <SpecialistCall setSpecialist={setSpecialist} specialist={specialist} />
-      </Model>
-    </div>
+    </motion.div>
   )
 }

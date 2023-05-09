@@ -1,19 +1,32 @@
 import React from 'react'
 import { IGProduct } from '../../../helpers/Model/GetServer/model.products'
 import { ButtonCard } from './Button/ButtonCard/ButtonCard'
-import { Link } from 'react-router-dom'
 import { CountView } from './CountView'
 import { ArticleBadges, QuantityBadges, SalesBadges } from './Badges/Badges'
 import { FadeLoader } from 'react-spinners'
 import { ProductCartGrid } from './Grid/ProductCartGrid'
+import { motion } from 'framer-motion'
+import { variants } from '../UI/animation/category'
+import { transliterate as tr } from 'transliteration'
+import { ImgProductCart } from './ImgProductCart'
+import { TitleProductCart } from './TitleProductCart'
 
-export interface IProductProps {
+interface IProductProps {
   data: IGProduct
   isLoading: boolean
   gridStore: boolean
+  nameCategory: string
 }
 
-export const ProductsCart = ({ data, isLoading, gridStore }: IProductProps) => {
+export const ProductsCart = ({
+  data,
+  isLoading,
+  gridStore,
+  nameCategory,
+}: IProductProps) => {
+  // Транслит URL ссылок
+  const translate = tr(data.title).toLowerCase().replace(/\W/g, '-')
+
   if (isLoading) {
     return (
       <div className=' container mx-auto '>
@@ -28,61 +41,67 @@ export const ProductsCart = ({ data, isLoading, gridStore }: IProductProps) => {
   // Горизонтальная сетка
   // _____________________________________
   if (!gridStore) {
-    return <ProductCartGrid data={data} isLoading={isLoading} gridStore={gridStore} />
+    return (
+      <ProductCartGrid
+        data={data}
+        translate={translate}
+        nameCategory={nameCategory}
+      />
+    )
   }
   //________________________________________
   // Формат сетки по умолчанию квадратики
   //________________________________________
 
   return (
-    <div
-      className='flex flex-col items-center cursor-pointer border +
-     border-gray-200 px-4 py-2  rounded-lg shadow-lg bg-white box-border h-[350px] w-[300px] p-4 '
-    >
-      <QuantityBadges data={data} />
-      <ArticleBadges data={data} />
-      <Link
-        to={`/product/:category/${data.id}`}
-        className='mb-4 w-[150px] h-[150px] '
+    <motion.div variants={variants} initial='hidden' animate='visible'>
+      <div
+        className='flex flex-col items-center cursor-pointer border +
+     border-gray-200 px-4 py-2 rounded-lg shadow-lg bg-white box-border h-[350px] w-[300px] p-4 '
       >
-        <img
-          className='block object-cover object-center w-full h-full rounded-lg'
-          src={`http://localhost:4000/img/${data.imgFolder}/${data.imgLink[0]}`}
-          alt={data.altImg}
+        <QuantityBadges data={data} />
+        <ArticleBadges data={data} />
+
+        {/* Изображение товара  */}
+
+        <ImgProductCart
+          data={data}
+          translate={translate}
+          nameCategory={nameCategory}
         />
-      </Link>
-      <Link
-        to={`/product/:category/${data.id}`}
-        className=' flex font-light text-black text-sm text-center mb-2'
-      >
-        {data.title.length > 100
-          ? data.title.slice(0, 100) + '...'
-          : data.title}
-      </Link>
 
-      {/* Счетчики отзывов  */}
+        <TitleProductCart
+          data={data}
+          translate={translate}
+          nameCategory={nameCategory}
+        />
 
-      <CountView key={data.id} data={data} gridStore={gridStore} />
+        {/* Счетчики отзывов  */}
 
-      <SalesBadges data={data} />
+        <CountView key={data.id} data={data} gridStore={gridStore} />
 
-      {/* Блок с ценами и кнопка */}
-      <div className='flex gap-16 items-center mt-auto mb-0 '>
-        <div className='flex gap-2'>
-          <p className=' font-bold text-xl'>
-            {Math.round(data.price * (data.discount / 11)).toLocaleString('ru')}{' '}
-            ₽
-          </p>
-          <button className=' bg-gray-100 rounded-lg  py-0'>
-            <span className={'font-light text-sm mb-2 line-through'}>
-              {data.price.toLocaleString('ru')} ₽
-            </span>
-          </button>
+        <SalesBadges data={data} />
+
+        {/* Блок с ценами и кнопка */}
+        <div className='flex gap-16 items-center mt-auto mb-0 '>
+          <div className='flex gap-2'>
+            <p className=' font-bold text-xl'>
+              {Math.round(data.price * (data.discount / 11)).toLocaleString(
+                'ru',
+              )}{' '}
+              ₽
+            </p>
+            <button className=' bg-gray-100 rounded-lg  py-0'>
+              <span className={'font-light text-sm mb-2 line-through'}>
+                {data.price.toLocaleString('ru')} ₽
+              </span>
+            </button>
+          </div>
+
+          {/*Добавить в корзину*/}
+          <ButtonCard key={data.id} data={data} />
         </div>
-
-        {/*Добавить в корзину*/}
-        <ButtonCard key={data.id} data={data} />
       </div>
-    </div>
+    </motion.div>
   )
 }

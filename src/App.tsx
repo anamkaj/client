@@ -9,6 +9,9 @@ import { useAppSelector } from './store/Redux/storeHook'
 import { SingleProductCart } from './page/SingleProductCart'
 import { Dashboard } from './page/Dashboard'
 import { Category } from './page/Category'
+import { motion } from 'framer-motion'
+import { variants } from './components/Layout/UI/animation/category'
+import { Footer } from './components/Layout/Footer/Footer'
 
 function App() {
   const addObjLocalStore = useAppSelector((state) => state.cartReducer.cart)
@@ -30,16 +33,18 @@ function App() {
           <Route path=':id' element={<Category />}></Route>
           <Route path=':name/:id' element={<Category />}></Route>
         </Route>
+
         <Route path='product'>
           <Route path=':id' element={<ProductList />}></Route>
         </Route>
 
         <Route
-          path='product/:category/:id'
+          path='product/:category/:name/:id'
           element={<SingleProductCart />}
         ></Route>
         <Route path='dashboard' element={<Dashboard />}></Route>
       </Routes>
+      <Footer />
     </>
   )
 }
