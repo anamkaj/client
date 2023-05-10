@@ -26,6 +26,8 @@ export const ProductsCart = ({
 }: IProductProps) => {
   // Транслит URL ссылок
   const translate = tr(data.title).toLowerCase().replace(/\W/g, '-')
+  //Ссылка для перехода в карточку товара
+  const URL = `/product/${nameCategory}/${translate}/${data.id}`
 
   if (isLoading) {
     return (
@@ -44,8 +46,7 @@ export const ProductsCart = ({
     return (
       <ProductCartGrid
         data={data}
-        translate={translate}
-        nameCategory={nameCategory}
+        URL={URL}
       />
     )
   }
@@ -64,21 +65,13 @@ export const ProductsCart = ({
 
         {/* Изображение товара  */}
 
-        <ImgProductCart
-          data={data}
-          translate={translate}
-          nameCategory={nameCategory}
-        />
+        <ImgProductCart data={data} URL={URL} />
 
-        <TitleProductCart
-          data={data}
-          translate={translate}
-          nameCategory={nameCategory}
-        />
+        <TitleProductCart data={data} URL={URL} />
 
         {/* Счетчики отзывов  */}
 
-        <CountView key={data.id} data={data} gridStore={gridStore} />
+        <CountView key={data.id} data={data} gridStore={gridStore} URL={URL} />
 
         <SalesBadges data={data} />
 

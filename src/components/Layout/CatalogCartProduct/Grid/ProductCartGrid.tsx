@@ -15,14 +15,13 @@ import { IGProduct } from '../../../../helpers/Model/GetServer/model.products'
 
 interface GridProp {
   data: IGProduct
-  translate: string
-  nameCategory: string
+  URL: string
+  
 }
 
 export const ProductCartGrid = ({
   data,
-  translate,
-  nameCategory,
+  URL
 }: GridProp) => {
   return (
     <motion.div variants={variants} initial='hidden' animate='visible'>
@@ -31,7 +30,7 @@ export const ProductCartGrid = ({
      border-gray-200 px-8 py-4 rounded-lg shadow-lg bg-white box-border h-[350px] w-full p-4 items-center '
       >
         <Link
-          to={`/product/${nameCategory}/${translate}/${data.id}`}
+          to={URL}
           className='mb-4 w-[250px] h-[250px] '
         >
           <div className=' flex justify-between gap-4'>
@@ -46,7 +45,7 @@ export const ProductCartGrid = ({
         </Link>
         <div className=' w-[550px]'>
           <Link
-            to={`/product/${nameCategory}/${translate}/${data.id}`}
+            to={URL}
             className=' flex font-light text-black text-xl mb-2 ml-4'
           >
             {data.title.length > 800
@@ -55,7 +54,7 @@ export const ProductCartGrid = ({
           </Link>
           <ShortCharacteristics data={data} />
           <div className=' flex items-center gap-5'>
-            <CountViewGrid key={data.id} data={data} />
+            <CountViewGrid key={data.id} data={data} URL={URL} />
             <SalesBadgesGrid data={data} />
           </div>
         </div>

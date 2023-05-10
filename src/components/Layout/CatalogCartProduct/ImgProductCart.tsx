@@ -5,16 +5,15 @@ import { useCountViewInc } from './hook/count.view.inc'
 
 interface ImgProp {
   data: IGProduct
-  translate: string
-  nameCategory: string
+  URL: string
 }
-export const ImgProductCart = ({ data, translate, nameCategory }: ImgProp) => {
+export const ImgProductCart = ({ data, URL }: ImgProp) => {
   const { countViewInc } = useCountViewInc(data.id)
   return (
     <>
       <Link
         onClick={() => countViewInc()}
-        to={`/product/${nameCategory}/${translate}/${data.id}`}
+        to={URL}
         className='mb-4 w-[150px] h-[150px]'
       >
         <img

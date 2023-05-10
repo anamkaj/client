@@ -8,19 +8,20 @@ import { Reviews } from './Reviews'
 interface IProductProps {
   data: IGProduct
   gridStore: boolean
+  URL: string
 }
 
 {
   /*Счетчик просмотров*/
 }
 
-export const CountView = ({ data, gridStore }: IProductProps) => {
+export const CountView = ({ data, gridStore, URL }: IProductProps) => {
   // _____________________________________
   // Горизонтальная сетка
   // _____________________________________
 
   if (!gridStore) {
-    return <CountViewGrid data={data} />
+    return <CountViewGrid data={data} URL={URL} />
   }
 
   return (
@@ -59,7 +60,7 @@ export const CountView = ({ data, gridStore }: IProductProps) => {
               </p>
             )}
             <span className='w-1 h-1 mx-1.5 bg-gray-500 rounded-full '></span>
-            <Reviews data={data} />
+            <Reviews data={data} URL={URL} />
           </div>
         </div>
       </div>

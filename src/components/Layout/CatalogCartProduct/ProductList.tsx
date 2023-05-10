@@ -21,6 +21,7 @@ export const ProductList = () => {
     const cat = categoryStore.filter((e) => e.id == Number(id))
     return cat
   }
+  
 
   if (isLoading) {
     return <LazyLoad />
@@ -38,6 +39,8 @@ export const ProductList = () => {
       </div>
       <HeaderFilter />
       <div className='flex gap-y-2 gap-x-2 flex-wrap '>
+        {/* Рендеринг продуктовых карточек  */}
+
         {product?.map((product: IGProduct) => {
           return (
             <motion.div
