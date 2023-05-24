@@ -6,7 +6,7 @@ import { CategoryServices } from '../../../../services/GET/get.category'
 
 export const useGetAllCategory = (id: number) => {
   return useQuery<ICategory[]>(
-    ['categoryAll'],
+    ['categoryAll',id],
     () => CategoryServices.getAllCategory(id),
     {
       staleTime: 5000,

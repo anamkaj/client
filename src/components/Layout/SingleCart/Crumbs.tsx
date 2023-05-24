@@ -13,7 +13,7 @@ export const Crumbs = ({ id }: Props) => {
 
   useEffect(() => {
     if (category) addCatStore(category)
-  }, [category])
+  }, [category, id])
 
   if (isLoading) {
     return <MiniSpinner />

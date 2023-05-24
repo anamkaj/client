@@ -10,6 +10,7 @@ interface TitleProp {
 
 export const TitleProductCart = ({ data, URL }: TitleProp) => {
   const { countViewInc } = useCountViewInc(data.id)
+  
   return (
     <>
       <Link
@@ -17,8 +18,8 @@ export const TitleProductCart = ({ data, URL }: TitleProp) => {
         to={URL}
         className=' flex font-light text-black text-sm text-center mb-2'
       >
-        {data.title.length > 100
-          ? data.title.slice(0, 100) + '...'
+        {data.title.length > 70
+          ? data.title.slice(0, 75) + '...'
           : data.title}
       </Link>
     </>

@@ -17,11 +17,7 @@ export const ProductList = () => {
   const { product, isLoading, nextPage, checkLength } = usePagination()
   const gridStore = useStore(gridState)
   const categoryStore = useStore(catStore)
-  const filterCat = () => {
-    const cat = categoryStore.filter((e) => e.id == Number(id))
-    return cat
-  }
-  
+  const cat = categoryStore.filter((e) => e.id == Number(id))
 
   if (isLoading) {
     return <LazyLoad />
@@ -30,7 +26,7 @@ export const ProductList = () => {
   return (
     <div className='container mx-auto py-10'>
       <div className=' flex text-xl mb-5 '>
-        <span className=' font-extralight text-'>{filterCat()[0].name}</span>
+        <span className=' font-extralight text-'>{cat[0]?.name}</span>
         <span> - </span>{' '}
         <span className=' font-bold text-gray-700'>
           {' '}
@@ -38,7 +34,7 @@ export const ProductList = () => {
         </span>
       </div>
       <HeaderFilter />
-      <div className='flex gap-y-2 gap-x-2 flex-wrap '>
+      <div className='flex gap-y-2 gap-x-2 flex-wrap  '>
         {/* Рендеринг продуктовых карточек  */}
 
         {product?.map((product: IGProduct) => {
@@ -55,7 +51,7 @@ export const ProductList = () => {
                 data={product}
                 isLoading={isLoading}
                 gridStore={gridStore}
-                nameCategory={filterCat()[0].slug}
+                nameCategory={cat[0]?.slug}
               />
             </motion.div>
           )

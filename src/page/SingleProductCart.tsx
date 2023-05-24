@@ -109,10 +109,7 @@ export const SingleProductCart = () => {
             <TablePropsProduct product={product} setActiveTab={setActiveTab} />
 
             <div className=' flex mt-2 items-center'>
-              <CharacteristicsBtn
-                setActiveTab={setActiveTab}
-                scroll={scroll}
-              />
+              <CharacteristicsBtn setActiveTab={setActiveTab} scroll={scroll} />
               {/* <ServicesBtn setActiveTab={setActiveTab} /> */}
               <DescriptionBtn setActiveTab={setActiveTab} scroll={scroll} />
               <ReviewsBtn setActiveTab={setActiveTab} scroll={scroll} />

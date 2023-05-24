@@ -7,15 +7,15 @@ import { FadeLoader } from 'react-spinners'
 import { ProductCartGrid } from './Grid/ProductCartGrid'
 import { motion } from 'framer-motion'
 import { variants } from '../UI/animation/category'
-import { transliterate as tr } from 'transliteration'
 import { ImgProductCart } from './ImgProductCart'
 import { TitleProductCart } from './TitleProductCart'
+import { translate } from './helper/translate.url'
 
 interface IProductProps {
   data: IGProduct
   isLoading: boolean
   gridStore: boolean
-  nameCategory: string
+  nameCategory: string | undefined
 }
 
 export const ProductsCart = ({
@@ -25,9 +25,9 @@ export const ProductsCart = ({
   nameCategory,
 }: IProductProps) => {
   // Транслит URL ссылок
-  const translate = tr(data.title).toLowerCase().replace(/\W/g, '-')
+  // const translate = tr(data.title).toLowerCase().replace(/\W/g, '-')
   //Ссылка для перехода в карточку товара
-  const URL = `/product/${nameCategory}/${translate}/${data.id}`
+  const URL = `/product/${nameCategory}/${translate(data.title)}/${data.id}`
 
   if (isLoading) {
     return (
@@ -43,12 +43,7 @@ export const ProductsCart = ({
   // Горизонтальная сетка
   // _____________________________________
   if (!gridStore) {
-    return (
-      <ProductCartGrid
-        data={data}
-        URL={URL}
-      />
-    )
+    return <ProductCartGrid data={data} URL={URL} />
   }
   //________________________________________
   // Формат сетки по умолчанию квадратики
@@ -58,10 +53,12 @@ export const ProductsCart = ({
     <motion.div variants={variants} initial='hidden' animate='visible'>
       <div
         className='flex flex-col items-center cursor-pointer border +
-     border-gray-200 px-4 py-2 rounded-lg shadow-lg bg-white box-border h-[350px] w-[300px] p-4 '
+     border-gray-200 px-4 py-2 rounded-lg shadow-lg bg-white box-border h-[380px] w-[300px] p-4 '
       >
-        <QuantityBadges data={data} />
-        <ArticleBadges data={data} />
+        <div className=' flex w-full justify-between'>
+          <ArticleBadges data={data} />
+          <QuantityBadges data={data} />
+        </div>
 
         {/* Изображение товара  */}
 

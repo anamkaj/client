@@ -11,11 +11,11 @@ type PropCallSpec = {
 export const CallSingleCart = ({ setSpecialist }: PropCallSpec) => {
   return (
     <>
-      <div className={'mt-6'}>
+      <div className='mt-6'>
         <div className=' shadow-lg shadow-black-900 flex flex-col justify-between space-y-3 text-sm rounded-xl  p-4 mb-4  text-black bg-slate-100 '>
           <div className='flex flex-row items-center space-x-3'>
             <div className='flex flex-none items-center justify-center w-10 h-10 rounded-full bg-purple-700 text-white'>
-              <FcFlashOn className=' w-8 h-8 animate-pulse' />
+              <FcFlashOn className=' w-8 h-8' />
             </div>
             <span className='text-base font-medium uppercase'>
               Заказать выезд специалиста{' '}

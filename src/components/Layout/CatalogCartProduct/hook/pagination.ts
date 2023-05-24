@@ -25,7 +25,6 @@ export const usePagination = () => {
 
   // Позиция пагинации в сторе
   const countStorePage = useStore(countPage)
-  console.log(countStorePage)
 
   // начальное состаяние фильтра в шапку
   const [pagination, setPagination] = useState<hookParam>({

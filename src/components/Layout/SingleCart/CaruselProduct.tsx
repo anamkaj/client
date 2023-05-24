@@ -20,7 +20,7 @@ export const CarouselProduct = ({ product }: Props) => {
       id: 0,
       url: `http://localhost:4000/img/${product[0].imgFolder}/${product[0].imgLink[0]}`,
     })
-  }, [])
+  }, [product])
 
   return (
     <div

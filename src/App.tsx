@@ -2,15 +2,12 @@ import React from 'react'
 import { MainPage } from './page/MainPage'
 import { Route, Routes } from 'react-router-dom'
 import { Header } from './components/Layout/Header/Header'
-import menuList from './helpers/headerMenu'
 import { ShopCardPage } from './page/ShopCardPage'
 import { ProductList } from './components/Layout/CatalogCartProduct/ProductList'
 import { useAppSelector } from './store/Redux/storeHook'
 import { SingleProductCart } from './page/SingleProductCart'
 import { Dashboard } from './page/Dashboard'
 import { Category } from './page/Category'
-import { motion } from 'framer-motion'
-import { variants } from './components/Layout/UI/animation/category'
 import { Footer } from './components/Layout/Footer/Footer'
 
 function App() {
@@ -21,7 +18,8 @@ function App() {
 
   return (
     <>
-      <Header propsList={menuList} />
+      <Header />
+
       <Routes>
         <Route path='/' element={<MainPage />}></Route>
         <Route path='company' element={<MainPage />}></Route>
@@ -38,10 +36,16 @@ function App() {
           <Route path=':id' element={<ProductList />}></Route>
         </Route>
 
-        <Route
-          path='product/:category/:name/:id'
-          element={<SingleProductCart />}
-        ></Route>
+        <Route>
+          <Route
+            path='product/:category/:name/:id'
+            element={<SingleProductCart />}
+          ></Route>
+          <Route
+            path='product/:name/:id'
+            element={<SingleProductCart />}
+          ></Route>
+        </Route>
         <Route path='dashboard' element={<Dashboard />}></Route>
       </Routes>
       <Footer />

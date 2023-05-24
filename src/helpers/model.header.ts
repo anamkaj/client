@@ -1,11 +1,7 @@
-import React, {ReactNode} from "react";
+import React, { ReactNode } from 'react'
 
 export interface listMenu {
-    id: number,
-    title: string,
-    img: string,
-    path: string,
-
-
+  id: number
+  title: string
+  path: string
 }
-
