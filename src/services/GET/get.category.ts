@@ -16,4 +16,12 @@ export const CategoryServices = {
 
     return data
   },
+
+  async getNullCategory() {
+    const { data } = await axios.get<ICategory[]>(
+      `http://localhost:4000/api/category/null-category`,
+    )
+    
+    return data
+  },
 }

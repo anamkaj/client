@@ -57,38 +57,46 @@ export const SingleProductCart = () => {
         <Crumbs id={product[0].categoryId} />
         <h1 className={'font-bold text-2xl mt-5'}>{product[0].title}</h1>
         {/*Модальное окно/ Добавление в корзину */}
-        <Model setActive={setActive} active={active} titleModel={titleModel}>
-          <Popup
-            setActive={setActive}
-            product={product}
-            countPopupProduct={countPopupProduct}
-            setCountPopupProduct={setCountPopupProduct}
-          />
-        </Model>
+        <div hidden={!active}>
+          <Model setActive={setActive} active={active} titleModel={titleModel}>
+            <Popup
+              setActive={setActive}
+              product={product}
+              countPopupProduct={countPopupProduct}
+              setCountPopupProduct={setCountPopupProduct}
+            />
+          </Model>
+        </div>
         {/*Модальное окно/ Быстрый заказ */}
-        <Model
-          setActive={setFastOrderModel}
-          active={fastOrderModel}
-          titleModel={titleFastOrderModel}
-        >
-          <FastOrderPopup
-            setFastOrderModel={setFastOrderModel}
-            product={product}
-            countFastOrderProduct={countFastOrderProduct}
-            setCountFastOrderProduct={setCountFastOrderProduct}
-          />
-        </Model>
+
+        <div hidden={!fastOrderModel}>
+          <Model
+            setActive={setFastOrderModel}
+            active={fastOrderModel}
+            titleModel={titleFastOrderModel}
+          >
+            <FastOrderPopup
+              setFastOrderModel={setFastOrderModel}
+              product={product}
+              countFastOrderProduct={countFastOrderProduct}
+              setCountFastOrderProduct={setCountFastOrderProduct}
+            />
+          </Model>
+        </div>
+
         {/*Заявкаа на выезд специалиста  */}
-        <Model
-          setActive={setSpecialist}
-          active={specialist}
-          titleModel={titleSpecialistCall}
-        >
-          <SpecialistCall
-            setSpecialist={setSpecialist}
-            specialist={specialist}
-          />
-        </Model>
+        <div hidden={!specialist}>
+          <Model
+            setActive={setSpecialist}
+            active={specialist}
+            titleModel={titleSpecialistCall}
+          >
+            <SpecialistCall
+              setSpecialist={setSpecialist}
+              specialist={specialist}
+            />
+          </Model>
+        </div>
         <div
           className={'grid grid-cols-[400px_minmax(450px,_1fr)_400px] gap-4'}
         >

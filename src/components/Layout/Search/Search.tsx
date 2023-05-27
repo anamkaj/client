@@ -12,9 +12,8 @@ type InputProp = {
 export const Search = ({ setActive, active }: InputProp) => {
   const [input, setInput] = useState<string>()
   const { product, isError, category } = useSearch(input)
-
   return (
-    <div className=' text-lg bg-transparent w-10/12 z-90 text-gray-800 mt-8'>
+    <div className={' text-lg bg-transparent w-10/12 text-gray-800 mt-8'}>
       <div
         onClick={() => setActive(true)}
         className={

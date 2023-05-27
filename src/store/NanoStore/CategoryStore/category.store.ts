@@ -6,15 +6,18 @@ export type Category = {
   parentCategoryId: number
   slug: string
   img: string
-  description:string
-  folderImg:string
-  
+  description: string
+  folderImg: string
 }
-
+// Стор для формирования хлебных крошек
 export const catStore = atom<Category[]>([])
 
-export const addCategory = (obj: Category) => {
-  if (!catStore.get().find((x) => x.id === obj.id)) {
-    catStore.set([...catStore.get(), obj])
+export const addCategory = (category: Category) => {
+  if (!catStore.get().find((x) => x.id === category.id)) {
+    catStore.set([...catStore.get(), category])
   }
 }
+
+// Стор для кнопки каталог в хедере
+
+export const allNullCatalogGroup = atom<Category[]>([])
