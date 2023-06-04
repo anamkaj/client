@@ -9,7 +9,6 @@ import { hookParams } from '../../helpers/Model/GetServer/hook.model.request'
 
 export const ProductServices = {
   async getProductAll(params: hookParams) {
-    
     const { data } = await axios.get<IGProduct[]>(
       `http://localhost:4000/api/all/${params.filter}`,
       {
@@ -32,6 +31,14 @@ export const ProductServices = {
           id: id,
         },
       },
+    )
+
+    return data
+  },
+
+  async popularProduct() {
+    const { data } = await axios.get<IGProduct[]>(
+      `http://localhost:4000/api/popularProduct`,
     )
 
     return data

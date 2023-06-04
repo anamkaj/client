@@ -16,4 +16,12 @@ export const ReviewsServices = {
 
     return data
   },
+
+  async getReviewsCarousel() {
+    const { data } = await axios.get<ReviewsQuery[]>(
+      `http://localhost:4000/api/reviewsAll`,
+    )
+
+    return data
+  },
 }

@@ -1,4 +1,4 @@
-import { listMenu } from '../../../helpers/model.header'
+import { listMenu } from '../../../helpers/Model/model.header'
 
 export const menuList: listMenu[] = [
   {

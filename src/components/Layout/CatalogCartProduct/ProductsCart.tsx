@@ -14,8 +14,8 @@ import { translate } from './helper/translate.url'
 interface IProductProps {
   data: IGProduct
   isLoading: boolean
-  gridStore: boolean
-  nameCategory: string | undefined
+  gridStore?: boolean
+  nameCategory?: string | undefined
 }
 
 export const ProductsCart = ({
@@ -24,6 +24,7 @@ export const ProductsCart = ({
   gridStore,
   nameCategory,
 }: IProductProps) => {
+  
   // Транслит URL ссылок
   // const translate = tr(data.title).toLowerCase().replace(/\W/g, '-')
   //Ссылка для перехода в карточку товара

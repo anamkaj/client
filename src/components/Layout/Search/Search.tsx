@@ -25,7 +25,7 @@ export const Search = ({ setActive, active }: InputProp) => {
         <input
           value={input || ''}
           onChange={(e) => setInput(e.target.value)}
-          className=' relative  bg-white w-full rounded-lg border-none py-2 mr-3 px-2 leading-tight focus:outline-none '
+          className=' z-20 relative  bg-white w-full rounded-lg border-none py-2 mr-3 px-2 leading-tight focus:outline-none '
           type='text'
           maxLength={30}
           minLength={5}

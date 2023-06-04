@@ -27,7 +27,7 @@ export const ScrollList = ({
     <div hidden={hidden}>
       <div
         className={
-          'absolute w-[88vh] overflow-auto  bg-white p-4 mt-2 rounded-xl '
+          'absolute w-[88vh] overflow-auto z-20 bg-white p-4 mt-2 rounded-xl '
         }
       >
         <ul className=' flex flex-col'>
