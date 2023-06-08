@@ -1,5 +1,5 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
+prettier.config.js
+package-lock.json
 # dependencies
 /node_modules
 /.pnp
@@ -18,9 +18,7 @@
 .env.test.local
 .env.production.local
 .env
-prettier.config.js
-package-lock.json
-package.json
+
 
 
 npm-debug.log*
