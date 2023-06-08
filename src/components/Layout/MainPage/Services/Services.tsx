@@ -3,9 +3,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const Services = () => {
-  const servicesImg2 = 'http://localhost:4000/img/servicesImg/1284.jpg'
+  const servicesImg2 = 'http://46.19.67.106:8080/img/servicesImg/1284.jpg'
   const servicesImg3 =
-    'http://localhost:4000/img/servicesImg/subbanner-fdas-page.png'
+    'http://46.19.67.106:8080/img/servicesImg/subbanner-fdas-page.png'
 
   const listService = [
     {

@@ -21,7 +21,7 @@ export const CategoryList = ({ category }: CategoryProp) => {
               >
                 <img
                   className=' w-[40px]'
-                  src={`http://localhost:4000/img/${x.folderImg}/${x.img}`}
+                  src={`http://46.19.67.106:8080/img/${x.folderImg}/${x.img}`}
                   alt={x.name}
                 />
                 <h2 className=' text-sm whitespace-pre-wrap '>{x.name}</h2>

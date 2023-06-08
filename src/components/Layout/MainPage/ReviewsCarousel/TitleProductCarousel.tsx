@@ -20,7 +20,7 @@ export const TitleProductCarousel = ({ id }: TitleCarouselProp) => {
           >
             <div className=' w-[80px]'>
               <img
-                src={`http://localhost:4000/img/${x.imgFolder}/${x.imgLink[0]}`}
+                src={`http://46.19.67.106:8080/img/${x.imgFolder}/${x.imgLink[0]}`}
                 alt={x.altImg}
               />
             </div>

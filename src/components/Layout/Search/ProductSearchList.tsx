@@ -25,7 +25,7 @@ export const ProductSearchList = ({ data }: ProductListProp) => {
             <div className=' flex items-center gap-2'>
               <img
                 className=' w-[60px]'
-                src={`http://localhost:4000/img/${x.imgFolder}/${x.imgLink}`}
+                src={`http://46.19.67.106:8080/img/${x.imgFolder}/${x.imgLink}`}
                 alt=''
               />
               <h2 className=' p-2 hover:bg-slate-50 hover:p-2 hover:w-full text-sm'>

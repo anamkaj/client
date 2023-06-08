@@ -24,7 +24,7 @@ export const PostComponent = () => {
           <div className=' mt-4 mb-4 w-[30%] '>
             <img
               className=' rounded-lg shadow-sm'
-              src={`http://localhost:4000/img/post/${x.img}`}
+              src={`http://46.19.67.106:8080/img/post/${x.img}`}
               alt=''
             />
           </div>

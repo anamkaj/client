@@ -18,7 +18,7 @@ export const CarouselProduct = ({ product }: Props) => {
   useEffect(() => {
     setImg({
       id: 0,
-      url: `http://localhost:4000/img/${product[0].imgFolder}/${product[0].imgLink[0]}`,
+      url: `http://46.19.67.106:8080/img/${product[0].imgFolder}/${product[0].imgLink[0]}`,
     })
   }, [product])
 
@@ -49,13 +49,13 @@ export const CarouselProduct = ({ product }: Props) => {
               key={index}
             >
               <img
-                src={`http://localhost:4000/img/${product[0].imgFolder}/${data}`}
+                src={`http://46.19.67.106:8080/img/${product[0].imgFolder}/${data}`}
                 alt={product[0].altImg}
                 key={index}
                 onClick={() => {
                   handleClick(
                     index,
-                    `http://localhost:4000/img/${product[0].imgFolder}/${data}`,
+                    `http://46.19.67.106:8080/img/${product[0].imgFolder}/${data}`,
                   )
                 }}
               />

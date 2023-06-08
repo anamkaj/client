@@ -6,7 +6,7 @@ export const CategoryServices = {
 
   async getAllCategory(id: number) {
     const { data } = await axios.get<ICategory[]>(
-      `http://localhost:4000/api/category/all-category`,
+      `http://46.19.67.106:8080/api/category/all-category`,
       {
         params: {
           id: id,
@@ -19,7 +19,7 @@ export const CategoryServices = {
 
   async getNullCategory() {
     const { data } = await axios.get<ICategory[]>(
-      `http://localhost:4000/api/category/null-category`,
+      `http://46.19.67.106:8080/api/category/null-category`,
     )
 
     return data

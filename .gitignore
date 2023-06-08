@@ -1,3 +1,4 @@
+
 prettier.config.js
 package-lock.json
 
@@ -5,8 +6,6 @@ package-lock.json
 /node_modules
 /.pnp
 .pnp.js
-
-tsconfig.json
 
 # testing
 /coverage
