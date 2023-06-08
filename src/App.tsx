@@ -9,7 +9,6 @@ import { SingleProductCart } from './page/SingleProductCart'
 import { Dashboard } from './page/Dashboard'
 import { Category } from './page/Category'
 import { Footer } from './components/Layout/Footer/Footer'
-import path from 'path'
 import { Post } from './page/Post'
 
 function App() {
