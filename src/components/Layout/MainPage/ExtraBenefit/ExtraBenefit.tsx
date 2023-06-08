@@ -13,7 +13,6 @@ export const ExtraBenefit = () => {
         </div>
         <div>
           <h2 className=' font-semibold text-xl'>Всегда в наличии</h2>
-
           <p className=' font-thin'>
             Свой собственный крупный склад в Краснодаре
           </p>
@@ -41,6 +40,7 @@ export const ExtraBenefit = () => {
           </p>
         </div>
       </div>
+      
     </div>
   )
 }

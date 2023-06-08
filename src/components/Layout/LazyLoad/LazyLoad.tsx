@@ -4,7 +4,7 @@ import { BeatLoader } from 'react-spinners'
 
 export const LazyLoad = () => {
   return (
-    <div className=' container mx-auto '>
+    <div className=' container mx-auto  '>
       <div className=' mt-60 flex justify-center items-center'>
         <FadeLoader color='#757575' />
       </div>

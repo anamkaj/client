@@ -9,36 +9,42 @@ export const Services = () => {
 
   const listService = [
     {
-      img: servicesImg2,
+      id: 1,
+      img: '',
       description:
         'Проектирование охранно-пожарной сигнализации, систем пожаротушения и оповещения о пожаре',
-      url: '',
+      url: 'proektirovanie_ohrannyh_sistem',
     },
     {
-      img: servicesImg3,
+      id: 2,
+      img: '',
       description: 'Установка охранно-пожарной сигнализации',
-      url: '',
+      url: '/ustanovka_ohranno_pozharnoj_signalizacii',
     },
     {
-      img: servicesImg2,
+      id: 3,
+      img: '',
       description:
         'Обслуживание охранно-пожарной сигнализации, систем пожаротушения и оповещения о пожаре',
-      url: '',
+      url: '/obsluzhivanie ohranno_pozharnoj_signalizacii',
     },
     {
-      img: servicesImg2,
+      id: 4,
+      img: '',
       description: 'Видеонаблюдение для офиса',
-      url: '',
+      url: '/videonablyudenie_dlya_ofisa',
     },
     {
-      img: servicesImg2,
+      id: 5,
+      img: '',
       description: 'Системы видеонаблюдения для квартиры',
-      url: '',
+      url: '/sistemy_videonablyudeniya_dlya_kvartiry',
     },
     {
-      img: servicesImg2,
+      id: 6,
+      img: '',
       description: 'Видеонаблюдение для магазина',
-      url: '',
+      url: '/videonablyudenie_dlya_magazina',
     },
   ]
 
@@ -62,7 +68,7 @@ export const Services = () => {
             <div className=' mb-2 mt-8'>
               <Link
                 className=' uppercase font-light text-white bg-gradient-to-r from-fuchsia-600 to-purple-600  rounded-full text-sm px-5 py-2.5 text-center mb-2  '
-                to={''}
+                to={`post/${x.id}`}
               >
                 Узнать подробнее...
               </Link>

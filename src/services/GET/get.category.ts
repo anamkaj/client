@@ -21,7 +21,7 @@ export const CategoryServices = {
     const { data } = await axios.get<ICategory[]>(
       `http://localhost:4000/api/category/null-category`,
     )
-    
+
     return data
   },
 }

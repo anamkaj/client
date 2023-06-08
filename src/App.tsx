@@ -9,6 +9,8 @@ import { SingleProductCart } from './page/SingleProductCart'
 import { Dashboard } from './page/Dashboard'
 import { Category } from './page/Category'
 import { Footer } from './components/Layout/Footer/Footer'
+import path from 'path'
+import { Post } from './page/Post'
 
 function App() {
   const addObjLocalStore = useAppSelector((state) => state.cartReducer.cart)
@@ -45,6 +47,10 @@ function App() {
             path='product/:name/:id'
             element={<SingleProductCart />}
           ></Route>
+        </Route>
+
+        <Route>
+          <Route path='post/:id' element={<Post />} />
         </Route>
         <Route path='dashboard' element={<Dashboard />}></Route>
       </Routes>

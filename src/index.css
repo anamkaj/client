@@ -12,3 +12,21 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+@layer components {
+  .reactMarkDown ul {
+    @apply p-4 list-disc;
+  }
+  .reactMarkDown li {
+    @apply font-normal;
+  }
+  .reactMarkDown h1 {
+    @apply font-semibold mt-4 mb-4;
+  }
+  .reactMarkDown h2 {
+    @apply text-2xl font-semibold mt-4 mb-4;
+  }
+  .reactMarkDown p {
+    @apply text-lg font-light mt-4 mb-4;
+  }
+}
