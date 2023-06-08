@@ -1,9 +1,12 @@
 prettier.config.js
 package-lock.json
+
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
+
+tsconfig.json
 
 # testing
 /coverage
@@ -18,8 +21,6 @@ package-lock.json
 .env.test.local
 .env.production.local
 .env
-
-
 
 npm-debug.log*
 yarn-debug.log*
