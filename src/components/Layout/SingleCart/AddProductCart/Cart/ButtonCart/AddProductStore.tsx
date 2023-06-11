@@ -18,6 +18,7 @@ export const AddStore = ({ product, setActive, price }: PropBtn) => {
         title: product[0].title,
         price: price,
         img: product[0].imgLink[0],
+        imgFolder: product[0].imgFolder,
         totalCount: 1,
       }),
     )

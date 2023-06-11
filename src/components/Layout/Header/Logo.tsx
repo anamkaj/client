@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 export const Logo = () => {
   return (
-    <>
+    <Link to ={"/"}>
       <div className='  flex gap-4 items-center  '>
         <img
           src={require('../../../images/component_img/Header/logo.png')}
@@ -13,6 +14,6 @@ export const Logo = () => {
           Интернет-магазин <br></br> Безопасности
         </p>
       </div>
-    </>
+    </Link>
   )
 }

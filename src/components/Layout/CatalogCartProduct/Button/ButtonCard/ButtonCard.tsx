@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { IGProduct } from '../../../../../helpers/Model/GetServer/model.products'
-import { addToCart, removeToCart } from '../../../../../store/Redux/Product/cartSlise'
-import { useAppDispatch, useAppSelector } from '../../../../../store/Redux/storeHook'
+import {
+  addToCart,
+  removeToCart,
+} from '../../../../../store/Redux/Product/cartSlise'
+import {
+  useAppDispatch,
+  useAppSelector,
+} from '../../../../../store/Redux/storeHook'
 import { BsFillCartCheckFill } from 'react-icons/bs'
 import { BsCartDash } from 'react-icons/bs'
 
@@ -27,6 +33,7 @@ export const ButtonCard = ({ data }: IProductProps) => {
                   title: data.title,
                   price: Number(data.price),
                   img: data.imgLink[0],
+                  imgFolder: data.imgFolder,
                   totalCount: 1,
                 }),
               )
@@ -45,6 +52,7 @@ export const ButtonCard = ({ data }: IProductProps) => {
                   title: data.title,
                   price: Number(data.price),
                   img: data.imgLink[0],
+                  imgFolder: data.imgFolder,
                   totalCount: 1,
                 }),
               )

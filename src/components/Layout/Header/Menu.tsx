@@ -1,20 +1,14 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { menuList } from './headerMenu'
-import { Model } from '../UI/Model/Model'
-import { SpecialistCall } from '../UI/Poupup/CallingSpecialist/SpecialistCall'
 
-import { FormPerson } from '../UI/Form/FormPerson/FormPerson'
+type MenuProp = {
+  setInstallation: React.Dispatch<React.SetStateAction<boolean>>
+  setCallback: React.Dispatch<React.SetStateAction<boolean>>
+}
 
-export const Menu = () => {
-  const [installation, setInstallation] = useState(false)
-  const [callback, setCallback] = useState(false)
-  const titlePopup = 'Монтаж и Установка'
-  const titlePopup2 = 'Заказать обратный звонок'
-
+export const Menu = ({ setInstallation, setCallback }: MenuProp) => {
   return (
     <>
-      <div className='flex gap-2  text-white uppercase py-2 '>
+      <div className='flex gap-2 text-white uppercase py-2 '>
         {/* {menuList.map((_, index) => (
           <button
             id={menuList[index].title}
@@ -36,29 +30,6 @@ export const Menu = () => {
         >
           Заказать обратный звонок
         </button>
-      </div>
-      <div hidden={!installation}>
-        <Model
-          active={installation}
-          setActive={setInstallation}
-          titleModel={titlePopup}
-        >
-          {
-            <SpecialistCall
-              specialist={installation}
-              setSpecialist={setInstallation}
-            />
-          }
-        </Model>
-      </div>
-      <div hidden={!callback}>
-        <Model
-          active={callback}
-          setActive={setCallback}
-          titleModel={titlePopup2}
-        >
-          <FormPerson />
-        </Model>
       </div>
     </>
   )

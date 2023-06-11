@@ -1,10 +1,10 @@
 import React from 'react'
 import { FieldErrors, UseFormRegister } from 'react-hook-form'
-import { Person } from '../../type.form'
+import { IFormCartPage, Person } from '../../type.form'
 
 type InputName = {
-  register: UseFormRegister<Person>
-  errors: FieldErrors<Person>
+  register: UseFormRegister<IFormCartPage>
+  errors: FieldErrors<IFormCartPage>
 }
 
 const mobilePhoneRegexp = /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/

@@ -1,21 +1,20 @@
 import React from 'react'
 import { FieldErrors, UseFormRegister } from 'react-hook-form'
-import { IFormCartPage, Person } from '../../type.form'
+import { IFormCartPage } from '../../type.form'
+import { nameReg } from './NameInput'
 
-type InputName = {
+type InputSurname = {
   register: UseFormRegister<IFormCartPage>
   errors: FieldErrors<IFormCartPage>
 }
 
-export const nameReg = /^[А-ЯЁ]+$/i
-
-export const NameInput = ({ register, errors }: InputName) => {
+export const SurnameInput = ({ register, errors }: InputSurname) => {
   return (
     <div>
       <input
         className='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-indigo-500'
-        placeholder='Имя'
-        {...register('name', {
+        placeholder='Фамилия'
+        {...register('surname', {
           required: true,
           pattern: nameReg,
           maxLength: 15,

@@ -5,3 +5,8 @@ export type Person = {
   objectCity?: boolean
   internetTrue?: boolean
 }
+
+export interface IFormCartPage extends Person {
+  surname?: string
+  
+}

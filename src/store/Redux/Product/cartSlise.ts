@@ -40,43 +40,7 @@ const cartSlice = createSlice({
         state.cart = JSON.parse(localStorage.getItem('countCart') || '{}')
       }
     },
-    /// Старый способ для подсчета корзины
-    incrementCart: (state: IPropStore, action: PayloadAction<addCartStore>) => {
-      const store = state.cart.map((e) => {
-        return e.id == action.payload.id
-          ? { ...e, totalCount: (e.totalCount! += 1) }
-          : e
-      })
-      let incrementTotal = Object.values(
-        state.cart.map((e) => {
-          // @ts-ignore
-          return e.price * e.totalCount
-        }),
-      )
-      state.total = incrementTotal.reduce((prev, curr) => prev + curr)
-      state.cart = store
-      localStorage.setItem('countCart', JSON.stringify(state.cart))
-      localStorage.setItem('totalCart', JSON.stringify(state.total))
-    },
-    decrementCart: (state: IPropStore, action: PayloadAction<addCartStore>) => {
-      const store = state.cart.map((e) => {
-        // @ts-ignore
-        return e.id == action.payload.id
-          ? { ...e, totalCount: (e.totalCount! -= 1) }
-          : e
-      })
 
-      let totalDecrement = Object.values(
-        state.cart.map((e) => {
-          // @ts-ignore
-          return e.price * e.totalCount
-        }),
-      )
-      state.total = totalDecrement.reduce((prev, curr) => prev + curr)
-      state.cart = store
-      localStorage.setItem('countCart', JSON.stringify(state.cart))
-      localStorage.setItem('totalCart', JSON.stringify(state.total))
-    },
     // Новый спопоб увеличение одних и тех же товаров
     incrementCounter: (state: IPropStore, action: PayloadAction<Increment>) => {
       state.cart = changeCounter.increment(state.cart, action.payload)
@@ -86,6 +50,44 @@ const cartSlice = createSlice({
       state.cart = changeCounter.decrement(state.cart, action.payload)
       state.total = storeFun.sum(state.cart, state.total)
     },
+
+    /// Старый способ для подсчета корзины
+    // incrementCart: (state: IPropStore, action: PayloadAction<addCartStore>) => {
+    //   const store = state.cart.map((e) => {
+    //     return e.id == action.payload.id
+    //       ? { ...e, totalCount: (e.totalCount! += 1) }
+    //       : e
+    //   })
+    //   let incrementTotal = Object.values(
+    //     state.cart.map((e) => {
+    //       // @ts-ignore
+    //       return e.price * e.totalCount
+    //     }),
+    //   )
+    //   state.total = incrementTotal.reduce((prev, curr) => prev + curr)
+    //   state.cart = store
+    //   localStorage.setItem('countCart', JSON.stringify(state.cart))
+    //   localStorage.setItem('totalCart', JSON.stringify(state.total))
+    // },
+    // decrementCart: (state: IPropStore, action: PayloadAction<addCartStore>) => {
+    //   const store = state.cart.map((e) => {
+    //     // @ts-ignore
+    //     return e.id == action.payload.id
+    //       ? { ...e, totalCount: (e.totalCount! -= 1) }
+    //       : e
+    //   })
+
+    //   let totalDecrement = Object.values(
+    //     state.cart.map((e) => {
+    //       // @ts-ignore
+    //       return e.price * e.totalCount
+    //     }),
+    //   )
+    //   state.total = totalDecrement.reduce((prev, curr) => prev + curr)
+    //   state.cart = store
+    //   localStorage.setItem('countCart', JSON.stringify(state.cart))
+    //   localStorage.setItem('totalCart', JSON.stringify(state.total))
+    // },
   },
 })
 
@@ -94,8 +96,6 @@ export const {
   addToCart,
   removeToCart,
   getLocalStore,
-  incrementCart,
-  decrementCart,
   incrementCounter,
   decrementCounter,
 } = cartSlice.actions

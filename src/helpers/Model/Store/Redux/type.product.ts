@@ -6,6 +6,7 @@ export interface addCartStore {
   price: number
   img: string
   totalCount: number
+  imgFolder: string
   totalCart?: number
 }
 

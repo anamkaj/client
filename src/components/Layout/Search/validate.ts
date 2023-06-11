@@ -17,7 +17,7 @@ export const validate = (s: string) => {
   if (s.match(checkInputReg) == null) return true
 }
 
-//
+// Проверка на длиину введенного в поиск слова 
 export const useValidateScroll = ({
   data,
   input,
