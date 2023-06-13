@@ -53,7 +53,11 @@ export const CartPrice = ({
         {/*кнопка добавить в корзину */}
 
         {checkCartStore == undefined ? (
-          <AddStore product={product} setActive={setActive} price={price} />
+          <AddStore
+            product={product}
+            setActive={setActive}
+            price={product[0].price}
+          />
         ) : (
           <RemoveStore
             product={product}

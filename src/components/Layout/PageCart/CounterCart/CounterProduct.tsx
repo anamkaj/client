@@ -6,7 +6,6 @@ import {
 } from '../../../../store/Redux/Product/cartSlise'
 import { useAppDispatch } from '../../../../store/Redux/storeHook'
 import { addCartStore } from '../../../../helpers/Model/Store/Redux/type.product'
-import { ProductSum } from './ProductSum'
 
 type CountProp = {
   product: addCartStore
@@ -25,6 +24,7 @@ export const CounterProduct = ({ product }: CountProp) => {
           img: product.img,
           imgFolder: product.imgFolder,
           totalCount: 1,
+          sale: product.sale,
         }),
       )
     }
@@ -72,7 +72,6 @@ export const CounterProduct = ({ product }: CountProp) => {
           +{' '}
         </span>
       </div>
-     
     </div>
   )
 }

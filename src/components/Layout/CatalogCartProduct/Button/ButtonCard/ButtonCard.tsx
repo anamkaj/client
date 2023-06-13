@@ -35,6 +35,7 @@ export const ButtonCard = ({ data }: IProductProps) => {
                   img: data.imgLink[0],
                   imgFolder: data.imgFolder,
                   totalCount: 1,
+                  sale: data.discount,
                 }),
               )
             }
@@ -54,6 +55,7 @@ export const ButtonCard = ({ data }: IProductProps) => {
                   img: data.imgLink[0],
                   imgFolder: data.imgFolder,
                   totalCount: 1,
+                  sale: data.discount,
                 }),
               )
             }

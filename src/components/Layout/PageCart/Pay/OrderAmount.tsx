@@ -1,42 +1,33 @@
 import React from 'react'
-import { useAppSelector } from '../../../../store/Redux/storeHook'
+import { addCartStore } from '../../../../helpers/Model/Store/Redux/type.product'
 
 type OrderProp = {
-  localStore: string | null
-  totalCart: number
+  totalCartPrice: number
+  data: addCartStore[]
+  totalSale: number
 }
 
-export const OrderAmount = ({ localStore, totalCart }: OrderProp) => {
-  const totalCartLength = useAppSelector((state) => state.cartReducer.cart)
-
-  if (localStore == null) {
-    localStore = '0'
-  }
+export const OrderAmount = ({ totalCartPrice, data, totalSale }: OrderProp) => {
   return (
     <>
-      <div>
-        <h2 className={'uppercase text-black font-bold mb-5 mt-5'}>
+      <div className=' p-4 bg-slate-100 rounded-t-lg'>
+        <h2 className='uppercase text-black font-semibold mb-5 mt-5'>
           Ваша корзина
         </h2>
       </div>
-      <div className='mb-2 flex justify-between'>
-        <p className='text-gray-700'>Товары ({totalCartLength.length})</p>
-        <p className='text-gray-700'>
-          Итого:{' '}
-          {localStore
-            ? Math.trunc(parseInt(localStore))
-            : Number(localStore).toFixed(2)}{' '}
-          ₽
-        </p>
-      </div>
-      <div className='flex justify-between'>
-        <p className='text-gray-700'>Скидка</p>
-        <p className='text-gray-700'>
-          {localStore
-            ? Math.trunc(parseInt(localStore) * 0.1)
-            : Math.trunc(totalCart * 0.1)}{' '}
-          ₽
-        </p>
+      <div className=' flex flex-col'>
+        <div className='mb-2 p-4 flex justify-between'>
+          <p className='text-gray-700 font-semibold'>Товары ({data.length})</p>
+          <p className='text-gray-700 font-semibold text-lg'>
+            Итого: {totalCartPrice.toLocaleString('ru')}₽
+          </p>
+        </div>
+        <div className='flex justify-between p-4'>
+          <p className=' text-red-500 font-semibold'>Скидка</p>
+          <p className=' text-lg text-red-500 font-semibold '>
+            {totalSale.toLocaleString('ru')}₽
+          </p>
+        </div>
       </div>
     </>
   )

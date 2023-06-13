@@ -24,8 +24,9 @@ export const RemoveStore = ({
         title: product[0].title,
         price: product[0].price,
         img: product[0].imgLink[0],
-        imgFolder:product[0].imgFolder,
+        imgFolder: product[0].imgFolder,
         totalCount: 1,
+        sale: product[0].discount,
       }),
     )
     setActive(() => false)

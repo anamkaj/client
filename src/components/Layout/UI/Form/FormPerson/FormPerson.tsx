@@ -28,12 +28,11 @@ export const FormPerson = ({
     handleSubmit,
     reset,
     formState: { errors },
-    
   } = useForm<Person>()
 
   //Отправка форм обратной связи на сервер
   const { mutation, onSubmitFastOrder } = useFormRequest({ product, price })
-  
+
   // Автозакрытие всех popup через 2 сек
   useClosePopupAll({
     mutation,
@@ -51,7 +50,6 @@ export const FormPerson = ({
         errors={errors}
         status={status}
         specialist={specialist}
-        
       />
       {mutation.isIdle && ''}
 

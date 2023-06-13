@@ -38,6 +38,7 @@ const cartSlice = createSlice({
         console.log('LocalHost == null')
       } else {
         state.cart = JSON.parse(localStorage.getItem('countCart') || '{}')
+        state.total = JSON.parse(localStorage.getItem('totalCart') || '{}')
       }
     },
 
@@ -45,10 +46,14 @@ const cartSlice = createSlice({
     incrementCounter: (state: IPropStore, action: PayloadAction<Increment>) => {
       state.cart = changeCounter.increment(state.cart, action.payload)
       state.total = storeFun.sum(state.cart, state.total)
+      localStorage.setItem('countCart', JSON.stringify(state.cart))
+      localStorage.setItem('totalCart', JSON.stringify(state.total))
     },
     decrementCounter: (state: IPropStore, action: PayloadAction<Increment>) => {
       state.cart = changeCounter.decrement(state.cart, action.payload)
       state.total = storeFun.sum(state.cart, state.total)
+      localStorage.setItem('countCart', JSON.stringify(state.cart))
+      localStorage.setItem('totalCart', JSON.stringify(state.total))
     },
 
     /// Старый способ для подсчета корзины

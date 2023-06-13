@@ -10,7 +10,7 @@ export const useFormCartPage = () => {
   const totalPriceCart = useAppSelector((state) => state.cartReducer.total)
 
   const mutation = useMutation({
-    mutationFn: (data: IFormReq) => FormServices.postForm(data),
+    mutationFn: (data: IFormReq) => FormServices.postFormCartPage(data),
   })
 
   const onSubmitOrderCart: SubmitHandler<IFormCartPage> = (
@@ -27,5 +27,5 @@ export const useFormCartPage = () => {
       })
     }
   }
-  return { onSubmitOrderCart }
+  return { onSubmitOrderCart, mutation }
 }

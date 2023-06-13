@@ -8,6 +8,7 @@ export interface addCartStore {
   totalCount: number
   imgFolder: string
   totalCart?: number
+  sale: number
 }
 
 // Типы Стора и Счетчик общей стоимости корзины
