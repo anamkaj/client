@@ -56,7 +56,10 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "http://127.0.0.1:3000",
+  "options": {
+    "allowedHosts": ["localhost", ".localhost"],
+    "proxy": "https://localhost:3000/"
+  },
   "devDependencies": {
     "@types/jest": "^29.2.4",
     "@types/lodash": "^4.14.191",
