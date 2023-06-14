@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const BannerMain = () => {
-  const imgBanner = 'http://46.19.67.106:8080/img/mainPage/4334.jpg'
+  const imgBanner = 'https://46.19.67.106:8080/img/mainPage/4334.jpg'
   return (
     <>
       <div
@@ -21,7 +21,7 @@ export const BannerMain = () => {
             </div>
           </div>
           <div>
-            <img src='http://46.19.67.106:8080/img/banner/test.jpg' alt='' />
+            <img src='https://46.19.67.106:8080/img/banner/test.jpg' alt='' />
           </div>
         </div>
       </div> */}

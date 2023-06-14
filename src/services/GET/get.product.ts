@@ -10,7 +10,7 @@ import { hookParams } from '../../helpers/Model/GetServer/hook.model.request'
 export const ProductServices = {
   async getProductAll(params: hookParams) {
     const { data } = await axios.get<IGProduct[]>(
-      `http://46.19.67.106:8080/api/all/${params.filter}`,
+      `https://46.19.67.106:8080/api/all/${params.filter}`,
       {
         params: {
           id: params.id,
@@ -25,7 +25,7 @@ export const ProductServices = {
 
   async getOneProduct(id: number) {
     const { data } = await axios.get<IGProduct[]>(
-      `http://46.19.67.106:8080/api/one`,
+      `https://46.19.67.106:8080/api/one`,
       {
         params: {
           id: id,
@@ -38,7 +38,7 @@ export const ProductServices = {
 
   async popularProduct() {
     const { data } = await axios.get<IGProduct[]>(
-      `http://46.19.67.106:8080/api/popularProduct`,
+      `https://46.19.67.106:8080/api/popularProduct`,
     )
 
     return data

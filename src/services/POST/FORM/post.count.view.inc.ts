@@ -3,7 +3,7 @@ import axios from 'axios'
 export const Counters = {
   async countViewInc(id: number) {
     const { data, status } = await axios.post(
-      `http://46.19.67.106:8080/api/countInc`,
+      `https://46.19.67.106:8080/api/countInc`,
       {
         id: id,
       },
@@ -14,7 +14,7 @@ export const Counters = {
 
   async countReviewInc(id: number) {
     const { data, status } = await axios.post(
-      `http://46.19.67.106:8080/api/ratingInc`,
+      `https://46.19.67.106:8080/api/ratingInc`,
       {
         id: id,
       },

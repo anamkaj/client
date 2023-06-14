@@ -18,7 +18,7 @@ export const ImgProductCart = ({ data, URL }: ImgProp) => {
       >
         <img
           className='block object-cover object-center w-full h-full rounded-lg'
-          src={`http://46.19.67.106:8080/img/${data.imgFolder}/${data.imgLink[0]}`}
+          src={`https://46.19.67.106:8080/img/${data.imgFolder}/${data.imgLink[0]}`}
           alt={data.altImg}
         />
       </Link>

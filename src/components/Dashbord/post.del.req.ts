@@ -37,7 +37,7 @@ export const delProduct = async (id: number) => {
 // Все товары
 export const getAllProduct = async () => {
     try {
-        const res = await axios.get("http://46.19.67.106:8080/api")
+        const res = await axios.get("https://46.19.67.106:8080/api")
         console.log(res)
         return res
     } catch (e) {

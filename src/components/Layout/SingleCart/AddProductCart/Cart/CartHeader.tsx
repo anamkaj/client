@@ -26,7 +26,7 @@ export const CartHeader = ({ product }: PropCart) => {
       <div>
         <img
           className=' w-16 '
-          src={`http://46.19.67.106:8080/img/brend/${product[0].brendImg}`}
+          src={`https://46.19.67.106:8080/img/brend/${product[0].brendImg}`}
           alt=''
         />
       </div>

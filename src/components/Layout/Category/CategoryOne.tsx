@@ -39,7 +39,7 @@ export const CategoryOne = ({ category, id, loadingCategory }: Props) => {
             <div className=' flex h-32 w-32 items-center '>
               <img
                 className='mt-4 '
-                src={`http://46.19.67.106:8080/img/${e.folderImg}/${e.img}`}
+                src={`https://46.19.67.106:8080/img/${e.folderImg}/${e.img}`}
                 alt={''}
               />
             </div>

@@ -6,7 +6,7 @@ export const SearchServices = {
   async productSearch(params: string | undefined) {
     try {
       const { data } = await axios.get<IGProduct[]>(
-        `http://46.19.67.106:8080/api/searchProduct`,
+        `https://46.19.67.106:8080/api/searchProduct`,
         {
           params: {
             input: params,
@@ -23,7 +23,7 @@ export const SearchServices = {
   async categorySearch(params: string | undefined) {
     try {
       const { data } = await axios.get<ICategory[]>(
-        `http://46.19.67.106:8080/api/searchCategory`,
+        `https://46.19.67.106:8080/api/searchCategory`,
         {
           params: {
             input: params,

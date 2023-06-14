@@ -7,7 +7,7 @@ import {
 export const ReviewsService = {
   async sendReviews(params: SendReviews) {
     const { data, status } = await axios.post(
-      `http://46.19.67.106:8080/api/reviews`,
+      `https://46.19.67.106:8080/api/reviews`,
       {
         data: params,
       },
@@ -18,7 +18,7 @@ export const ReviewsService = {
 
   async incLike(params: Like) {
     const { data, status } = await axios.post(
-      `http://46.19.67.106:8080/api/likeInc`,
+      `https://46.19.67.106:8080/api/likeInc`,
       {
         data: params,
       },
@@ -29,7 +29,7 @@ export const ReviewsService = {
 
   async incDislike(params: Like) {
     const { data, status } = await axios.post(
-      `http://46.19.67.106:8080/api/likeDec`,
+      `https://46.19.67.106:8080/api/likeDec`,
       {
         data: params,
       },
