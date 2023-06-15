@@ -14,7 +14,7 @@ export const Contact = () => {
               href='tel:+79002689360'
               className='flex  items-center gap-2 text-black text-normal font-medium'
             >
-              8 (800) 200-84-65
+              8 (861) 298-34-28
             </a>
             <a
               href='tel:+79002689360'

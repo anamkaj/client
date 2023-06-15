@@ -10,6 +10,8 @@ import { Dashboard } from './page/Dashboard'
 import { Category } from './page/Category'
 import { Footer } from './components/Layout/Footer/Footer'
 import { Post } from './page/Post'
+import { UserAgreement } from './components/Layout/Policy/UserAgreement'
+import { PrivacyPolicy } from './components/Layout/Policy/PrivacyPolicy'
 
 function App() {
   const addObjLocalStore = useAppSelector((state) => state.cartReducer.cart)
@@ -50,6 +52,16 @@ function App() {
 
         <Route>
           <Route path='post/:id' element={<Post />} />
+        </Route>
+        <Route>
+          <Route
+            path='policy/polzovatelskoe-soglashenie'
+            element={<UserAgreement />}
+          />
+          <Route
+            path='policy/politika-konfidentsialnosti'
+            element={<PrivacyPolicy />}
+          />
         </Route>
         <Route path='dashboard' element={<Dashboard />}></Route>
       </Routes>
