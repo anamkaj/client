@@ -21,7 +21,7 @@ export const BannerMain = () => {
             </div>
           </div>
           <div>
-            <img src='https://46.19.67.106:8080/img/banner/test.jpg' alt='' />
+            <img src='https://tmk-v.ru:8080/img/banner/test.jpg' alt='' />
           </div>
         </div>
       </div> */}

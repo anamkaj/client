@@ -6,7 +6,7 @@ export const ReviewsServices = {
 
   async getReviews(id: number) {
     const { data } = await axios.get<ReviewsQuery[]>(
-      `https://46.19.67.106:8080/api/reviews`,
+      `https://tmk-v.ru:8080/api/reviews`,
       {
         params: {
           id: id,
@@ -19,7 +19,7 @@ export const ReviewsServices = {
 
   async getReviewsCarousel() {
     const { data } = await axios.get<ReviewsQuery[]>(
-      `https://46.19.67.106:8080/api/reviewsAll`,
+      `https://tmk-v.ru:8080/api/reviewsAll`,
     )
 
     return data

@@ -29,7 +29,7 @@ export const Popup = ({
       <div className=' flex my-2 mx-4 gap-2 '>
         <div className=' '>
           <img className=' w-[15vh]'
-            src={`https://46.19.67.106:8080/img/${product[0].imgFolder}/${product[0].imgLink[0]}`}
+            src={`https://tmk-v.ru:8080/img/${product[0].imgFolder}/${product[0].imgLink[0]}`}
             alt={product[0].altImg}
           />
         </div>
