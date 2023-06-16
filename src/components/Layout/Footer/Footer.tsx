@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const Footer = () => {
+  
+
+
   return (
     <div className=' container mx-auto bg-slate-100 rounded-t-xl p-4 mt-5'>
       <div className=' grid grid-cols-3 justify-center'>
