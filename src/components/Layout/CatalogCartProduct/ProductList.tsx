@@ -30,7 +30,7 @@ export const ProductList = () => {
         <span> - </span>{' '}
         <span className=' font-bold text-gray-700'>
           {' '}
-          {product?.length} Товара
+          {product?.length} Товара(ов)
         </span>
       </div>
       <HeaderFilter />
@@ -60,6 +60,24 @@ export const ProductList = () => {
 
       <div className='  mt-5'>
         <Pagination checkLength={checkLength} nextPage={nextPage} />
+      </div>
+      <div className=' mt-8'>
+        <p className=' font-light leading-6'>
+          В нашем каталоге систем безопасности представлено разнообразное
+          оборудование, которое поможет обеспечить полный контроль и надежную
+          защиту объектов.
+          <br /> Мы предлагаем решения как для внутреннего применения{' '}
+          <span className='font-semibold'>
+            (квартиры, офисы, магазины, склады)
+          </span>
+          , так и для наружной охраны{' '}
+          <span className=' font-semibold'> (дома, коттеджи, дачи)</span>
+          . <br /> Все наши предлагаемые товары и комплектующие были тщательно
+          отобраны и протестированы нашими опытными специалистами, готовые к
+          быстрому и надежному монтажу на любом объекте. <br />
+          При этом мы гарантируем доступные цены, чтобы наша продукция была
+          доступна широкому кругу потребителей.
+        </p>
       </div>
     </div>
   )
