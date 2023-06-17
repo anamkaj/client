@@ -1,24 +1,26 @@
 import axios from 'axios'
-import { FormReq, IFormReq } from '../../../helpers/Model/PostServer/post.req.form'
+import {
+  FormReq,
+  IFormReq,
+} from '../../../helpers/Model/PostServer/post.req.form'
 
 export const FormServices = {
   async postForm(params: FormReq) {
     const { data, status } = await axios.post(
       `https://tmk-v.ru:8080/api/form/order`,
       {
-        data: params,
+        data: JSON.stringify(params),
       },
     )
 
     return { data, status }
   },
 
-
   async postFormCartPage(params: IFormReq) {
     const { data, status } = await axios.post(
       `https://tmk-v.ru:8080/api/form/order/cart`,
       {
-        data: params,
+        data: JSON.stringify(params),
       },
     )
 

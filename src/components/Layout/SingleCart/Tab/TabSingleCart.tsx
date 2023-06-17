@@ -6,6 +6,7 @@ import { TabReviews } from './TabComponent/TabReviews/TabReviews'
 import { TabReviewsPostForm } from './TabComponent/TabReviews/TabReviewsPostForm'
 import { motion } from 'framer-motion'
 import { item } from '../../UI/animation/category'
+import ReactMarkdown from 'react-markdown'
 
 type TabProps = {
   activeTab: number
@@ -24,7 +25,7 @@ export const TabSingleCart = ({
   const styleDisable =
     'uppercase text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none'
 
-  const description = product[0].descriptionOne
+  const description = product[0].descriptionOne.split('. ')
 
   return (
     <div>
@@ -43,15 +44,30 @@ export const TabSingleCart = ({
           )
         })}
       </nav>
-      <div id={'tab'}>{activeTab == 1 && description}</div>
-      <div id={'tab'}>
+      <div id={'tab'} className=' mt-4'>
+        {activeTab == 1 && (
+          <p>
+            {description.map((x, index) => {
+              return (
+                <div key={index}>
+                  <span className=' font-thin text-lg tracking-normal antialiased '>
+                    {x.trim()}.
+                  </span>
+                  <br />
+                </div>
+              )
+            })}
+          </p>
+        )}
+      </div>
+      <div id={'tab'} className=' mt-4'>
         {activeTab == 2 && (
           <div>
             <TableParamsProduct product={product} />
           </div>
         )}
       </div>
-      <div>
+      <div className=' mt-4'>
         {activeTab == 3 && (
           <motion.div variants={item} initial='hidden' animate='visible'>
             <TabReviewsPostForm product={product} />
