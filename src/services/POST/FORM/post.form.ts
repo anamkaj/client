@@ -9,7 +9,7 @@ export const FormServices = {
     const { data, status } = await axios.post(
       `https://tmk-v.ru:8080/api/form/order`,
       {
-        data: JSON.stringify(params),
+        data: params,
       },
     )
 
@@ -20,7 +20,7 @@ export const FormServices = {
     const { data, status } = await axios.post(
       `https://tmk-v.ru:8080/api/form/order/cart`,
       {
-        data: JSON.stringify(params),
+        data: params,
       },
     )
 

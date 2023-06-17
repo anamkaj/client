@@ -15,10 +15,11 @@ export type FormReq = {
 type DataCart = {
   title: string
   price: number
-  total: number
+  count: number
+  sale: number
 }
 
 export interface IFormReq extends FormReq {
   surname?: string
-  data: string
+  data: DataCart[]
 }

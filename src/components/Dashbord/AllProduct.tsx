@@ -14,7 +14,7 @@ export const AllProduct = () => {
     })
   }, [])
 
-  console.log(data)
+ 
 
   if (!data) {
     return <h1>Error</h1>

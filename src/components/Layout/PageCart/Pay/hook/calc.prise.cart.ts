@@ -12,7 +12,7 @@ export const useCalcPriceProduct = ({ data }: PriceProp) => {
   const [totalCartPrice, setTotalCartPrice] = useState<number>(0)
   const [totalSale, setTotalSale] = useState<number>(0)
 
-  console.log(totalCartPrice, totalSale)
+
 
   useEffect(() => {
     setTotalCartPrice(totalCart)
