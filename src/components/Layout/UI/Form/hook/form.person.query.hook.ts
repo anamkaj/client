@@ -14,7 +14,7 @@ type PropFormHook = {
 
 export const useFormRequest = ({ product, price }: PropFormHook) => {
   const mutation = useMutation({
-    mutationFn: (data: FormReq) => FormServices.postForm(data),
+    mutationFn: (data: FormReq) => FormServices.postFormFeedbac(data),
   })
 
   const onSubmitFastOrder: SubmitHandler<Person> = (data: Person) => {

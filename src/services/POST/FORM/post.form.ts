@@ -5,9 +5,20 @@ import {
 } from '../../../helpers/Model/PostServer/post.req.form'
 
 export const FormServices = {
-  async postForm(params: FormReq) {
+  async postFormFeedbac(params: FormReq) {
     const { data, status } = await axios.post(
       `https://tmk-v.ru:8080/api/form/order`,
+      {
+        data: params,
+      },
+    )
+
+    return { data, status }
+  },
+
+  async postFormOneProduct(params: FormReq) {
+    const { data, status } = await axios.post(
+      `https://tmk-v.ru:8080/api/form/order/oneProduct`,
       {
         data: params,
       },
