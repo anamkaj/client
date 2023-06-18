@@ -59,7 +59,7 @@ export const AllProduct = () => {
                 <td className="text-sm flex  text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                   {data.imgLink.map((e) => {
                     return (
-                      <img alt={data.altImg} className=' w-1/4' src={`http://tmk-v.ru:3005/static/${e}`} />
+                      <img alt={data.altImg} className=' w-1/4' src={`https://tmk-v.ru:8080/static/${e}`} />
                     )
                   })}
                 </td>
