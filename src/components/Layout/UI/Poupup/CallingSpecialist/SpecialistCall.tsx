@@ -1,6 +1,6 @@
 import React from 'react'
 import { FormPerson } from '../../Form/FormPerson/FormPerson'
-
+import { FormHeaderBtn } from '../../Form/FormHeaderBtn/FormHeaderBtn'
 
 type PropPopup = {
   setSpecialist: React.Dispatch<React.SetStateAction<boolean>>
@@ -10,7 +10,7 @@ type PropPopup = {
 export const SpecialistCall = ({ setSpecialist, specialist }: PropPopup) => {
   return (
     <div>
-      <FormPerson setSpecialist={setSpecialist} specialist={specialist} />
+      <FormHeaderBtn setSpecialist={setSpecialist} specialist={specialist} />
     </div>
   )
 }

@@ -1,25 +1,17 @@
-import React, { useState } from 'react'
-import { useForm, useController } from 'react-hook-form'
+import React from 'react'
+
+import { useForm } from 'react-hook-form'
 import { Person } from '../type.form'
-import { IGProduct } from '../../../../../helpers/Model/GetServer/model.products'
-import { useFormRequest } from '../hook/form.person.query.hook'
 import { AllInput } from '../InputForm/AllInput'
-import { useClosePopupAll } from './close.allPopup'
+import { useFormHeaderBtn } from './form.btn.header.query.hook'
+import { useClosePopupAll } from '../FormPerson/close.allPopup'
 
 type PropForm = {
-  status?: boolean
-  product?: IGProduct[]
-  setFastOrderModel?: React.Dispatch<React.SetStateAction<boolean>>
-  price?: number
+  setSpecialist?: React.Dispatch<React.SetStateAction<boolean>>
+  specialist?: boolean
 }
 
-export const FormPerson = ({
-  status,
-  product,
-  setFastOrderModel,
-
-  price,
-}: PropForm) => {
+export const FormHeaderBtn = ({ setSpecialist, specialist }: PropForm) => {
   const {
     register,
     handleSubmit,
@@ -27,13 +19,12 @@ export const FormPerson = ({
     formState: { errors },
   } = useForm<Person>()
 
-  //Отправка форм обратной связи на сервер
-  const { mutation, onSubmitFastOrder } = useFormRequest({ product, price })
+  const { onSubmitOneProduct, mutation } = useFormHeaderBtn()
 
   // Автозакрытие всех popup через 2 сек
   useClosePopupAll({
     mutation,
-    setFastOrderModel,
+    setSpecialist,
     reset,
   })
 
@@ -41,10 +32,10 @@ export const FormPerson = ({
     <div className='  mt-4'>
       <AllInput
         handleSubmit={handleSubmit}
-        onSubmit={onSubmitFastOrder}
+        onSubmit={onSubmitOneProduct}
         register={register}
         errors={errors}
-        status={status}
+        specialist={specialist}
       />
       {mutation.isIdle && ''}
 

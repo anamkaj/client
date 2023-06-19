@@ -14,8 +14,24 @@ type PropFormHook = {
 
 export const useFormRequest = ({ product, price }: PropFormHook) => {
   const mutation = useMutation({
-    mutationFn: (data: FormReq) => FormServices.postFormFeedbac(data),
+    mutationFn: (data: FormReq) => FormServices.postFormFeedback(data),
   })
+
+  const consultation = useMutation({
+    mutationFn: (data: FormReq) => FormServices.postFormOneProduct(data),
+  })
+
+  const onSubmitOneProduct: SubmitHandler<Person> = (data: Person) => {
+    if (data) {
+      mutation.mutate({
+        phone: Number(data.phone),
+        name: data.name,
+        email: data.email,
+        objectCity: data.objectCity,
+        internetTrue: data.internetTrue,
+      })
+    }
+  }
 
   const onSubmitFastOrder: SubmitHandler<Person> = (data: Person) => {
     if (data && product && price) {
@@ -29,14 +45,8 @@ export const useFormRequest = ({ product, price }: PropFormHook) => {
         id: product[0].id,
       })
     } else {
-      mutation.mutate({
-        phone: Number(data.phone),
-        name: data.name,
-        email: data.email,
-        objectCity: data.objectCity,
-        internetTrue: data.internetTrue,
-      })
+      onSubmitOneProduct(data)
     }
   }
-  return { mutation, onSubmitFastOrder }
+  return { mutation, consultation, onSubmitFastOrder, onSubmitOneProduct }
 }

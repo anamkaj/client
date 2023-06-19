@@ -5,7 +5,7 @@ import {
 } from '../../../helpers/Model/PostServer/post.req.form'
 
 export const FormServices = {
-  async postFormFeedbac(params: FormReq) {
+  async postFormFeedback(params: FormReq) {
     const { data, status } = await axios.post(
       `https://tmk-v.ru:8080/api/form/order`,
       {

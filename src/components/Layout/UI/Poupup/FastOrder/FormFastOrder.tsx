@@ -7,7 +7,7 @@ type PropProduct = {
   setFastOrderModel: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export const FormFastOrder = ({ product,setFastOrderModel }: PropProduct) => {
+export const FormFastOrder = ({ product, setFastOrderModel }: PropProduct) => {
   const [status, setStatus] = useState(true)
   const price = Math.round(product[0].price / (product[0].discount * 0.11))
 
@@ -38,7 +38,12 @@ export const FormFastOrder = ({ product,setFastOrderModel }: PropProduct) => {
             Юридическое Лицо
           </label>
         </div>
-        <FormPerson price={price} status={status} product={product} setFastOrderModel={setFastOrderModel} />
+        <FormPerson
+          price={price}
+          status={status}
+          product={product}
+          setFastOrderModel={setFastOrderModel}
+        />
       </div>
     </>
   )

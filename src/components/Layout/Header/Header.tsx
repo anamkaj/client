@@ -6,6 +6,7 @@ import { SubHeader } from './SubHeader'
 import { Model } from '../UI/Model/Model'
 import { SpecialistCall } from '../UI/Poupup/CallingSpecialist/SpecialistCall'
 import { FormPerson } from '../UI/Form/FormPerson/FormPerson'
+import { FormHeaderBtn } from '../UI/Form/FormHeaderBtn/FormHeaderBtn'
 
 
 export const Header = () => {
@@ -61,7 +62,7 @@ export const Header = () => {
             setActive={setCallback}
             titleModel={titlePopup2}
           >
-            <FormPerson />
+            <FormHeaderBtn />
           </Model>
         </div>
       </div>
