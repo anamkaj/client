@@ -12,6 +12,7 @@ import { Footer } from './components/Layout/Footer/Footer'
 import { Post } from './page/Post'
 import { UserAgreement } from './components/Layout/Policy/UserAgreement'
 import { PrivacyPolicy } from './components/Layout/Policy/PrivacyPolicy'
+import { ThankYouPage } from './page/ThankYouPage'
 
 function App() {
   const addObjLocalStore = useAppSelector((state) => state.cartReducer.cart)
@@ -64,7 +65,10 @@ function App() {
           />
         </Route>
         <Route path='dashboard' element={<Dashboard />}></Route>
+
+        <Route path='thanks' element={<ThankYouPage />}></Route>
       </Routes>
+
       <Footer />
     </>
   )

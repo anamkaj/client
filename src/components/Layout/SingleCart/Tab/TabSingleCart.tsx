@@ -46,7 +46,7 @@ export const TabSingleCart = ({
       </nav>
       <div id={'tab'} className=' mt-4'>
         {activeTab == 1 && (
-          <p>
+          <div>
             {description.map((x, index) => {
               return (
                 <div key={index}>
@@ -57,7 +57,7 @@ export const TabSingleCart = ({
                 </div>
               )
             })}
-          </p>
+          </div>
         )}
       </div>
       <div id={'tab'} className=' mt-4'>

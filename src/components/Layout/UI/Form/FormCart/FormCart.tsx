@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Checkbox } from './Checkbox'
 import { useForm } from 'react-hook-form'
-import { IFormCartPage } from '../type.form'
+import { IFormCartPage, Person } from '../type.form'
 import { NameInput } from '../InputForm/Input/NameInput'
 import { PhoneInput } from '../InputForm/Input/PhoneInput'
 import { useFormCartPage } from '../hook/form.cart.page'
@@ -13,7 +13,7 @@ export const FormCart = () => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<IFormCartPage>()
+  } = useForm<Person>()
   const { onSubmitOrderCart, mutation } = useFormCartPage()
 
   return (

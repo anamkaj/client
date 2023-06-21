@@ -1,6 +1,7 @@
 import axios from 'axios'
 import {
   FormReq,
+  IFormOneProductPost,
   IFormReq,
 } from '../../../helpers/Model/PostServer/post.req.form'
 
@@ -16,7 +17,7 @@ export const FormServices = {
     return { data, status }
   },
 
-  async postFormOneProduct(params: FormReq) {
+  async postFormOneProduct(params: IFormOneProductPost) {
     const { data, status } = await axios.post(
       `https://tmk-v.ru:8080/api/form/order/oneProduct`,
       {

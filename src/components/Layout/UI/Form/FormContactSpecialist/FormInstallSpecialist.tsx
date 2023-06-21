@@ -1,17 +1,18 @@
 import React from 'react'
-
 import { useForm } from 'react-hook-form'
+import { useClosePopupAll } from '../FormOrderOneProduct/close.allPopup'
+import { CheckBox } from '../InputForm/CheckBox/CheckBox'
+import { EmailInput } from '../InputForm/Input/EmailInput'
+import { NameInput } from '../InputForm/Input/NameInput'
+import { PhoneInput } from '../InputForm/Input/PhoneInput'
 import { Person } from '../type.form'
-import { AllInput } from '../InputForm/AllInput'
 import { useFormHeaderBtn } from './form.btn.header.query.hook'
-import { useClosePopupAll } from '../FormPerson/close.allPopup'
 
 type PropForm = {
   setSpecialist?: React.Dispatch<React.SetStateAction<boolean>>
-  specialist?: boolean
 }
 
-export const FormHeaderBtn = ({ setSpecialist, specialist }: PropForm) => {
+export const FormInstallSpecialist = ({ setSpecialist }: PropForm) => {
   const {
     register,
     handleSubmit,
@@ -19,7 +20,7 @@ export const FormHeaderBtn = ({ setSpecialist, specialist }: PropForm) => {
     formState: { errors },
   } = useForm<Person>()
 
-  const { onSubmitOneProduct, mutation } = useFormHeaderBtn()
+  const { onSubmitFormContact, mutation } = useFormHeaderBtn()
 
   // Автозакрытие всех popup через 2 сек
   useClosePopupAll({
@@ -30,13 +31,19 @@ export const FormHeaderBtn = ({ setSpecialist, specialist }: PropForm) => {
 
   return (
     <div className='  mt-4'>
-      <AllInput
-        handleSubmit={handleSubmit}
-        onSubmit={onSubmitOneProduct}
-        register={register}
-        errors={errors}
-        specialist={specialist}
-      />
+      <div>
+        <form onSubmit={handleSubmit(onSubmitFormContact)}>
+          <div className=' flex flex-col gap-2'>
+            <CheckBox register={register} errors={errors} />
+            <NameInput register={register} errors={errors} />
+            <PhoneInput register={register} errors={errors} />
+            <EmailInput register={register} errors={errors} />
+            <button className=' w-full border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline'>
+              Отправить
+            </button>
+          </div>
+        </form>
+      </div>
       {mutation.isIdle && ''}
 
       {mutation.isSuccess && (

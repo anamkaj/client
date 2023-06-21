@@ -3,9 +3,12 @@
 import { useMutation } from 'react-query'
 import { FormServices } from '../../../../../services/POST/FORM/post.form'
 import { SubmitHandler } from 'react-hook-form'
-import { Person } from '../type.form'
 import { IGProduct } from '../../../../../helpers/Model/GetServer/model.products'
-import { FormReq } from '../../../../../helpers/Model/PostServer/post.req.form'
+import {
+  FormReq,
+  IFormOneProductPost,
+} from '../../../../../helpers/Model/PostServer/post.req.form'
+import { Person } from '../type.form'
 
 type PropFormHook = {
   product?: IGProduct[]
@@ -14,13 +17,16 @@ type PropFormHook = {
 
 export const useFormRequest = ({ product, price }: PropFormHook) => {
   const mutation = useMutation({
+    mutationKey: ['contactForm'],
     mutationFn: (data: FormReq) => FormServices.postFormFeedback(data),
   })
 
   const consultation = useMutation({
-    mutationFn: (data: FormReq) => FormServices.postFormOneProduct(data),
+    mutationKey: ['FormOneProduct'],
+    mutationFn: (data: IFormOneProductPost) =>
+      FormServices.postFormOneProduct(data),
   })
-
+  // Отправка обычной формы с контактами и чек боксоми
   const onSubmitOneProduct: SubmitHandler<Person> = (data: Person) => {
     if (data) {
       mutation.mutate({
@@ -32,10 +38,10 @@ export const useFormRequest = ({ product, price }: PropFormHook) => {
       })
     }
   }
-
+  //Отправка быстрой покупки одного товара
   const onSubmitFastOrder: SubmitHandler<Person> = (data: Person) => {
     if (data && product && price) {
-      mutation.mutate({
+      consultation.mutate({
         article: product[0].article,
         title: product[0].title,
         price: price,

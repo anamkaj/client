@@ -2,9 +2,8 @@ import { useMutation } from 'react-query'
 import { FormServices } from '../../../../../services/POST/FORM/post.form'
 import { IFormReq } from '../../../../../helpers/Model/PostServer/post.req.form'
 import { SubmitHandler } from 'react-hook-form'
-import { IFormCartPage } from '../type.form'
+import { IFormCartPage, Person } from '../type.form'
 import { useAppSelector } from '../../../../../store/Redux/storeHook'
-
 
 export const useFormCartPage = () => {
   const storCart = useAppSelector((state) => state.cartReducer.cart)
@@ -18,15 +17,12 @@ export const useFormCartPage = () => {
       sale: x.sale,
     }
   })
-  
 
   const mutation = useMutation({
-    mutationFn: (data: IFormReq) => FormServices.postFormCartPage(data),
+    mutationFn: (data: IFormCartPage) => FormServices.postFormCartPage(data),
   })
 
-  const onSubmitOrderCart: SubmitHandler<IFormCartPage> = (
-    data: IFormCartPage,
-  ) => {
+  const onSubmitOrderCart: SubmitHandler<Person> = (data: Person) => {
     if (data && storCart) {
       mutation.mutate({
         phone: Number(data.phone),

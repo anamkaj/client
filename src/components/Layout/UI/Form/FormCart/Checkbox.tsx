@@ -1,10 +1,10 @@
 import React from 'react'
-import { IFormCartPage } from '../type.form'
+import { IFormCartPage, Person } from '../type.form'
 import { FieldErrors, UseFormRegister } from 'react-hook-form'
 
 type CheckBoxProp = {
-  register: UseFormRegister<IFormCartPage>
-  errors: FieldErrors<IFormCartPage>
+  register: UseFormRegister<Person>
+  errors: FieldErrors<Person>
 }
 
 export const Checkbox = ({ register, errors }: CheckBoxProp) => {

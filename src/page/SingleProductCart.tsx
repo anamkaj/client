@@ -17,10 +17,11 @@ import { Model } from '../components/Layout/UI/Model/Model'
 import { Popup } from '../components/Layout/UI/Poupup/AddProductToStore/PopupAddStore'
 import { FastOrderPopup } from '../components/Layout/UI/Poupup/FastOrder/FastOrderPopup'
 import { CallSingleCart } from '../components/Layout/SingleCart/CallingSpecialist'
-import { SpecialistCall } from '../components/Layout/UI/Poupup/CallingSpecialist/SpecialistCall'
 import { motion } from 'framer-motion'
 import { item } from '../components/Layout/UI/animation/category'
 import { useScrollToTop } from '../components/Layout/SingleCart/hook/scroll.elem'
+import { FormHeaderBtn } from '../components/Layout/UI/Form/FormContactSpecialist/FormHeaderBtn'
+import { FormInstallSpecialist } from '../components/Layout/UI/Form/FormContactSpecialist/FormInstallSpecialist'
 
 export const SingleProductCart = () => {
   const { id } = useParams()
@@ -91,10 +92,7 @@ export const SingleProductCart = () => {
             active={specialist}
             titleModel={titleSpecialistCall}
           >
-            <SpecialistCall
-              setSpecialist={setSpecialist}
-              specialist={specialist}
-            />
+            <FormInstallSpecialist setSpecialist={setSpecialist} />
           </Model>
         </div>
         <div

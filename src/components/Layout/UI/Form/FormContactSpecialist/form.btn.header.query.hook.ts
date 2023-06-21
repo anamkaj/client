@@ -11,7 +11,7 @@ export const useFormHeaderBtn = () => {
     mutationFn: (data: FormReq) => FormServices.postFormFeedback(data),
   })
 
-  const onSubmitOneProduct: SubmitHandler<Person> = (data: Person) => {
+  const onSubmitFormContact: SubmitHandler<Person> = (data: Person) => {
     if (data) {
       mutation.mutate({
         phone: Number(data.phone),
@@ -23,5 +23,5 @@ export const useFormHeaderBtn = () => {
     }
   }
 
-  return { mutation, onSubmitOneProduct }
+  return { mutation, onSubmitFormContact }
 }

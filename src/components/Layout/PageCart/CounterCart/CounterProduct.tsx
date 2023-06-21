@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {
   decrementCounter,
   incrementCounter,
@@ -13,6 +13,7 @@ type CountProp = {
 
 export const CounterProduct = ({ product }: CountProp) => {
   const dispatch = useAppDispatch()
+  const ref = useRef(product.totalCount)
 
   useEffect(() => {
     if (product.totalCount < 1) {
@@ -46,6 +47,7 @@ export const CounterProduct = ({ product }: CountProp) => {
       }),
     )
   }
+
   return (
     <div>
       <div className=' border-gray-100'>
@@ -60,7 +62,9 @@ export const CounterProduct = ({ product }: CountProp) => {
           className='h-6 w-8  text-center text-xs outline-none appearance-none m-0'
           type='text'
           value={product.totalCount}
+          onChange={() => (ref.current = product.totalCount)}
           min={1}
+          max={40}
         />
         <span
           onClick={() => {

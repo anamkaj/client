@@ -4,18 +4,17 @@ import { Contact } from './Contact'
 import { Logo } from './Logo'
 import { SubHeader } from './SubHeader'
 import { Model } from '../UI/Model/Model'
-import { SpecialistCall } from '../UI/Poupup/CallingSpecialist/SpecialistCall'
-import { FormPerson } from '../UI/Form/FormPerson/FormPerson'
-import { FormHeaderBtn } from '../UI/Form/FormHeaderBtn/FormHeaderBtn'
-
+import { FormHeaderBtn } from '../UI/Form/FormContactSpecialist/FormHeaderBtn'
+import { FormInstallSpecialist } from '../UI/Form/FormContactSpecialist/FormInstallSpecialist'
 
 export const Header = () => {
+  // Монтаж и Установка - кнопка
   const [installation, setInstallation] = useState(false)
+  // Заказать обратный звонок - кнопка
   const [callback, setCallback] = useState(false)
   const titlePopup = 'Монтаж и Установка'
   const titlePopup2 = 'Заказать обратный звонок'
 
- 
   return (
     <>
       <div className=' bg-white'>
@@ -42,18 +41,14 @@ export const Header = () => {
         </div>
       </div>
       <div className=' flex items-center justify-center'>
+        {/* Выезд специалиста */}
         <div hidden={!installation}>
           <Model
             active={installation}
             setActive={setInstallation}
             titleModel={titlePopup}
           >
-            {
-              <SpecialistCall
-                specialist={installation}
-                setSpecialist={setInstallation}
-              />
-            }
+            {<FormInstallSpecialist setSpecialist={setInstallation} />}
           </Model>
         </div>
         <div hidden={!callback}>
@@ -62,7 +57,7 @@ export const Header = () => {
             setActive={setCallback}
             titleModel={titlePopup2}
           >
-            <FormHeaderBtn />
+            <FormHeaderBtn setSpecialist={setCallback} />
           </Model>
         </div>
       </div>

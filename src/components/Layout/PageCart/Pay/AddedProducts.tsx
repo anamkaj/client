@@ -33,7 +33,10 @@ export const AddedProducts = ({ data }: TotalCartProp) => {
       <div>
         {data.map((x) => {
           return (
-            <div className=' p-2 grid grid-cols-3 gap-4 items-center border border-slate-100 '>
+            <div
+              key={x.id}
+              className=' p-2 grid grid-cols-3 gap-4 items-center border border-slate-100 '
+            >
               <div className=' flex flex-col items-center'>
                 <img
                   className=' w-[100px]'

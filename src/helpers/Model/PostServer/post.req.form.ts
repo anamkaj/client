@@ -1,13 +1,9 @@
 import { addCartStore } from '../Store/Redux/type.product'
 
 export type FormReq = {
-  article?: number
-  title?: string
-  price?: number
   phone: number
   name: string
   email?: string
-  id?: number
   objectCity?: boolean
   internetTrue?: boolean
 }
@@ -22,4 +18,11 @@ type DataCart = {
 export interface IFormReq extends FormReq {
   surname?: string
   data: DataCart[]
+}
+
+export interface IFormOneProductPost extends FormReq {
+  article: number
+  title: string
+  price: number
+  id: number
 }

@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
-import { useForm, useController } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { Person } from '../type.form'
 import { IGProduct } from '../../../../../helpers/Model/GetServer/model.products'
 import { useFormRequest } from '../hook/form.person.query.hook'
-import { AllInput } from '../InputForm/AllInput'
 import { useClosePopupAll } from './close.allPopup'
+import { NameInput } from '../InputForm/Input/NameInput'
+import { PhoneInput } from '../InputForm/Input/PhoneInput'
+import { EmailInput } from '../InputForm/Input/EmailInput'
 
 type PropForm = {
   status?: boolean
@@ -17,7 +19,6 @@ export const FormPerson = ({
   status,
   product,
   setFastOrderModel,
-
   price,
 }: PropForm) => {
   const {
@@ -39,13 +40,19 @@ export const FormPerson = ({
 
   return (
     <div className='  mt-4'>
-      <AllInput
-        handleSubmit={handleSubmit}
-        onSubmit={onSubmitFastOrder}
-        register={register}
-        errors={errors}
-        status={status}
-      />
+      <div>
+        <form onSubmit={handleSubmit(onSubmitFastOrder)}>
+          <div className=' flex flex-col gap-2'>
+            <NameInput register={register} errors={errors} />
+            <PhoneInput register={register} errors={errors} />
+            {!status && <EmailInput register={register} errors={errors} />}
+            <button className=' w-full border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline'>
+              Отправить
+            </button>
+          </div>
+        </form>
+      </div>
+
       {mutation.isIdle && ''}
 
       {mutation.isSuccess && (

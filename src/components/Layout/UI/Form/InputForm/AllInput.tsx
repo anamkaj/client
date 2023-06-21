@@ -10,6 +10,7 @@ import { EmailInput } from './Input/EmailInput'
 import { NameInput } from './Input/NameInput'
 import { PhoneInput } from './Input/PhoneInput'
 import { CheckBox } from './CheckBox/CheckBox'
+import { useNavigate } from 'react-router-dom'
 
 type PropAllInput = {
   handleSubmit: UseFormHandleSubmit<Person>
@@ -28,6 +29,12 @@ export const AllInput = ({
   status,
   specialist,
 }: PropAllInput) => {
+  const navigate = useNavigate()
+
+  const handelGoToThank = () => {
+    navigate('/thanks')
+  }
+
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -36,7 +43,10 @@ export const AllInput = ({
           <NameInput register={register} errors={errors} />
           <PhoneInput register={register} errors={errors} />
           {!status && <EmailInput register={register} errors={errors} />}
-          <button className=' w-full border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline'>
+          <button
+            onClick={() => handelGoToThank()}
+            className=' w-full border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline'
+          >
             Отправить
           </button>
         </div>
