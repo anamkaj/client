@@ -8,7 +8,7 @@ type MenuProp = {
 export const Menu = ({ setInstallation, setCallback }: MenuProp) => {
   return (
     <>
-      <div className='flex gap-2 text-white uppercase py-2 '>
+      <div className='flex  gap-2 text-white uppercase py-2 lg:flex-row   '>
         {/* {menuList.map((_, index) => (
           <button
             id={menuList[index].title}
@@ -20,13 +20,13 @@ export const Menu = ({ setInstallation, setCallback }: MenuProp) => {
         ))} */}
         <button
           onClick={() => setInstallation(true)}
-          className='  bg-gray-500 text-white p-2 rounded-lg text-sm uppercase font-semibold tracking-tight overflow-visible shadow-lg hover:bg-gray-600 transition duration-200 each-in-out'
+          className='  bg-gray-500 text-white p-2 rounded-lg text-xs uppercase font-thin lg:text-sm lg:font-semibold xl:whitespace-nowrap tracking-tight overflow-visible shadow-lg hover:bg-gray-600 transition duration-200 each-in-out'
         >
           Монтаж и Установка
         </button>
         <button
           onClick={() => setCallback(true)}
-          className='  bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 focus:outline-none text-white text-sm uppercase font-bold shadow-md rounded-lg  p-2'
+          className='  bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 focus:outline-none text-white text-xs uppercase font-thin shadow-md rounded-lg  p-2 lg:text-sm lg:font-semibold xl:whitespace-nowrap'
         >
           Заказать обратный звонок
         </button>

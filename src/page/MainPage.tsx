@@ -10,11 +10,11 @@ import { ExtraBenefit } from '../components/Layout/MainPage/ExtraBenefit/ExtraBe
 
 export const MainPage = () => {
   return (
-    <div className={'container mx-auto'}>
+    <div className='container mx-auto'>
       <div className=' grid grid-cols-[250px_minmax(900px,_1fr)]  gap-6'>
-        <>
+        <div className=' hidden lg:block'>
           <ListMenu />
-        </>
+        </div>
         <>
           <BannerMain />
         </>

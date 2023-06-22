@@ -12,10 +12,10 @@ export const CatalogMenu = ({ catalog, setCatalog }: CatalogProp) => {
     <>
       <div
         onMouseEnter={() => setCatalog(false)}
-        className='fixed min-h-full min-w-full top-0 left-0'
+        className='fixed min-h-full min-w-full top-0 left-0 bg-black opacity-5'
       ></div>
-      <div className=' fixed' hidden={!catalog}>
-        <div className='fixed'>
+      <div className=' absolute lg:fixed' hidden={!catalog}>
+        <div className=' absolute lg:fixed'>
           <ListMenu />
         </div>
       </div>

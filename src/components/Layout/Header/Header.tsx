@@ -19,11 +19,11 @@ export const Header = () => {
     <>
       <div className=' bg-white'>
         <div className='container mx-auto py-2'>
-          <div className=' flex justify-centre gap-4 items-center '>
+          <div className=' flex flex-col justify-around gap-4 items-center lg:flex-row  '>
             <div>
               <Logo />
             </div>
-            <div className=' p-2 '>
+            <div className=' p-2 hidden xl:block '>
               <p className=' font-semibold'>
                 ПЕРСОНАЛЬНОЕ СОПРОВОЖДЕНИЕ НА КАЖДОМ ЭТАПЕ ЗАКАЗА!
               </p>
@@ -34,7 +34,6 @@ export const Header = () => {
                 setCallback={setCallback}
               />
             </div>
-            <div></div>
             <Contact />
           </div>
           <SubHeader />
