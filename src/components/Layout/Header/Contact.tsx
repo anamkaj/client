@@ -25,7 +25,7 @@ export const Contact = () => {
               >
                 8 (900) 268-93-60
                 <AiOutlineWhatsApp className=' text-green-500 h-5 w-5' />
-                <span className='font-thin lg:hidden'> Звонок бесплатный!</span>
+                <span className='font-thin mobile:hidden sm:block lg:hidden'> Звонок бесплатный!</span>
               </a>
             </div>
           </div>

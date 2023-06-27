@@ -16,7 +16,7 @@ export const ShopCardHeader = () => {
   }, [])
 
   return (
-    <div className=' hidden lg:block'>
+    <div className=' hidden md:block'>
       <Link to={'/order'}>
         <div className='flex justify-center items-center'>
           <div className='relative py-2'>

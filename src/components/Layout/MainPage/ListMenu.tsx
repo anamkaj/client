@@ -6,8 +6,8 @@ export const ListMenu = () => {
   const { data } = useGetNullCategory()
   const nullCategory = data?.filter((e) => e.parentCategoryId == null)
   return (
-    <>
-      <div className=' bg-slate-50 opacity-100 shadow-lg rounded-sm p-4 w-[50vh]  lg:w-[68vh] xl:w-[27vh] hover:shadow-2xl'>
+    <div className=' absolute z-30 w-full'>
+      <div className=' bg-slate-50 opacity-100 shadow-lg p-2 lg:p-4 rounded-b-xl   hover:shadow-2xl'>
         <ul className=' flex flex-col items-start mb-2 '>
           {nullCategory?.map((x) => {
             return (
@@ -21,6 +21,6 @@ export const ListMenu = () => {
           })}
         </ul>
       </div>
-    </>
+    </div>
   )
 }

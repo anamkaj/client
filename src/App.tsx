@@ -69,7 +69,7 @@ function App() {
         <Route path='thanks' element={<ThankYouPage />}></Route>
       </Routes>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   )
 }

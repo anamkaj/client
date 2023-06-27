@@ -1,9 +1,8 @@
 import { useEffect } from 'react'
 import { IGProduct } from '../../../helpers/Model/GetServer/model.products'
 
-
 interface ValidateScroll extends CheckProps {
-  setHidden: React.Dispatch<React.SetStateAction<boolean>>
+  setHiddenScroll: React.Dispatch<React.SetStateAction<boolean>>
   active: boolean
 }
 
@@ -17,11 +16,11 @@ export const validate = (s: string) => {
   if (s.match(checkInputReg) == null) return true
 }
 
-// Проверка на длиину введенного в поиск слова 
+// Проверка на длиину введенного в поиск слова
 export const useValidateScroll = ({
   data,
   input,
-  setHidden,
+  setHiddenScroll,
   active,
 }: ValidateScroll) => {
   const checkInput = ({ data, input }: CheckProps) => {
@@ -31,9 +30,9 @@ export const useValidateScroll = ({
 
   useEffect(() => {
     if (checkInput({ data, input }) || !active) {
-      setHidden(true)
+      setHiddenScroll(true)
     } else {
-      setHidden(false)
+      setHiddenScroll(false)
     }
   }, [input, active, data])
 }

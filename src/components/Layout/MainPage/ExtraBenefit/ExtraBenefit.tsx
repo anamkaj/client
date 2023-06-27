@@ -6,7 +6,7 @@ import { FcSalesPerformance } from 'react-icons/fc'
 
 export const ExtraBenefit = () => {
   return (
-    <div className=' grid grid-cols-3 mt-10 gap-4'>
+    <div className=' grid grid-cols-3 mt-10 gap-4 '>
       <div className=' flex  items-center justify-start gap-2 border shadow-md p-4'>
         <div>
           <FcTodoList className=' w-16 h-16' />

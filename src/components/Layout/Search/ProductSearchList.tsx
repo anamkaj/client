@@ -15,7 +15,7 @@ export const ProductSearchList = ({ data }: ProductListProp) => {
           <Link
             to={`/product/${translate(x.title)}/${x.id}`}
             key={x.id}
-            className='m-2'
+            className=''
           >
             <div className=' flex items-center gap-4'>
               <p className=' font-light text-xs'>Артикул {x.article}</p>
@@ -25,8 +25,8 @@ export const ProductSearchList = ({ data }: ProductListProp) => {
             <div className=' flex items-center gap-2'>
               <img
                 className=' w-[60px]'
-                src={`https://tmk-v.ru:8080/img/${x.imgFolder}/${x.imgLink}`}
-                alt=''
+                src={`https://tmk-v.ru:8080/img/${x.imgFolder}/${x.imgLink[0]}`}
+                alt={x.altImg}
               />
               <h2 className=' p-2 hover:bg-slate-50 hover:p-2 hover:w-full text-sm'>
                 {' '}
