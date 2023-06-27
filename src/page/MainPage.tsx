@@ -14,8 +14,7 @@ export const MainPage = () => {
       <div className=' flex'>
         <BannerMain />
       </div>
-
-      {/* <>
+      <>
         <ExtraBenefit />
       </>
 
@@ -33,7 +32,7 @@ export const MainPage = () => {
       </>
       <>
         <Advantages />
-      </> */}
+      </>
     </div>
   )
 }
