@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { ListMenu } from '../components/Layout/MainPage/ListMenu'
+import { ListMenu } from '../components/Layout/MainPage/ListMenu/ListMenu'
 import { BannerMain } from '../components/Layout/MainPage/Banner/BannerMain'
 import { Carousel } from '../components/Layout/MainPage/Carousels/Carousel'
 import { BrandBanner } from '../components/Layout/MainPage/BrandBanner/BrandBanner'

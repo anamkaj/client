@@ -16,7 +16,7 @@ export const ShopCardHeader = () => {
   }, [])
 
   return (
-    <div className=' hidden md:block'>
+    <div>
       <Link to={'/order'}>
         <div className='flex justify-center items-center'>
           <div className='relative py-2'>
@@ -25,7 +25,7 @@ export const ShopCardHeader = () => {
                 {countCart?.length}
               </p>
             </div>
-            <AiOutlineShoppingCart className=' w-10 h-10'/>
+            <AiOutlineShoppingCart className=' w-10 h-10' />
           </div>
         </div>
       </Link>

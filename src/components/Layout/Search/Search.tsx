@@ -9,10 +9,10 @@ import { useMediaQuery } from 'react-responsive'
 type InputProp = {
   setActive: React.Dispatch<React.SetStateAction<boolean>>
   active: boolean
-  catalog: boolean
+  
 }
 
-export const Search = ({ setActive, active, catalog }: InputProp) => {
+export const Search = ({ setActive, active }: InputProp) => {
   const [input, setInput] = useState<string>()
   const { product, isError, category } = useSearch(input)
   const isMobileScreen = useMediaQuery({ query: '(max-width: 480px)' })

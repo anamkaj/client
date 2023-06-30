@@ -2,13 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export const Footer = () => {
-  
-
-
   return (
     <div className=' container mx-auto bg-slate-100 rounded-t-xl p-4 mt-5'>
-      <div className=' grid grid-cols-3 justify-center'>
-        <div className=' flex flex-col'>
+      <div className=' grid grid-cols-1 lg:grid-cols-3 justify-center'>
+        <div className=' flex flex-col items-center'>
           <h2 className=' font-semibold text-lg '>Контакты</h2>
           <span className=' font-thin'>Задать вопрос или оформить покупку</span>
           <div className=' mt-4'>
@@ -19,7 +16,7 @@ export const Footer = () => {
             Напишите нам: info@tmk-v.ru
           </p>
         </div>
-        <div>
+        <div className=' flex flex-col items-center'>
           <h2 className=' font-semibold text-lg '>Офис обслуживания</h2>
           <span className=' font-thin'>
             Часы работы: по будням с 9:30 до 18:00
@@ -28,7 +25,7 @@ export const Footer = () => {
             Адрес: г. Краснодар , Ростовское шоссе, 14 / 2
           </p>
         </div>
-        <div>
+        <div className=' flex flex-col items-center'>
           <h2 className=' font-semibold text-lg '> Правовая информация</h2>
           <div className=' flex flex-col mt-2'>
             <Link
@@ -44,18 +41,18 @@ export const Footer = () => {
               Политика конфиденциальности
             </Link>
           </div>
-          <p className=' text-slate-400  font-thin text-base mt-4'>
-            ООО "Интеграл Протект" ИНН 2311248110 ОГРН 1172375092504
-            зарегистрировано 07.11.2017 по юридическому адресу 350072,
-            Краснодарский край, город Краснодар, улица Ростовское шоссе, дом
-            14/2 литер е, офис 412. Статус организации: действующая.
-          </p>
         </div>
       </div>
-      <div className=' mt-4'>
+      <div className=' mt-4 flex items-center'>
+        <p className=' text-slate-400  font-thin text-base'>
+          ООО "Интеграл Протект" ИНН 2311248110 ОГРН 1172375092504
+          зарегистрировано 07.11.2017 по юридическому адресу 350072,
+          Краснодарский край, город Краснодар, улица Ростовское шоссе, дом 14/2
+          литер е, офис 412. Статус организации: действующая.
+        </p>
         <p>
-          © 2006–2023. «ТМК Вектор» системы безопасности и видеонаблюдения в Краснодаре. Все права
-          защищены.
+          © 2006–2023. «ТМК Вектор» системы безопасности и видеонаблюдения в
+          Краснодаре. Все права защищены.
         </p>
       </div>
     </div>

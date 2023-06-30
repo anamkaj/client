@@ -20,7 +20,7 @@ export const Advantages = () => {
   ]
 
   return (
-    <>
+    <div className=' container mx-auto p-2'>
       <p className=' font-medium'>
         Мы предлагаем своим клиентам ассортимент более чем в 5000 наименований
         технических средств от ведущих отечественных и зарубежных производителей
@@ -28,10 +28,10 @@ export const Advantages = () => {
         банка или какого-либо другого объекта системами инженерно-технических
         средств охраны:
       </p>
-      <div className=' grid grid-cols-3 mt-4 mb-4'>
+      <div className=' grid grid-cols-2 lg:grid-cols-3 mt-4 mb-4'>
         {list.map((x, index) => (
           <ul key={index} className=' font-extralight '>
-            <li className=' list-disc'>{x}</li>
+            <li className=' list-disc break-words'>{x}</li>
           </ul>
         ))}
       </div>
@@ -45,6 +45,6 @@ export const Advantages = () => {
         инновационные решения для обеспечения безопасности объектов любого
         масштаба.
       </p>
-    </>
+    </div>
   )
 }
