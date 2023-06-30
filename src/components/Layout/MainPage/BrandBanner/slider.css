@@ -1,0 +1,16 @@
+.slider-list {
+  align-items: center;
+  display: flex;
+}
+
+.nextButtonClassName {
+  display: none;
+}
+
+.prevButtonClassName {
+  display: none;
+}
+
+.pagingDotsClassName {
+  display: none;
+}

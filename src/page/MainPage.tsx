@@ -11,7 +11,7 @@ import { ExtraBenefit } from '../components/Layout/MainPage/ExtraBenefit/ExtraBe
 export const MainPage = () => {
   return (
     <div className='container mx-auto'>
-      <div className=' flex'>
+      <div className=' flex mt-4 lg:mt-0'>
         <BannerMain />
       </div>
       <>

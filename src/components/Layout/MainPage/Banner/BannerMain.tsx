@@ -12,9 +12,9 @@ export const BannerMain = () => {
       >
       
       </div> */}
-      <div className=' hidden lg:w-[310px] lg:block'></div>
+      <div className=' hidden xl:w-[310px] xl:block'></div>
       <div>
-        <img src={imgBanner} alt='' />
+        <img src={imgBanner} className='' alt='Монтаж видеонаблюдения в Краснодаре' />
       </div>
     </>
   )

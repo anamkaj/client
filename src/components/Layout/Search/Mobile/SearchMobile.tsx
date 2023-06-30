@@ -22,18 +22,16 @@ export const SearchMobile = ({
   setInput,
 }: InputMobileProp) => {
   const { active, setActive } = useStateModalWindows()
-  
 
   return (
     <div className=' w-full'>
       {/* Плейсхолдер и икона поиска */}
 
       <div
-        className='  flex items-center justify-around'
+        className='  flex items-center justify-around border-b-2'
         onClick={() => setActive(true)}
       >
         <span>Поиск по товарам</span>
-
         <BsSearch type='submit' className=' cursor-pointer h-5 w-5 ' />
       </div>
       {/* Темный фон для поиска */}

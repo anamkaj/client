@@ -13,7 +13,7 @@ export const SubHeader = () => {
   const [catalog, setCatalog] = useState(false)
   const url = location.pathname
   const isMobileScreen = useMediaQuery({ query: '(max-width: 480px)' })
-  const isMidScreen = useMediaQuery({ query: '(max-width: 768px)' })
+  const isMidScreen = useMediaQuery({ query: '(max-width: 1024px)' })
 
   useEffect(() => {
     setActive(false)
