@@ -11,7 +11,7 @@ export const SubHeader = () => {
   const { active, setActive } = useStateModalWindows()
   const [catalog, setCatalog] = useState(false)
   const [mobileCatalog, setMobileCatalog] = useState(false)
-  const { mainPage, isMobileScreen } = useCatalogState({
+  const { isMobileScreen, stateBackground } = useCatalogState({
     setActive,
     setCatalog,
     setMobileCatalog,
@@ -52,12 +52,14 @@ export const SubHeader = () => {
       <Search setActive={setActive} active={active} />
       <ShopCardHeader />
       {/* Темный фон для каталога */}
+
       <div
+        hidden={stateBackground}
         onMouseEnter={() => setCatalog(false)}
         className={
-          mainPage || isMobileScreen
-            ? 'hidden'
-            : ' z-20 absolute min-h-full min-w-full top-0 left-0 bg-black opacity-10'
+          catalog
+            ? ' z-20 absolute min-h-full min-w-full top-0 left-0 bg-black opacity-10'
+            : ' hidden'
         }
       ></div>
     </div>

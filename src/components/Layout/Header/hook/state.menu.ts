@@ -18,6 +18,7 @@ export const useCatalogState = ({
   const mainPage = url === '/'
   const isMobileScreen = useMediaQuery({ query: '(max-width: 480px)' })
   const isMidScreen = useMediaQuery({ query: '(max-width: 1024px)' })
+  const stateBackground = !isMidScreen && mainPage
 
   useEffect(() => {
     setActive(false)
@@ -32,5 +33,5 @@ export const useCatalogState = ({
     }
   }, [location.key])
 
-  return { mainPage, isMobileScreen, isMidScreen }
+  return { mainPage, isMobileScreen, isMidScreen, stateBackground }
 }
