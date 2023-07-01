@@ -9,7 +9,6 @@ type CrumbsProp = {
 
 export const BreadCrumbs = ({ id }: CrumbsProp) => {
   const { linkCrumb } = useCramsArray(id)
-  
 
   return (
     <>

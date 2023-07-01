@@ -17,6 +17,11 @@ export const SubHeader = () => {
     setMobileCatalog,
   })
 
+  const closeMenuWindows = () => {
+    setCatalog(false)
+    setMobileCatalog(false)
+  }
+
   return (
     <div className=' mt-8 flex gap-2 items-end '>
       {/* кнопки каталога мобильная версия  */}
@@ -55,9 +60,9 @@ export const SubHeader = () => {
 
       <div
         hidden={stateBackground}
-        onMouseEnter={() => setCatalog(false)}
+        onMouseEnter={() => closeMenuWindows()}
         className={
-          catalog
+          catalog || mobileCatalog
             ? ' z-20 absolute min-h-full min-w-full top-0 left-0 bg-black opacity-10'
             : ' hidden'
         }
