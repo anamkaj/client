@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-
 import { Link } from 'react-router-dom'
 import { useCramsArray } from './hook/crumb.Array'
 
@@ -23,7 +22,7 @@ export const BreadCrumbs = ({ id }: CrumbsProp) => {
                   <Link
                     state={{ id: d.id, slug: d.slug }}
                     to={`/category/${d.slug}/${d.id}`}
-                    className=' font-medium text-sm text-gray-500 hover:text-gray-800 hover:underline'
+                    className=' font-medium text-xs lg:text-base text-gray-500 hover:text-gray-800 hover:underline'
                     key={d.id}
                   >
                     {d.name + ' / '}

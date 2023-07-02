@@ -6,7 +6,11 @@ import { HiAdjustmentsVertical } from 'react-icons/hi2'
 import { changeGrid } from '../../../store/NanoStore/CatalogStore/grid.store'
 import { useFilterChange } from './hook/header.filter'
 
-export const HeaderFilter = () => {
+type FilterProp = {
+  isMobileScreen: boolean
+}
+
+export const HeaderFilter = ({ isMobileScreen }: FilterProp) => {
   const { handleChange, select } = useFilterChange()
 
   return (
@@ -30,14 +34,16 @@ export const HeaderFilter = () => {
           })}
         </select>
       </div>
-      <div className='flex gap-3'>
-        <button onClick={() => changeGrid(true)}>
-          <BsFillGrid3X3GapFill className='h-5 w-5' />
-        </button>
-        <button onClick={() => changeGrid(false)}>
-          <BsFillGrid3X2GapFill className='h-5 w-5 ' />
-        </button>
-      </div>
+      {!isMobileScreen && (
+        <div className='flex gap-3'>
+          <button onClick={() => changeGrid(true)}>
+            <BsFillGrid3X3GapFill className='h-5 w-5' />
+          </button>
+          <button onClick={() => changeGrid(false)}>
+            <BsFillGrid3X2GapFill className='h-5 w-5 ' />
+          </button>
+        </div>
+      )}
     </div>
   )
 }

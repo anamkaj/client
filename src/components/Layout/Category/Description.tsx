@@ -1,7 +1,6 @@
 import React from 'react'
 import { ICategory } from '../../../helpers/Model/GetServer/query.category.model'
 import ReactMarkdown from 'react-markdown'
-import { divide } from 'lodash'
 
 type Props = {
   category: ICategory[] | undefined
@@ -11,11 +10,11 @@ type Props = {
 export const Description = ({ category, id }: Props) => {
   return (
     <div className=' mt-5 mb-8'>
-      <h2 className=' font-normal'>
+      <h2 className=' font-normal text-xs lg:text-sm'>
         {category?.map((e) => {
           if (e.id == Number(id))
             return (
-              <div>
+              <div key={e.id}>
                 <ReactMarkdown>{e.description}</ReactMarkdown>
               </div>
             )

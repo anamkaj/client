@@ -47,14 +47,14 @@ export const ProductsCart = ({
     return <ProductCartGrid data={data} URL={URL} />
   }
   //________________________________________
-  // Формат сетки по умолчанию квадратики
+  // Формат сетки по умолчанию плитка
   //________________________________________
 
   return (
     <motion.div variants={variants} initial='hidden' animate='visible'>
       <div
         className='flex flex-col items-center cursor-pointer border +
-     border-gray-200 px-4 py-2 rounded-lg shadow-lg bg-white box-border h-[380px] w-[300px] p-4 '
+     border-gray-200 px-4 py-2 rounded-lg shadow-lg bg-white box-border h-[380px] w-[335px] '
       >
         <div className=' flex w-full justify-between'>
           <ArticleBadges data={data} />

@@ -6,9 +6,9 @@ module.exports = {
     extend: {},
     screens: {
       mobile: '380px',
-      // => @media (min-width: 640px) { ... }
-      sm: '640px',
-      // => @media (min-width: 640px) { ... }
+      // => @media (min-width: 380px) { ... }
+      sm: '480',
+      // => @media (min-width: 480px) { ... }
 
       md: '768px',
       // => @media (min-width: 768px) { ... }
@@ -17,10 +17,10 @@ module.exports = {
       // => @media (min-width: 1024px) { ... }
 
       xl: '1366px',
-      // => @media (min-width: 1280px) { ... }
+      // => @media (min-width: 1366px) { ... }
 
-      '2xl': '1920',
-      // => @media (min-width: 1536px) { ... }
+      // desktop: '1920px',
+      // => @media (min-width: 1920px) { ... }
     },
   },
   variants: {

@@ -40,7 +40,7 @@ export const ScrollListMobile = ({
 
   return (
     <div hidden={hiddenScroll}>
-      <div className='absolute z-10 flex flex-col gap-4 p-2 bg-white rounded-b-xl left-0 top-0 '>
+      <div className='absolute z-10 flex flex-col gap-4 p-2 bg-white rounded-b-xl left-0 top-14 '>
         {/* кнопка возврата на страницу */}
         <div onClick={() => closeModal()} className=' flex items-center gap-2'>
           <span>

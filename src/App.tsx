@@ -13,8 +13,10 @@ import { Post } from './page/Post'
 import { UserAgreement } from './components/Layout/Policy/UserAgreement'
 import { PrivacyPolicy } from './components/Layout/Policy/PrivacyPolicy'
 import { ThankYouPage } from './page/ThankYouPage'
+import { useMediaQuery } from 'react-responsive'
 
 function App() {
+  const isMobileScreen = useMediaQuery({ query: '(max-width: 480px)' })
   const addObjLocalStore = useAppSelector((state) => state.cartReducer.cart)
   if (localStorage.length <= 0) {
     localStorage.setItem('countCart', JSON.stringify(addObjLocalStore))
@@ -32,12 +34,21 @@ function App() {
         <Route path='logistic' element={<MainPage />}></Route>
         <Route path='order' element={<ShopCardPage />}></Route>
         <Route path='category'>
-          <Route path=':id' element={<Category />}></Route>
-          <Route path=':name/:id' element={<Category />}></Route>
+          <Route
+            path=':id'
+            element={<Category isMobileScreen={isMobileScreen} />}
+          ></Route>
+          <Route
+            path=':name/:id'
+            element={<Category isMobileScreen={isMobileScreen} />}
+          ></Route>
         </Route>
 
         <Route path='product'>
-          <Route path=':id' element={<ProductList />}></Route>
+          <Route
+            path=':id'
+            element={<ProductList isMobileScreen={isMobileScreen} />}
+          ></Route>
         </Route>
 
         <Route>

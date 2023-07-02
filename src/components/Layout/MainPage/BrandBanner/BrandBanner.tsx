@@ -40,9 +40,9 @@ export const BrandBanner = () => {
         </h2>
       </div>
       <Carousel {...params}>
-        {imgPopularBrand.map((x) => {
+        {imgPopularBrand.map((x, index) => {
           return (
-            <div className='p-4 w-[30vw] lg:w-[15vw] '>
+            <div key={index} className='p-4 w-[30vw] lg:w-[15vw] '>
               <img
                 src={`https://tmk-v.ru:8080/img/brand_banner/${x}`}
                 alt='brandCCTV'

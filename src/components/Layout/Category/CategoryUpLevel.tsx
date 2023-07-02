@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useRef, lazy, Suspense } from 'react'
+import React from 'react'
 import { CategoryTwo } from './CategoryTwo'
 import { ICategory } from '../../../helpers/Model/GetServer/query.category.model'
 import { Link } from 'react-router-dom'
-import { catStore } from '../../../store/NanoStore/CategoryStore/category.store'
-import { useStore } from '@nanostores/react'
 import { FadeLoader } from 'react-spinners'
-
+import { useCategoryFilter } from './hook/filter.category'
 
 type Props = {
   category: ICategory[] | undefined
@@ -13,10 +11,8 @@ type Props = {
   loadingCategory: boolean
 }
 
-export const CategoryOne = ({ category, id, loadingCategory }: Props) => {
-  const storeCat = useStore(catStore)
-  const mainCategory = storeCat.filter((x) => x.parentCategoryId == Number(id))
-  
+export const CategoryUpLevel = ({ category, id, loadingCategory }: Props) => {
+  const { mainCategory } = useCategoryFilter(Number(id))
 
   if (loadingCategory) {
     return (
@@ -29,16 +25,16 @@ export const CategoryOne = ({ category, id, loadingCategory }: Props) => {
   }
 
   return (
-    <>
+    <div className=' flex gap-2 flex-wrap'>
       {mainCategory?.map((e) => {
         return (
           <div
             key={e.id}
-            className=' flex flex-col  max-w-sm rounded-lg  shadow-lg  box-border w-64 h-164 p-2 items-center '
+            className=' flex flex-col rounded-lg  shadow-lg  box-border w-64 p-2 items-center '
           >
             <div className=' flex h-32 w-32 items-center '>
               <img
-                className='mt-4 '
+                className='mt-4'
                 src={`https://tmk-v.ru:8080/img/${e.folderImg}/${e.img}`}
                 alt={''}
               />
@@ -60,6 +56,6 @@ export const CategoryOne = ({ category, id, loadingCategory }: Props) => {
           </div>
         )
       })}
-    </>
+    </div>
   )
 }

@@ -12,7 +12,11 @@ import { gridState } from '../../../store/NanoStore/CatalogStore/grid.store'
 import { motion } from 'framer-motion'
 import { variants } from '../UI/animation/category'
 
-export const ProductList = () => {
+type ProductListProp = {
+  isMobileScreen: boolean
+}
+
+export const ProductList = ({ isMobileScreen }: ProductListProp) => {
   const { id } = useParams()
   const { product, isLoading, nextPage, checkLength } = usePagination()
   const gridStore = useStore(gridState)
@@ -26,15 +30,13 @@ export const ProductList = () => {
   return (
     <div className='container mx-auto py-10'>
       <div className=' flex text-xl mb-5 '>
-        <span className=' font-extralight text-'>{cat[0]?.name}</span>
-        <span> - </span>{' '}
+        <span className=' font-extralight'>{cat[0]?.name}</span>
         <span className=' font-bold text-gray-700'>
-          {' '}
-          {product?.length} Товара(ов)
+          - {product?.length} Товара(ов)
         </span>
       </div>
-      <HeaderFilter />
-      <div className='flex gap-y-2 gap-x-2 flex-wrap  '>
+      <HeaderFilter isMobileScreen={isMobileScreen} />
+      <div className='flex gap-y-2 flex-wrap w-full justify-between'>
         {/* Рендеринг продуктовых карточек  */}
 
         {product?.map((product: IGProduct) => {

@@ -5,6 +5,8 @@ import { TitleProductCarousel } from './TitleProductCarousel'
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from 'react-icons/ai'
 import Carousel from 'nuka-carousel'
 import { useMediaQuery } from 'react-responsive'
+import { LazyLoad } from '../../LazyLoad/LazyLoad'
+import './sliderReviews.css'
 
 export const ReviewsCarousel = () => {
   const { data, isLoading } = useReviewsCarousel()
@@ -16,16 +18,15 @@ export const ReviewsCarousel = () => {
     slidesToShow: countSlide,
     autoplay: true,
     defaultControlsConfig: {
-      containerClassName: 'containerSlider',
-      nextButtonClassName: 'nextButtonSlider',
-      prevButtonClassName: 'prevButtonSlider',
-      pagingDotsClassName: 'pagingDotsSlider',
+      containerClassName: 'containerSliderReviews',
+      nextButtonClassName: 'nextButtonSliderReviews',
+      prevButtonClassName: 'prevButtonSliderReviews',
+      pagingDotsClassName: 'pagingDotsSliderReviews',
       nextButtonText: <AiOutlineDoubleRight />,
       prevButtonText: <AiOutlineDoubleLeft />,
     },
     wrapAround: true,
-    disableAnimation: false,
-    className: 'sliderStyle',
+    // className: 'sliderStyle',
     cellSpacing: cellSpacing,
     speed: 1000,
   }
@@ -34,9 +35,13 @@ export const ReviewsCarousel = () => {
       setCountSlide(1)
       setCellSpacing(80)
     } else {
-      setCountSlide(2)
+      setCountSlide(3)
     }
   })
+
+  if (isLoading) {
+    return <LazyLoad />
+  }
 
   return (
     <div className=' relative'>
@@ -50,7 +55,7 @@ export const ReviewsCarousel = () => {
         {data?.map((x) => {
           return (
             <div key={x.id}>
-              <div className=' border p-4 shadow-lg rounded-lg mb-10 m-3 h-[260px]'>
+              <div className=' border p-4 shadow-lg rounded-lg mb-10 m-3 h-[260px] w-[65vw] md:w-[30vw] lg:w-[30vw] xl:w-[20vw] 2xl:w-full '>
                 <div className=' font-extralight text-xs text-slate-400'>
                   {x.createdAt.toString().slice(0, 10)}
                 </div>

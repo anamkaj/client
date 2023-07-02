@@ -1,16 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useGetAllCategory } from '../components/Layout/Category/hook/category.query.hook'
-import { CategoryOne } from '../components/Layout/Category/CategoryOne'
+import { CategoryUpLevel } from '../components/Layout/Category/CategoryUpLevel'
 import { BreadCrumbs } from '../components/Layout/Category/BreadСrumbs'
 import { addCatStore } from '../store/NanoStore/CategoryStore/add.store'
 import { Description } from '../components/Layout/Category/Description'
 import { ProductList } from '../components/Layout/CatalogCartProduct/ProductList'
 import { LazyLoad } from '../components/Layout/LazyLoad/LazyLoad'
+import { MobileCatalog } from './Mobile/MobileCatalog'
 
-export const Category = () => {
+type CategoryProp = {
+  isMobileScreen: boolean
+}
+
+export const Category = ({ isMobileScreen }: CategoryProp) => {
   const { id } = useParams()
-
   const paramQuery = {
     count: 1000,
     id: Number(id),
@@ -38,15 +42,23 @@ export const Category = () => {
     <div className=' container mx-auto mt-5 mb-5'>
       <BreadCrumbs id={Number(id)} />
       <Description category={category} id={id} />
-      <div className=' flex gap-6 flex-wrap '>
-        <CategoryOne
+
+      {isMobileScreen ? (
+        <MobileCatalog
           category={category}
           id={id}
           loadingCategory={loadingCategory}
         />
-      </div>
+      ) : (
+        <CategoryUpLevel
+          category={category}
+          id={id}
+          loadingCategory={loadingCategory}
+        />
+      )}
+
       <div>
-        <ProductList />
+        <ProductList isMobileScreen={isMobileScreen} />
       </div>
     </div>
   )

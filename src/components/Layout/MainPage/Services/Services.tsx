@@ -49,7 +49,7 @@ export const Services = () => {
   ]
 
   return (
-    <div className=' '>
+    <>
       <div className=' mt-10 mb-4 '>
         <h2 className='font-bold text-xl lg:text-2xl text-slate-600 uppercase'>
           {' '}
@@ -60,10 +60,10 @@ export const Services = () => {
         {listService.map((x, index) => (
           <div
             key={index}
-            className=' w-full border shadow-md p-4 rounded-md flex flex-col items-center gap-2 bg-gradient-to-r from-rose-50 via-fuchsia-50 to-indigo-50'
+            className=' w-full border shadow-md p-4 rounded-md flex flex-col items-center gap-2 bg-slate-50'
           >
             <div className=' h-[100px]'>
-              <p className=' font-semibold uppercase text-sm'>
+              <p className=' font-semibold uppercase text-sm text-center'>
                 {x.description}
               </p>
             </div>
@@ -78,6 +78,6 @@ export const Services = () => {
           </div>
         ))}
       </div>
-    </div>
+    </>
   )
 }

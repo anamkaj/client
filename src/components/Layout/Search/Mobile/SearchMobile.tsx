@@ -31,7 +31,7 @@ export const SearchMobile = ({
         className='  flex items-center justify-around border-b-2'
         onClick={() => setActive(true)}
       >
-        <span>Поиск по товарам</span>
+        <span className=' text-slate-500'>Поиск по товарам</span>
         <BsSearch type='submit' className=' cursor-pointer h-5 w-5 ' />
       </div>
       {/* Темный фон для поиска */}
@@ -45,20 +45,20 @@ export const SearchMobile = ({
       {/* Окно поиска для мобильной версии */}
       <div
         hidden={!active}
-        className='z-10 absolute top-2 left-0 min-h-full min-w-full bg-white shadow-xl'
+        className='z-10 absolute top-0 left-0 min-h-full min-w-full bg-white shadow-xl'
       >
         <div>
           <input
             value={input || ''}
             onChange={(e) => setInput(e.target.value)}
-            className='bg-white rounded-lg border-2 py-2 px-2 leading-tight focus:outline-none font-thin w-full '
+            className='bg-white rounded-lg border-2 py-2 px-2 leading-tight focus:outline-none font-thin w-full mt-4 '
             type='text'
             maxLength={30}
             minLength={5}
             placeholder={!active ? 'Поиск по товарам' : 'Введите запрос'}
           />
 
-          <div className=' absolute top-2 right-10'>
+          <div className=' z-10 absolute top-6 right-10'>
             {active && (
               <MdClear
                 onClick={() => setInput('')}

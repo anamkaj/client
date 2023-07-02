@@ -20,7 +20,7 @@ export const MobileShopCart = () => {
       <Link to={'/order'}>
         <div className='flex justify-center items-center p-4'>
           <div className='relative py-2'>
-            <div className=' bottom-9 absolute left-6'>
+            <div className=' bottom-7 absolute left-4'>
               <p className='flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-3 text-xs text-white'>
                 {countCart?.length}
               </p>
