@@ -41,6 +41,7 @@ export const CountView = ({ data, gridStore, URL }: IProductProps) => {
         <div className='bg-white font-light text-xs rounded-r-lg hover:text-blue-500'>
           {data.watchProduct}
         </div>
+        
         {/*Счетчик Рейтинг и отзывы*/}
         <div>
           <div className='flex items-center p-2'>

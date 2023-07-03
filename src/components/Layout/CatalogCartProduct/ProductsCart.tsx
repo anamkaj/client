@@ -24,9 +24,6 @@ export const ProductsCart = ({
   gridStore,
   nameCategory,
 }: IProductProps) => {
-  
-  // Транслит URL ссылок
-  // const translate = tr(data.title).toLowerCase().replace(/\W/g, '-')
   //Ссылка для перехода в карточку товара
   const URL = `/product/${nameCategory}/${translate(data.title)}/${data.id}`
 

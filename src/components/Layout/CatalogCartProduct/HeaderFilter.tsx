@@ -5,6 +5,7 @@ import { selectValue } from './helper/filter.header'
 import { HiAdjustmentsVertical } from 'react-icons/hi2'
 import { changeGrid } from '../../../store/NanoStore/CatalogStore/grid.store'
 import { useFilterChange } from './hook/header.filter'
+import { BiFilterAlt } from 'react-icons/bi'
 
 type FilterProp = {
   isMobileScreen: boolean
@@ -16,9 +17,8 @@ export const HeaderFilter = ({ isMobileScreen }: FilterProp) => {
   return (
     <div className='flex justify-between'>
       <div className=' flex gap-4'>
-        <span>
-          <HiAdjustmentsVertical className=' w-7 h-7' />
-        </span>
+        {!isMobileScreen && <HiAdjustmentsVertical className=' w-7 h-7' />}
+
         <select
           value={select}
           onChange={(e) => handleChange(e.target.value)}
@@ -34,6 +34,7 @@ export const HeaderFilter = ({ isMobileScreen }: FilterProp) => {
           })}
         </select>
       </div>
+      {isMobileScreen && <BiFilterAlt className=' w-7 h-7 cursor-pointer' />}
       {!isMobileScreen && (
         <div className='flex gap-3'>
           <button onClick={() => changeGrid(true)}>
