@@ -1,7 +1,7 @@
 import React from 'react'
-import { ICategory } from '../../helpers/Model/GetServer/query.category.model'
+import { ICategory } from '../../../../helpers/Model/GetServer/query.category.model'
 import { FadeLoader } from 'react-spinners'
-import { useCategoryFilter } from '../../components/Layout/Category/hook/filter.category'
+import { useCategoryFilter } from '../hook/filter.category'
 import { Link } from 'react-router-dom'
 
 type CategoryMobileProps = {
@@ -32,7 +32,7 @@ export const MobileCatalog = ({
           <Link
             to={`/category/${e.slug}/${e.id}`}
             key={e.id}
-            className='  w-[40vw] h-[110px] flex flex-col rounded-lg  shadow-lg items-center '
+            className='  w-[43vw] h-[110px] flex flex-col rounded-lg  shadow-lg items-center '
           >
             <div className=' mt-2 '>
               <img

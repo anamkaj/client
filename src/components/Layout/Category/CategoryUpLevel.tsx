@@ -25,7 +25,7 @@ export const CategoryUpLevel = ({ category, id, loadingCategory }: Props) => {
   }
 
   return (
-    <div className=' flex gap-2 flex-wrap justify-between'>
+    <div className=' flex gap-2 flex-wrap justify-center xl:justify-normal'>
       {mainCategory?.map((e) => {
         return (
           <div

@@ -23,49 +23,47 @@ export const ButtonCard = ({ data }: IProductProps) => {
 
   return (
     <div>
-      <div>
-        {checkCartColorButton == undefined ? (
-          <button
-            onClick={() =>
-              dispatch(
-                addToCart({
-                  id: data.id,
-                  title: data.title,
-                  price: Number(data.price),
-                  img: data.imgLink[0],
-                  imgFolder: data.imgFolder,
-                  totalCount: 1,
-                  sale: data.discount,
-                }),
-              )
-            }
-          >
-            <span>
-              <BsFillCartCheckFill className=' w-10 h-10' />
-            </span>
-          </button>
-        ) : (
-          <button
-            onClick={() =>
-              dispatch(
-                removeToCart({
-                  id: data.id,
-                  title: data.title,
-                  price: Number(data.price),
-                  img: data.imgLink[0],
-                  imgFolder: data.imgFolder,
-                  totalCount: 1,
-                  sale: data.discount,
-                }),
-              )
-            }
-          >
-            <span>
-              <BsCartDash className=' w-10 h-10' />
-            </span>
-          </button>
-        )}
-      </div>
+      {checkCartColorButton == undefined ? (
+        <button
+          onClick={() =>
+            dispatch(
+              addToCart({
+                id: data.id,
+                title: data.title,
+                price: Number(data.price),
+                img: data.imgLink[0],
+                imgFolder: data.imgFolder,
+                totalCount: 1,
+                sale: data.discount,
+              }),
+            )
+          }
+        >
+          <span>
+            <BsFillCartCheckFill className=' w-10 h-10' />
+          </span>
+        </button>
+      ) : (
+        <button
+          onClick={() =>
+            dispatch(
+              removeToCart({
+                id: data.id,
+                title: data.title,
+                price: Number(data.price),
+                img: data.imgLink[0],
+                imgFolder: data.imgFolder,
+                totalCount: 1,
+                sale: data.discount,
+              }),
+            )
+          }
+        >
+          <span>
+            <BsCartDash className=' w-10 h-10' />
+          </span>
+        </button>
+      )}
     </div>
   )
 }

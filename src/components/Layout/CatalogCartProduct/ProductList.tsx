@@ -31,7 +31,11 @@ export const ProductList = ({ isMobileScreen }: ProductListProp) => {
 
   return (
     <div className='container mx-auto py-10'>
-      <div className=' flex text-xl mb-5 '>
+      <div
+        className={
+          isMobileScreen ? ' flex text-xs mb-5 ' : ' flex text-lg mb-5 '
+        }
+      >
         <span className=' font-extralight'>{cat[0]?.name}</span>
         <span className=' font-bold text-gray-700'>
           - {product?.length} Товара(ов)

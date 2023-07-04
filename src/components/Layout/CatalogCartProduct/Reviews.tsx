@@ -2,7 +2,6 @@ import React from 'react'
 import { IGProduct } from '../../../helpers/Model/GetServer/model.products'
 import { HiOutlineChatBubbleBottomCenterText } from 'react-icons/hi2'
 import { Link } from 'react-router-dom'
-import { useScrollToTop } from '../SingleCart/hook/scroll.elem'
 
 interface IProductProps {
   data: IGProduct

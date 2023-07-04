@@ -16,7 +16,7 @@ export const TitleProductCart = ({ data, URL }: TitleProp) => {
       <Link
         onClick={() => countViewInc()}
         to={URL}
-        className=' flex font-light text-black text-sm text-center mb-2'
+        className=' flex font-light text-black text-sm text-center mb-2 h-8'
       >
         {data.title.length > 70
           ? data.title.slice(0, 75) + '...'

@@ -11,9 +11,9 @@ export const MobileTitleProduct = ({ data, URL }: MobileTitleProp) => {
   return (
     <Link
       to={URL}
-      className=' flex font-light text-black text-sm text-center mb-2'
+      className=' flex font-light text-black text-sm text-center h-[70px]'
     >
-      {data.title.length > 70 ? data.title.slice(0, 75) + '...' : data.title}
+      {data.title.length > 60 ? data.title.slice(0, 60) + '...' : data.title}
     </Link>
   )
 }

@@ -7,7 +7,7 @@ import { addCatStore } from '../store/NanoStore/CategoryStore/add.store'
 import { Description } from '../components/Layout/Category/Description'
 import { ProductList } from '../components/Layout/CatalogCartProduct/ProductList'
 import { LazyLoad } from '../components/Layout/LazyLoad/LazyLoad'
-import { MobileCatalog } from './Mobile/MobileCatalog'
+import { MobileCatalog } from '../components/Layout/Category/Mobile/MobileCatalog'
 
 type CategoryProp = {
   isMobileScreen: boolean

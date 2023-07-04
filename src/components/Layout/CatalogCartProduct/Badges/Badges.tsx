@@ -30,7 +30,7 @@ export const QuantityBadges = ({ data }: IProductProps) => {
 
 export const SalesBadges = ({ data }: IProductProps) => {
   return (
-    <div className=' w-full ml-4 mt-2 flex items-start gap-1 right-[80px] font-extralight uppercase text-[10px]'>
+    <div className=' w-full ml-4 mt-auto flex items-start gap-1 right-[80px] font-extralight uppercase text-[10px]'>
       <span className=' font-light bg-green-200 p-1 rounded-lg'>
         Купили уже
       </span>

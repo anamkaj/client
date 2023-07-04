@@ -4,14 +4,12 @@ import { translate } from '../helper/translate.url'
 import { FadeLoader } from 'react-spinners'
 import { motion } from 'framer-motion'
 import { variants } from '../../UI/animation/category'
-import { ImgProductCart } from '../ImgProductCart'
-import { TitleProductCart } from '../TitleProductCart'
-import { ArticleBadges, QuantityBadges, SalesBadges } from '../Badges/Badges'
 import { ButtonCard } from '../Button/ButtonCard/ButtonCard'
 import { MobileImgProduct } from './MobileImgProduct'
-import { Link } from 'react-router-dom'
 import { useCountViewInc } from '../hook/count.view.inc'
 import { MobileTitleProduct } from './MobileTitleProduct'
+import { QuantityBadges, SalesBadges } from '../Badges/Badges'
+import { WatchProduct } from '../CountreView/WatchProduct'
 
 interface IProductLsProp {
   data: IGProduct
@@ -57,18 +55,22 @@ export const MobileProductList = ({
 
         <MobileImgProduct data={data} URL={URL} />
 
-        <MobileTitleProduct data={data} URL={URL}  />
+        <MobileTitleProduct data={data} URL={URL} />
 
         {/* Счетчики отзывов  */}
 
         {/* <CountView key={data.id} data={data} gridStore={gridStore} URL={URL} /> */}
 
-        <SalesBadges data={data} />
+        {/*Счетчик просмотров*/}
+        <div className=' flex items-center justify-between mt-auto '>
+          <WatchProduct data={data} />
+          <SalesBadges data={data} />
+        </div>
 
         {/* Блок с ценами и кнопка */}
         <div className='w-full flex justify-between items-center mt-auto mb-0 '>
           <div className='flex gap-2 flex-col'>
-            <div className=' bg-gray-100 rounded-lg  py-0'>
+            <div className=' bg-gray-100 rounded-lg  py-0 p-2'>
               <span className={'font-light text-sm mb-2 line-through'}>
                 {data.price.toLocaleString('ru')} ₽
               </span>

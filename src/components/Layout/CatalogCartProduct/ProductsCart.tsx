@@ -1,7 +1,7 @@
 import React from 'react'
 import { IGProduct } from '../../../helpers/Model/GetServer/model.products'
 import { ButtonCard } from './Button/ButtonCard/ButtonCard'
-import { CountView } from './CountView'
+import { CountView } from './CountreView/CountView'
 import { ArticleBadges, QuantityBadges, SalesBadges } from './Badges/Badges'
 import { FadeLoader } from 'react-spinners'
 import { ProductCartGrid } from './Grid/ProductCartGrid'
@@ -71,7 +71,7 @@ export const ProductsCart = ({
         <SalesBadges data={data} />
 
         {/* Блок с ценами и кнопка */}
-        <div className='flex gap-16 items-center mt-auto mb-0 '>
+        <div className='flex w-full items-center mt-auto mb-0 justify-between'>
           <div className='flex gap-2'>
             <p className=' font-bold text-xl'>
               {Math.round(data.price * (data.discount / 11)).toLocaleString(
@@ -79,7 +79,7 @@ export const ProductsCart = ({
               )}{' '}
               ₽
             </p>
-            <button className=' bg-gray-100 rounded-lg  py-0'>
+            <button className=' bg-gray-100 rounded-lg  py-0 p-2'>
               <span className={'font-light text-sm mb-2 line-through'}>
                 {data.price.toLocaleString('ru')} ₽
               </span>
