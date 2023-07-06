@@ -25,12 +25,12 @@ export const CategoryUpLevel = ({ category, id, loadingCategory }: Props) => {
   }
 
   return (
-    <div className=' flex gap-2 flex-wrap justify-center xl:justify-normal'>
+    <div className=' flex gap-2 flex-wrap justify-center'>
       {mainCategory?.map((e) => {
         return (
           <div
             key={e.id}
-            className=' flex flex-col rounded-lg  shadow-lg  box-border w-64 p-2 items-center '
+            className=' flex flex-col rounded-lg  shadow-lg  box-border w-[300px] p-2 items-center '
           >
             <div className=' flex h-32 w-32 items-center '>
               <img

@@ -20,10 +20,17 @@ import { CallSingleCart } from '../components/Layout/SingleCart/CallingSpecialis
 import { motion } from 'framer-motion'
 import { item } from '../components/Layout/UI/animation/category'
 import { useScrollToTop } from '../components/Layout/SingleCart/hook/scroll.elem'
-import { FormHeaderBtn } from '../components/Layout/UI/Form/FormContactSpecialist/FormHeaderBtn'
 import { FormInstallSpecialist } from '../components/Layout/UI/Form/FormContactSpecialist/FormInstallSpecialist'
 
-export const SingleProductCart = () => {
+type SingleCartProp = {
+  isMobileScreen: boolean
+  isMidScreen: boolean
+}
+
+export const SingleProductCart = ({
+  isMobileScreen,
+  isMidScreen,
+}: SingleCartProp) => {
   const { id } = useParams()
   const [activeTab, setActiveTab] = useState(1)
   const { data: product, isLoading } = useOneProduct(Number(id))
@@ -54,9 +61,72 @@ export const SingleProductCart = () => {
 
   return (
     <motion.div initial='hidden' animate='visible' variants={item}>
-      <div className={'container mx-auto mt-10'}>
+      <div className='container mx-auto mt-10'>
         <Crumbs id={product[0].categoryId} />
-        <h1 className={'font-bold text-2xl mt-5'}>{product[0].title}</h1>
+        <h1 className='font-bold text-2xl mt-5'>{product[0].title}</h1>
+
+        <div
+          className={
+            isMobileScreen
+              ? 'flex flex-wrap'
+              : 'grid grid-cols-[400px_minmax(400px,_1fr)_400px] gap-4'
+          }
+        >
+          {/*Артикул и количество отзывов Слайд с фото  */}
+          <div>
+            <HeaderSingleProduct
+              setActiveTab={setActiveTab}
+              product={product}
+              scroll={scroll}
+            />
+            <CarouselProduct product={product} />
+          </div>
+
+          {/*Характеристики*/}
+
+          {!isMidScreen && (
+            <div className=' mt-20 '>
+              <h2 className='font-light'>Технические характеристики</h2>
+              <TablePropsProduct
+                product={product}
+                setActiveTab={setActiveTab}
+              />
+
+              <div className=' flex mt-2 items-center'>
+                <CharacteristicsBtn
+                  setActiveTab={setActiveTab}
+                  scroll={scroll}
+                />
+                {/* <ServicesBtn setActiveTab={setActiveTab} /> */}
+                <DescriptionBtn setActiveTab={setActiveTab} scroll={scroll} />
+                <ReviewsBtn setActiveTab={setActiveTab} scroll={scroll} />
+              </div>
+            </div>
+          )}
+
+          {/*Карточка добавления в корзину (справа)*/}
+          <div className={isMobileScreen ? 'mt-[180px]' : ''}>
+            <CartPrice
+              product={product}
+              setActive={setActive}
+              setFastOrderModel={setFastOrderModel}
+              setCountPopupProduct={setCountPopupProduct}
+              setCountFastOrderProduct={setCountFastOrderProduct}
+            />
+            <CallSingleCart setSpecialist={setSpecialist} />
+          </div>
+        </div>
+
+        {/*описание и характеристики TAB*/}
+        <div ref={allToScroll}>
+          <TabSingleCart
+            isMobileScreen={isMobileScreen}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+            product={product}
+          />
+        </div>
+
         {/*Модальное окно/ Добавление в корзину */}
         <div hidden={!active}>
           <Model setActive={setActive} active={active} titleModel={titleModel}>
@@ -94,54 +164,6 @@ export const SingleProductCart = () => {
           >
             <FormInstallSpecialist setSpecialist={setSpecialist} />
           </Model>
-        </div>
-        <div
-          className={'grid grid-cols-[400px_minmax(450px,_1fr)_400px] gap-4'}
-        >
-          {/*Артикул и количество отзывов Слайд с фото  */}
-          <div>
-            <HeaderSingleProduct
-              setActiveTab={setActiveTab}
-              product={product}
-              scroll={scroll}
-            />
-            <CarouselProduct product={product} />
-          </div>
-
-          {/*Характеристики*/}
-
-          <div className={' mt-20 '}>
-            <h2 className={'font-light'}>Технические характеристики</h2>
-            <TablePropsProduct product={product} setActiveTab={setActiveTab} />
-
-            <div className=' flex mt-2 items-center'>
-              <CharacteristicsBtn setActiveTab={setActiveTab} scroll={scroll} />
-              {/* <ServicesBtn setActiveTab={setActiveTab} /> */}
-              <DescriptionBtn setActiveTab={setActiveTab} scroll={scroll} />
-              <ReviewsBtn setActiveTab={setActiveTab} scroll={scroll} />
-            </div>
-          </div>
-
-          {/*Карточка добавления в корзину (справа)*/}
-          <div>
-            <CartPrice
-              product={product}
-              setActive={setActive}
-              setFastOrderModel={setFastOrderModel}
-              setCountPopupProduct={setCountPopupProduct}
-              setCountFastOrderProduct={setCountFastOrderProduct}
-            />
-            <CallSingleCart setSpecialist={setSpecialist} />
-          </div>
-        </div>
-
-        {/*описание и характеристики TAB*/}
-        <div ref={allToScroll}>
-          <TabSingleCart
-            activeTab={activeTab}
-            setActiveTab={setActiveTab}
-            product={product}
-          />
         </div>
       </div>
     </motion.div>

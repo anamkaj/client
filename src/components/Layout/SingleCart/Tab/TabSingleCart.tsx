@@ -6,30 +6,33 @@ import { TabReviews } from './TabComponent/TabReviews/TabReviews'
 import { TabReviewsPostForm } from './TabComponent/TabReviews/TabReviewsPostForm'
 import { motion } from 'framer-motion'
 import { item } from '../../UI/animation/category'
-import ReactMarkdown from 'react-markdown'
+import { DescriptionMobile } from './TabComponent/Mobile/DescriptionMobile'
 
 type TabProps = {
   activeTab: number
   setActiveTab: React.Dispatch<React.SetStateAction<number>>
   product: IGProduct[]
+  isMobileScreen: boolean
 }
 
 export const TabSingleCart = ({
   activeTab,
   setActiveTab,
   product,
+  isMobileScreen,
 }: TabProps) => {
+  // стили активный таб
   const styleActive =
-    'uppercase text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none' +
+    'uppercase text-gray-600 text-xs md:text-base py-4 px-6  hover:text-blue-500 focus:outline-none' +
     ' text-blue-500 border-b-2 font-medium border-blue-500'
   const styleDisable =
-    'uppercase text-gray-600 py-4 px-6 block hover:text-blue-500 focus:outline-none'
+    'uppercase text-gray-600 text-xs md:text-base py-4 px-6 hover:text-blue-500 focus:outline-none'
 
   const description = product[0].descriptionOne.split('. ')
 
   return (
     <div>
-      <nav className='flex flex-col sm:flex-row'>
+      <nav className='flex item-center'>
         {tab.map((e) => {
           return (
             <button
@@ -47,16 +50,22 @@ export const TabSingleCart = ({
       <div id={'tab'} className=' mt-4'>
         {activeTab == 1 && (
           <div>
-            {description.map((x, index) => {
-              return (
-                <div key={index}>
-                  <span className=' font-thin text-lg tracking-normal antialiased '>
-                    {x.trim()}.
-                  </span>
-                  <br />
-                </div>
-              )
-            })}
+            {isMobileScreen ? (
+              <DescriptionMobile description={description} />
+            ) : (
+              <>
+                {description.map((x, index) => {
+                  return (
+                    <div key={index}>
+                      <span className=' font-thin text-lg tracking-normal antialiased '>
+                        {x.trim() + '.'}
+                      </span>
+                      <br />
+                    </div>
+                  )
+                })}
+              </>
+            )}
           </div>
         )}
       </div>

@@ -17,6 +17,7 @@ import { useMediaQuery } from 'react-responsive'
 
 function App() {
   const isMobileScreen = useMediaQuery({ query: '(max-width: 480px)' })
+  const isMidScreen = useMediaQuery({ query: '(max-width: 1024px)' })
   const addObjLocalStore = useAppSelector((state) => state.cartReducer.cart)
   if (localStorage.length <= 0) {
     localStorage.setItem('countCart', JSON.stringify(addObjLocalStore))
@@ -54,11 +55,24 @@ function App() {
         <Route>
           <Route
             path='product/:category/:name/:id'
-            element={<SingleProductCart />}
+            element={
+              <SingleProductCart
+                isMobileScreen={isMobileScreen}
+                isMidScreen={isMidScreen}
+              />
+            }
           ></Route>
+
+          {/* Роут перехода в карточку товара не из каталога (отзывы , главная ,
+          акции ) */}
           <Route
             path='product/:name/:id'
-            element={<SingleProductCart />}
+            element={
+              <SingleProductCart
+                isMobileScreen={isMobileScreen}
+                isMidScreen={isMidScreen}
+              />
+            }
           ></Route>
         </Route>
 

@@ -1,7 +1,6 @@
 import React from 'react'
 import { IGProduct } from '../../../../helpers/Model/GetServer/model.products'
 import { HiOutlineArrowTrendingUp } from 'react-icons/hi2'
-import { HiUserGroup } from 'react-icons/hi2'
 import { CountViewGrid } from '../Grid/CountViewGrid'
 import { Reviews } from '../Reviews'
 import { WatchProduct } from './WatchProduct'
@@ -26,7 +25,7 @@ export const CountView = ({ data, gridStore, URL }: IProductProps) => {
   }
 
   return (
-    <div className='flex flex-col  items-center mt-2 '>
+    <div className='flex flex-col items-center mt-2 '>
       <div className='flex items-center '>
         {/*Счетчик просмотров*/}
         <WatchProduct data={data} />
