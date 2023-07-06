@@ -87,10 +87,7 @@ export const SingleProductCart = ({
           {!isMidScreen && (
             <div className=' mt-20 '>
               <h2 className='font-light'>Технические характеристики</h2>
-              <TablePropsProduct
-                product={product}
-                setActiveTab={setActiveTab}
-              />
+              <TablePropsProduct product={product} />
 
               <div className=' flex mt-2 items-center'>
                 <CharacteristicsBtn

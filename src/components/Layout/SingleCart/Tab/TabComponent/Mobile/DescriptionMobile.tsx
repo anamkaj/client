@@ -19,8 +19,12 @@ export const DescriptionMobile = ({ description }: DescriptionProp) => {
   return (
     <div className=' relative'>
       <div className=' tracking-normal antialiased '>
-        {lengthDescription(description)?.map((x) => {
-          return <p className=' font-normal text-sm '>{x + '.'}</p>
+        {lengthDescription(description)?.map((x, index) => {
+          return (
+            <p key={index} className=' font-normal text-sm '>
+              {x + '.'}
+            </p>
+          )
         })}
       </div>
       <br />
@@ -51,8 +55,12 @@ export const DescriptionMobile = ({ description }: DescriptionProp) => {
           </div>
           <hr className=' mb-2 border border-slate-400' />
           <div>
-            {description.map((x) => {
-              return <p className=' font-normal'>{x + '.'}</p>
+            {description.map((x, index) => {
+              return (
+                <p key={index} className=' font-normal'>
+                  {x + '.'}
+                </p>
+              )
             })}
           </div>
         </div>

@@ -63,7 +63,7 @@ export const SubHeader = () => {
         onMouseEnter={() => closeMenuWindows()}
         className={
           catalog || mobileCatalog
-            ? ' z-20 absolute min-h-full min-w-full top-0 left-0 bg-black opacity-10'
+            ? ' z-20 absolute min-h-[100%] min-w-[100%] top-0 left-0 bg-black opacity-10'
             : ' hidden'
         }
       ></div>

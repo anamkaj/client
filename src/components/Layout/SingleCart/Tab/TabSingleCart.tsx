@@ -7,6 +7,7 @@ import { TabReviewsPostForm } from './TabComponent/TabReviews/TabReviewsPostForm
 import { motion } from 'framer-motion'
 import { item } from '../../UI/animation/category'
 import { DescriptionMobile } from './TabComponent/Mobile/DescriptionMobile'
+import { MobileTableParams } from './TabComponent/Mobile/MobileTableParams'
 
 type TabProps = {
   activeTab: number
@@ -72,14 +73,18 @@ export const TabSingleCart = ({
       <div id={'tab'} className=' mt-4'>
         {activeTab == 2 && (
           <div>
-            <TableParamsProduct product={product} />
+            {isMobileScreen ? (
+              <MobileTableParams product={product} />
+            ) : (
+              <TableParamsProduct product={product} />
+            )}
           </div>
         )}
       </div>
       <div className=' mt-4'>
         {activeTab == 3 && (
           <motion.div variants={item} initial='hidden' animate='visible'>
-            <TabReviewsPostForm product={product} />
+            {/* <TabReviewsPostForm product={product} /> */}
             <TabReviews id={product[0].id} />
           </motion.div>
         )}

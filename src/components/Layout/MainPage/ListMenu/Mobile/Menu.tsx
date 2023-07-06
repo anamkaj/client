@@ -18,7 +18,7 @@ export const Menu = ({ setActive, setMobileCatalog }: PropMobileMenu) => {
   }
 
   return (
-    <div className='z-40 absolute top-0 left-0 w-[80vw] bg-slate-50 '>
+    <div className='z-40 fixed top-0 left-0 w-[80vw] h-[100%] bg-slate-50 '>
       <motion.div
         initial='hidden'
         animate='visible'

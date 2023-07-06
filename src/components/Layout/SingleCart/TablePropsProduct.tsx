@@ -3,10 +3,9 @@ import { IGProduct } from '../../../helpers/Model/GetServer/model.products'
 
 interface IPropsProduct {
   product: IGProduct[]
-  setActiveTab: React.Dispatch<React.SetStateAction<number>>
 }
 
-export const TablePropsProduct = ({ product, setActiveTab }: IPropsProduct) => {
+export const TablePropsProduct = ({ product }: IPropsProduct) => {
   const paramShort =
     product[0].shortParam.length > 9
       ? product[0].shortParam.slice(0, 9)
