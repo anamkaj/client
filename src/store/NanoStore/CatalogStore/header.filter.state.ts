@@ -1,5 +1,7 @@
 import { atom } from 'nanostores'
 
+// стор фильтра в каталоге
+
 export const headerFilter = atom<string>('')
 
 export const changeFilterHeader = (value: string) => {

@@ -13,6 +13,7 @@ import { motion } from 'framer-motion'
 import { variants } from '../UI/animation/category'
 import { Description } from './Description'
 import { MobileProductList } from './Mobile/MobileProductList'
+import { usePositionScrollWindows } from './hook/scrollPosition'
 
 type ProductListProp = {
   isMobileScreen: boolean
@@ -24,6 +25,7 @@ export const ProductList = ({ isMobileScreen }: ProductListProp) => {
   const gridStore = useStore(gridState)
   const categoryStore = useStore(catStore)
   const cat = categoryStore.filter((e) => e.id == Number(id))
+  const { changePositionScroll } = usePositionScrollWindows()
 
   if (isLoading) {
     return <LazyLoad />
@@ -55,6 +57,7 @@ export const ProductList = ({ isMobileScreen }: ProductListProp) => {
                   initial='hidden'
                   animate='visible'
                   key={product.id}
+                  onClick={() => changePositionScroll()}
                 >
                   <MobileProductList
                     key={product.id}
@@ -76,6 +79,7 @@ export const ProductList = ({ isMobileScreen }: ProductListProp) => {
                   initial='hidden'
                   animate='visible'
                   key={product.id}
+                  onClick={() => changePositionScroll()}
                 >
                   <ProductsCart
                     key={product.id}
@@ -91,7 +95,7 @@ export const ProductList = ({ isMobileScreen }: ProductListProp) => {
         )}
       </div>
 
-      <div className='  mt-5'>
+      <div className=' mt-5'>
         <Pagination checkLength={checkLength} nextPage={nextPage} />
       </div>
       <Description />

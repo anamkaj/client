@@ -26,24 +26,9 @@ export const ScrollList = ({
   const [hiddenScroll, setHiddenScroll] = useState(true)
   useValidateScroll({ data, input, setHiddenScroll, active })
 
-  const closeModal = () => {
-    setHiddenScroll(true)
-    setActive(false)
-  }
-
   return (
     <div hidden={hiddenScroll}>
       <div className='absolute z-20 flex bg-white p-2 rounded-b-xl  mt-1 w-full'>
-        {/* кнопка возврата на страницу */}
-        <div
-          onClick={() => closeModal()}
-          className=' sm:hidden flex items-center gap-2'
-        >
-          <span>
-            <BsArrowLeftCircle className=' w-5 h-5 text-slate-500' />
-          </span>
-          <span>Назад</span>
-        </div>
         <div className=' flex flex-col'>
           {!isError ? (
             <div>

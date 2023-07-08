@@ -1,6 +1,6 @@
 import React from 'react'
 import { MainPage } from './page/MainPage'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, ScrollRestoration } from 'react-router-dom'
 import { Header } from './components/Layout/Header/Header'
 import { ShopCardPage } from './page/ShopCardPage'
 import { ProductList } from './components/Layout/CatalogCartProduct/ProductList'
@@ -29,10 +29,6 @@ function App() {
 
       <Routes>
         <Route path='/' element={<MainPage />}></Route>
-        <Route path='company' element={<MainPage />}></Route>
-        <Route path='news' element={<MainPage />}></Route>
-        <Route path='contact' element={<MainPage />}></Route>
-        <Route path='logistic' element={<MainPage />}></Route>
         <Route path='order' element={<ShopCardPage />}></Route>
         <Route path='category'>
           <Route
@@ -89,7 +85,7 @@ function App() {
             element={<PrivacyPolicy />}
           />
         </Route>
-        <Route path='dashboard' element={<Dashboard />}></Route>
+        {/* <Route path='dashboard' element={<Dashboard />}></Route> */}
 
         <Route path='thanks' element={<ThankYouPage />}></Route>
       </Routes>

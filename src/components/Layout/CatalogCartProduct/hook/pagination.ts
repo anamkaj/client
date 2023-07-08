@@ -33,7 +33,8 @@ export const usePagination = () => {
     take: 25,
     filter: stateFilterHeader === '' ? selectValue[0].sort : stateFilterHeader,
   })
-
+  // получение товаров 
+  
   const { data: product, isLoading, refetch } = useGetProductAll(pagination)
 
   // Проверка количества товаров , если более 25 , показывает кнопку "Показать еще"

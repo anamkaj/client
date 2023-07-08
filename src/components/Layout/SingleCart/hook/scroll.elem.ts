@@ -9,6 +9,5 @@ export const useScrollToTop = () => {
       behavior: 'smooth',
       block: 'center',
     })
-
   return { scroll, allToScroll }
 }

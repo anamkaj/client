@@ -23,11 +23,11 @@ export const Category = ({ isMobileScreen }: CategoryProp) => {
     data: category,
     isLoading: loadingCategory,
     isError: errorCategory,
-    refetch: categoryRef,
+    refetch: categoryRefresh,
   } = useGetAllCategory(paramQuery.id)
 
   useEffect(() => {
-    categoryRef()
+    categoryRefresh()
   }, [id])
 
   useEffect(() => {

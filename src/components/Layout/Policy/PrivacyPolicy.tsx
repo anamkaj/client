@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useQuery } from 'react-query'
 import { PostServices } from '../../../services/GET/get.post'
 import ReactMarkdown from 'react-markdown'
@@ -9,6 +9,10 @@ export const PrivacyPolicy = () => {
     queryKey: ['post'],
     queryFn: () => PostServices.getOnePost(Number(7)),
   })
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   if (isLoading) {
     return <LazyLoad />

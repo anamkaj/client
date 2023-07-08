@@ -51,6 +51,10 @@ export const SingleProductCart = ({
   // Скрол к элементам
   const { scroll, allToScroll } = useScrollToTop()
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   if (isLoading) {
     return <LazyLoad />
   }
