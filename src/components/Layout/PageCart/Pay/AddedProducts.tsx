@@ -18,8 +18,8 @@ export const AddedProducts = ({ data }: TotalCartProp) => {
   })
 
   return (
-    <div>
-      <div className=' grid grid-cols-3 p-4 justify-center bg-slate-100 rounded-t-lg '>
+    <>
+      <div className='hidden lg:grid grid-cols-3 p-4 justify-center bg-slate-100 rounded-t-lg '>
         <div className=' flex justify-center'>
           <p className=' font-semibold'>Товар</p>
         </div>
@@ -35,7 +35,7 @@ export const AddedProducts = ({ data }: TotalCartProp) => {
           return (
             <div
               key={x.id}
-              className=' p-2 grid grid-cols-3 gap-4 items-center border border-slate-100 '
+              className=' p-2 grid grid-cols-1 lg:grid-cols-3 gap-4 items-center border border-slate-100 '
             >
               <div className=' flex flex-col items-center'>
                 <img
@@ -69,6 +69,6 @@ export const AddedProducts = ({ data }: TotalCartProp) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

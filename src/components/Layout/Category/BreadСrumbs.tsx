@@ -10,27 +10,25 @@ export const BreadCrumbs = ({ id }: CrumbsProp) => {
   const { linkCrumb } = useCramsArray(id)
 
   return (
-    <>
-      <div>
-        <span>
-          {' '}
-          {id &&
-            linkCrumb
-              .sort((a, b) => a.id - b.id)
-              .map((d) => {
-                return (
-                  <Link
-                    state={{ id: d.id, slug: d.slug }}
-                    to={`/category/${d.slug}/${d.id}`}
-                    className=' font-medium text-xs lg:text-base text-gray-500 hover:text-gray-800 hover:underline'
-                    key={d.id}
-                  >
-                    {d.name + ' / '}
-                  </Link>
-                )
-              })}
-        </span>
-      </div>
-    </>
+    <div className='p-2'>
+      <span>
+        {' '}
+        {id &&
+          linkCrumb
+            .sort((a, b) => a.id - b.id)
+            .map((d) => {
+              return (
+                <Link
+                  state={{ id: d.id, slug: d.slug }}
+                  to={`/category/${d.slug}/${d.id}`}
+                  className=' font-medium text-xs lg:text-base text-gray-500 hover:text-gray-800 hover:underline'
+                  key={d.id}
+                >
+                  {d.name + ' / '}
+                </Link>
+              )
+            })}
+      </span>
+    </div>
   )
 }

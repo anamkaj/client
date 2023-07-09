@@ -15,6 +15,8 @@ export const Carousels = ({ data, isLoading }: CarouselsProp) => {
   const [countSlide, setCountSlide] = useState(4)
   const [cellSpacing, setCellSpacing] = useState(10)
   const isMobileScreen = useMediaQuery({ query: '(max-width: 480px)' })
+  const isFullScreen = useMediaQuery({ query: '(min-width: 1024px)' })
+  const isMidScreen = useMediaQuery({ query: '(min-width: 768px)' })
 
   const params = {
     slidesToShow: countSlide,
@@ -37,9 +39,11 @@ export const Carousels = ({ data, isLoading }: CarouselsProp) => {
   useEffect(() => {
     if (isMobileScreen) {
       setCountSlide(1)
-      setCellSpacing(80)
-    } else {
-      setCountSlide(2)
+      setCellSpacing(10)
+    } else if (isFullScreen) {
+      setCountSlide(4)
+    } else if (isMidScreen) {
+      setCountSlide(3)
     }
   })
   return (

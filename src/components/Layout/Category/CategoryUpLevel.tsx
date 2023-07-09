@@ -16,7 +16,7 @@ export const CategoryUpLevel = ({ category, id, loadingCategory }: Props) => {
 
   if (loadingCategory) {
     return (
-      <div className=' container mx-auto '>
+      <div className=' container mx-auto'>
         <div className=' flex justify-center items-center'>
           <FadeLoader color='#757575' />
         </div>
@@ -25,7 +25,7 @@ export const CategoryUpLevel = ({ category, id, loadingCategory }: Props) => {
   }
 
   return (
-    <div className=' grid grid-cols-3 items-start gap-2 lg:grid-cols-4 '>
+    <div className=' grid grid-cols-3 items-start gap-2 lg:grid-cols-4 p-2 '>
       {mainCategory?.map((e) => {
         return (
           <div

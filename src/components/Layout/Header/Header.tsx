@@ -18,7 +18,7 @@ export const Header = () => {
   return (
     <>
       <div className=' bg-white'>
-        <div className='container mx-auto py-2'>
+        <div className='container mx-auto p-2'>
           <div className=' flex flex-col justify-around gap-4 items-center lg:flex-row  '>
             <div>
               <Logo />

@@ -15,7 +15,7 @@ export const HeaderFilter = ({ isMobileScreen }: FilterProp) => {
   const { handleChange, select } = useFilterChange()
 
   return (
-    <div className='flex justify-between'>
+    <div className='flex justify-between p-2'>
       <div className=' flex gap-4'>
         {!isMobileScreen && <HiAdjustmentsVertical className=' w-7 h-7' />}
 

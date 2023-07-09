@@ -8,7 +8,7 @@ export const EmptyBasket = () => {
         <h2 className='font-bold text-lg text-center mt-20 w-full'>
           Добавьте товары и они появятся в корзине
         </h2>
-        <img className='w-1/6 mt-5' src={CartImg} alt='' />
+        <img className='w-1/6 mt-5' src={CartImg} alt='корзина ТМК Вектор' />
       </div>
     </div>
   )

@@ -32,7 +32,7 @@ export const ProductList = ({ isMobileScreen }: ProductListProp) => {
     <div className='container mx-auto py-10'>
       <div
         className={
-          isMobileScreen ? ' flex text-xs mb-5 ' : ' flex text-lg mb-5 '
+          isMobileScreen ? ' flex text-xs mb-5 p-2 ' : ' flex text-lg mb-5 p-2 '
         }
       >
         <span className=' font-extralight'>{category[0]?.name}</span>
@@ -41,7 +41,7 @@ export const ProductList = ({ isMobileScreen }: ProductListProp) => {
         </span>
       </div>
       <HeaderFilter isMobileScreen={isMobileScreen} />
-      <div className='grid grid-cols-2 gap-1 lg:gap-2 lg:grid-cols-3 xl:grid-cols-4'>
+      <div className='grid grid-cols-2 gap-1 lg:gap-2 md:grid-cols-3 xl:grid-cols-4'>
         {/* Рендеринг продуктовых карточек  */}
 
         {isMobileScreen ? (

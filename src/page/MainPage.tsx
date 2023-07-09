@@ -9,7 +9,7 @@ import { ExtraBenefit } from '../components/Layout/MainPage/ExtraBenefit/ExtraBe
 
 export const MainPage = () => {
   return (
-    <div className='container mx-auto p-4'>
+    <div className='container mx-auto p-2'>
       <div className=' flex mt-4 lg:mt-0'>
         <BannerMain />
       </div>

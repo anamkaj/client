@@ -9,7 +9,7 @@ type Props = {
 
 export const Description = ({ category, id }: Props) => {
   return (
-    <div className=' mt-5 mb-8'>
+    <div className=' mt-5 mb-8 p-2'>
       <h2 className=' font-normal text-xs lg:text-sm'>
         {category?.map((e) => {
           if (e.id == Number(id))
