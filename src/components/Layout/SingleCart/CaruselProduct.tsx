@@ -23,13 +23,10 @@ export const CarouselProduct = ({ product }: Props) => {
   }, [product])
 
   return (
-    <div
-      className={' flex flex-col box-border w-[400px] h-[300px] mt-5 gap-2 p-4'}
-    >
+    <div className=' flex flex-col box-border  mt-5 gap-2 p-4'>
       {
         <img
           src={img.url}
-          className={' '}
           alt={product[0].altImg}
           onClick={() => {
             setToggler(!toggler)

@@ -39,7 +39,7 @@ export const Category = ({ isMobileScreen }: CategoryProp) => {
   }
 
   return (
-    <div className=' container mx-auto mt-5 mb-5'>
+    <div className=' container mx-auto p-4 mt-5 mb-5'>
       <BreadCrumbs id={Number(id)} />
       <Description category={category} id={id} />
 

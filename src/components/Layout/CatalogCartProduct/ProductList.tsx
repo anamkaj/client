@@ -6,25 +6,22 @@ import { Pagination } from './Pagination'
 import { LazyLoad } from '../LazyLoad/LazyLoad'
 import { usePagination } from './hook/pagination'
 import { useStore } from '@nanostores/react'
-import { catStore } from '../../../store/NanoStore/CategoryStore/category.store'
-import { useHref, useParams } from 'react-router-dom'
 import { gridState } from '../../../store/NanoStore/CatalogStore/grid.store'
 import { motion } from 'framer-motion'
 import { variants } from '../UI/animation/category'
 import { Description } from './Description'
 import { MobileProductList } from './Mobile/MobileProductList'
 import { usePositionScrollWindows } from './hook/scrollPosition'
+import { useFilterCategory } from './hook/filter.category'
 
 type ProductListProp = {
   isMobileScreen: boolean
 }
 
 export const ProductList = ({ isMobileScreen }: ProductListProp) => {
-  const { id } = useParams()
   const { product, isLoading, nextPage, checkLength } = usePagination()
   const gridStore = useStore(gridState)
-  const categoryStore = useStore(catStore)
-  const cat = categoryStore.filter((e) => e.id == Number(id))
+  const { category } = useFilterCategory()
   const { changePositionScroll } = usePositionScrollWindows()
 
   if (isLoading) {
@@ -38,13 +35,13 @@ export const ProductList = ({ isMobileScreen }: ProductListProp) => {
           isMobileScreen ? ' flex text-xs mb-5 ' : ' flex text-lg mb-5 '
         }
       >
-        <span className=' font-extralight'>{cat[0]?.name}</span>
+        <span className=' font-extralight'>{category[0]?.name}</span>
         <span className=' font-bold text-gray-700'>
           - {product?.length} Товара(ов)
         </span>
       </div>
       <HeaderFilter isMobileScreen={isMobileScreen} />
-      <div className='flex gap-y-2 flex-wrap justify-between'>
+      <div className='grid grid-cols-2 gap-1 lg:gap-2 lg:grid-cols-3 xl:grid-cols-4'>
         {/* Рендеринг продуктовых карточек  */}
 
         {isMobileScreen ? (
@@ -63,7 +60,7 @@ export const ProductList = ({ isMobileScreen }: ProductListProp) => {
                     key={product.id}
                     data={product}
                     isLoading={isLoading}
-                    nameCategory={cat[0]?.slug}
+                    nameCategory={category[0]?.slug}
                   />
                 </motion.div>
               )
@@ -86,7 +83,7 @@ export const ProductList = ({ isMobileScreen }: ProductListProp) => {
                     data={product}
                     isLoading={isLoading}
                     gridStore={gridStore}
-                    nameCategory={cat[0]?.slug}
+                    nameCategory={category[0]?.slug}
                   />
                 </motion.div>
               )

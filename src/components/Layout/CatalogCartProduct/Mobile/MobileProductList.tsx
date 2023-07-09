@@ -36,15 +36,10 @@ export const MobileProductList = ({
   }
 
   return (
-    <motion.div
-      variants={variants}
-      initial='hidden'
-      animate='visible'
-      className=' flex flex-wrap'
-    >
+    <motion.div variants={variants} initial='hidden' animate='visible'>
       <div
         className='flex flex-col items-center cursor-pointer border +
-     border-gray-200 px-4 py-2 rounded-lg shadow-lg bg-white box-border h-[330px] w-[187px] '
+     border-gray-200 px-2 py-2 rounded-lg shadow-lg bg-white box-border h-[330px]'
         onClick={() => countViewInc()}
       >
         <div className=' flex w-full justify-between'>

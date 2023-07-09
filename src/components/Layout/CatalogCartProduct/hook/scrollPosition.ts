@@ -5,35 +5,28 @@ import {
   scrollStateChange,
 } from '../../../../store/NanoStore/CatalogStore/scroll.catalog'
 
-type ParamScroll = {
-  scroll: number
-  pathname: string
-}
-
 export const usePositionScrollWindows = () => {
   const location = useLocation()
-  const [scrollPosition, setScrollPosition] = useState<ParamScroll>()
+  const [scrollPosition, setScrollPosition] = useState<number>()
   const scrollPositionStore = scrollState.get()
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const handleScroll = () => {
         const position = window.scrollY
-        setScrollPosition((prev) => ({
-          ...prev,
-          scroll: position,
-          pathname: location.pathname,
-        }))
+        setScrollPosition(position)
       }
-
       window.addEventListener('scroll', handleScroll)
-
       return () => window.removeEventListener('scroll', handleScroll)
     }
   }, [])
   // присвоение позиции скрола
   const changePositionScroll = () => {
-    if (scrollPosition) scrollStateChange(scrollPosition)
+    if (scrollPosition)
+      scrollStateChange({
+        scroll: scrollPosition,
+        pathname: location.pathname,
+      })
   }
   // скпрл к месту клика , если из карточки товара был переход в другую группу , тогда скрол премешает в начало страницы
 
@@ -48,5 +41,5 @@ export const usePositionScrollWindows = () => {
     }
   }, [])
 
-  return { scrollPosition, changePositionScroll }
+  return { changePositionScroll }
 }

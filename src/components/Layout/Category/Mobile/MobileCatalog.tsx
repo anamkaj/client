@@ -26,15 +26,15 @@ export const MobileCatalog = ({
     )
   }
   return (
-    <div className=' flex gap-2 flex-wrap justify-between w-full '>
+    <div className='w-full grid grid-cols-2 items-center gap-2 justify-between'>
       {mainCategory?.map((e) => {
         return (
           <Link
             to={`/category/${e.slug}/${e.id}`}
             key={e.id}
-            className='  w-[43vw] h-[110px] flex flex-col rounded-lg  shadow-lg items-center '
+            className=' h-[110px] flex flex-col rounded-lg  shadow-lg items-center '
           >
-            <div className=' mt-2 '>
+            <div className='mt-2'>
               <img
                 className=' h-12 w-12 '
                 src={`https://tmk-v.ru:8080/img/${e.folderImg}/${e.img}`}

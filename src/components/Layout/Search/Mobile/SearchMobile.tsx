@@ -58,7 +58,7 @@ export const SearchMobile = ({
             placeholder={!active ? 'Поиск по товарам' : 'Введите запрос'}
           />
 
-          <div className=' z-10 absolute top-6 right-10'>
+          <div className=' z-10 absolute top-[3%] right-10'>
             {active && (
               <MdClear
                 onClick={() => setInput('')}

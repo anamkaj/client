@@ -24,10 +24,10 @@ export const TabSingleCart = ({
 }: TabProps) => {
   // стили активный таб
   const styleActive =
-    'uppercase text-gray-600 text-xs md:text-base py-4 px-6  hover:text-blue-500 focus:outline-none' +
-    ' text-blue-500 border-b-2 font-medium border-blue-500'
+    'uppercase text-gray-600 text-xs md:text-base py-4 px-6 hover:text-blue-500 focus:outline-none' +
+    ' text-blue-500 border-b-2 font-medium border-blue-500 whitespace-nowrap'
   const styleDisable =
-    'uppercase text-gray-600 text-xs md:text-base py-4 px-6 hover:text-blue-500 focus:outline-none'
+    'uppercase text-gray-600 text-xs md:text-base py-4 px-6 hover:text-blue-500 focus:outline-none whitespace-nowrap'
 
   const description = product[0].descriptionOne.split('. ')
 

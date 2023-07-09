@@ -30,14 +30,15 @@ export const CartPrice = ({
   const cartStore = useAppSelector((state) => state.cartReducer.cart)
   const price = Math.round(product[0].price / (product[0].discount * 0.11))
 
+  //поиск по карзине , добавлен ли товар ранее в карзину , тогда стиль кнопки меняется
   const checkCartStore =
     cartStore.length > 0
       ? cartStore.find((e) => e.id === product[0].id)
       : undefined
 
   return (
-    <div className='flex flex-wrap gap-6 justify-end'>
-      <div className='flex flex-col mt-5 w-full shadow-lg border rounded-lg p-4 h-[350px]'>
+    <div className='flex flex-wrap gap-6 justify-start lg:justify-end'>
+      <div className='flex flex-col mt-5 w-full shadow-lg border rounded-lg p-4 h-[370px]'>
         <>
           <CartHeader product={product} />
           <div className=' flex gap-1 items-center justify-end'>

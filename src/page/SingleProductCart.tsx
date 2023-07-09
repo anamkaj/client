@@ -65,17 +65,11 @@ export const SingleProductCart = ({
 
   return (
     <motion.div initial='hidden' animate='visible' variants={item}>
-      <div className='container mx-auto mt-10'>
+      <div className='container mx-auto p-4 mt-1 lg:mt-5'>
         <Crumbs id={product[0].categoryId} />
         <h1 className='font-bold text-2xl mt-5'>{product[0].title}</h1>
 
-        <div
-          className={
-            isMobileScreen
-              ? 'flex flex-wrap'
-              : 'grid grid-cols-[400px_minmax(400px,_1fr)_400px] gap-4'
-          }
-        >
+        <div className='grid grid-cols-1 gap-4 items-start md:grid-cols-2 xl:grid-cols-3'>
           {/*Артикул и количество отзывов Слайд с фото  */}
           <div>
             <HeaderSingleProduct
@@ -106,7 +100,7 @@ export const SingleProductCart = ({
           )}
 
           {/*Карточка добавления в корзину (справа)*/}
-          <div className={isMobileScreen ? 'mt-[180px]' : ''}>
+          <div>
             <CartPrice
               product={product}
               setActive={setActive}

@@ -9,7 +9,7 @@ export const ShopCardPage = () => {
   const data = useAppSelector((state) => state.cartReducer.cart)
 
   return (
-    <div className={'container mx-auto'}>
+    <div className={'container mx-auto p-4'}>
       <HeaderCartPay />
       {data.length < 1 ? (
         <EmptyBasket />

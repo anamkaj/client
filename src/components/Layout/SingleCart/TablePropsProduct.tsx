@@ -12,8 +12,8 @@ export const TablePropsProduct = ({ product }: IPropsProduct) => {
       : product[0].shortParam
 
   return (
-    <div>
-      <div className={'flex flex-wrap flex-col gap-2 mt-5 '}>
+    <>
+      <div className='flex flex-wrap flex-col gap-2 mt-5 '>
         {paramShort.map((e, index) => {
           return (
             <div className={'flex flex-wrap'} key={index}>
@@ -30,6 +30,6 @@ export const TablePropsProduct = ({ product }: IPropsProduct) => {
           )
         })}
       </div>
-    </div>
+    </>
   )
 }
