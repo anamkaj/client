@@ -7,6 +7,7 @@ import { NameInput } from '../InputForm/Input/NameInput'
 import { PhoneInput } from '../InputForm/Input/PhoneInput'
 import { Person } from '../type.form'
 import { useFormHeaderBtn } from './form.btn.header.query.hook'
+import { AgreementForm } from '../AgreementForm'
 
 type PropForm = {
   setSpecialist?: React.Dispatch<React.SetStateAction<boolean>>
@@ -28,10 +29,11 @@ export const FormInstallSpecialist = ({ setSpecialist }: PropForm) => {
     setSpecialist,
     reset,
   })
+  // Форма Монтаж и установка
 
   return (
-    <div className='  mt-4'>
-      <div>
+    <div className=' mt-4 w-[350px] lg:w-[400px]'>
+      <>
         <form onSubmit={handleSubmit(onSubmitFormContact)}>
           <div className=' flex flex-col gap-2'>
             <CheckBox register={register} errors={errors} />
@@ -43,7 +45,7 @@ export const FormInstallSpecialist = ({ setSpecialist }: PropForm) => {
             </button>
           </div>
         </form>
-      </div>
+      </>
       {mutation.isIdle && ''}
 
       {mutation.isSuccess && (
@@ -58,13 +60,9 @@ export const FormInstallSpecialist = ({ setSpecialist }: PropForm) => {
         </p>
       )}
 
-      <p className=' font-extralight text-xs break-before-all mt-4'>
-        Нажимая кнопку «Отправить», я соглашаюсь на получение информации от
-        <br />
-        интернет-магазина и уведомлений о состоянии моих заказов,
-        <br /> а также принимаю условия политики конфиденциальности <br /> и
-        пользовательского соглашения .
-      </p>
+      <div>
+        <AgreementForm />
+      </div>
     </div>
   )
 }

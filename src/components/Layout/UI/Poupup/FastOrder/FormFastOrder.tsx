@@ -13,7 +13,7 @@ export const FormFastOrder = ({ product, setFastOrderModel }: PropProduct) => {
 
   return (
     <>
-      <div className=' mb-4'>
+      <div className=' mb-4 w-[350px] lg:w-[400px]'>
         <p className=' font-bold text-center text-xl mt-4'>Данные покупателя</p>
         <div className=' flex justify-between items-center mt-4 gap-4'>
           <label className='flex items-center justify-between gap-2'>

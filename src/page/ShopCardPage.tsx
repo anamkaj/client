@@ -5,16 +5,11 @@ import { EmptyBasket } from '../components/Layout/PageCart/EmptyBasket'
 import { AddedProducts } from '../components/Layout/PageCart/Pay/AddedProducts'
 import { FormCart } from '../components/Layout/UI/Form/FormCart/FormCart'
 
-type PropShopCart = {
-  isMobileScreen: boolean
-  isMidScreen: boolean
-}
-
-export const ShopCardPage = ({ isMidScreen, isMobileScreen }: PropShopCart) => {
+export const ShopCardPage = () => {
   const data = useAppSelector((state) => state.cartReducer.cart)
 
   return (
-    <div className='container mx-auto p-4'>
+    <div className='container mx-auto p-2'>
       <HeaderCartPay />
       {data.length < 1 ? (
         <EmptyBasket />

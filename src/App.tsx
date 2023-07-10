@@ -29,15 +29,7 @@ function App() {
 
       <Routes>
         <Route path='/' element={<MainPage />}></Route>
-        <Route
-          path='order'
-          element={
-            <ShopCardPage
-              isMobileScreen={isMobileScreen}
-              isMidScreen={isMidScreen}
-            />
-          }
-        ></Route>
+        <Route path='order' element={<ShopCardPage />}></Route>
         <Route path='category'>
           <Route
             path=':id'

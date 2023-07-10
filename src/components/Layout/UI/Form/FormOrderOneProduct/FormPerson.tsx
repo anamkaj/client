@@ -7,6 +7,7 @@ import { useClosePopupAll } from './close.allPopup'
 import { NameInput } from '../InputForm/Input/NameInput'
 import { PhoneInput } from '../InputForm/Input/PhoneInput'
 import { EmailInput } from '../InputForm/Input/EmailInput'
+import { AgreementForm } from '../AgreementForm'
 
 type PropForm = {
   status?: boolean
@@ -39,8 +40,8 @@ export const FormPerson = ({
   })
 
   return (
-    <div className='  mt-4'>
-      <div>
+    <div className=' mt-4'>
+      <>
         <form onSubmit={handleSubmit(onSubmitFastOrder)}>
           <div className=' flex flex-col gap-2'>
             <NameInput register={register} errors={errors} />
@@ -51,7 +52,7 @@ export const FormPerson = ({
             </button>
           </div>
         </form>
-      </div>
+      </>
 
       {mutation.isIdle && ''}
 
@@ -67,13 +68,9 @@ export const FormPerson = ({
         </p>
       )}
 
-      <p className=' font-extralight text-xs break-before-all mt-4'>
-        Нажимая кнопку «Отправить», я соглашаюсь на получение информации от
-        <br />
-        интернет-магазина и уведомлений о состоянии моих заказов,
-        <br /> а также принимаю условия политики конфиденциальности <br /> и
-        пользовательского соглашения .
-      </p>
+      <div>
+        <AgreementForm />
+      </div>
     </div>
   )
 }

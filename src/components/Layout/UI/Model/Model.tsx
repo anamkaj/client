@@ -16,7 +16,7 @@ export const Model = ({
 }: ChildrenProps) => {
   return (
     <div className=' container mx-auto '>
-      <div className='flex justify-center '>
+      <div className='flex justify-center'>
         {/* Черный фон  */}
 
         <div
@@ -25,10 +25,10 @@ export const Model = ({
           className='fixed top-0 left-0 z-30 opacity-30  min-h-screen min-w-full bg-gray-800 '
         ></div>
         {/* Окно с контентом  */}
-        <div className='  flex items-center justify-center'>
+        <div className='  flex items-center justify-center '>
           <div
             onClick={(e) => e.stopPropagation()}
-            className={'bg-white fixed top-[20%] left-auto z-40 p-4 rounded-xl'}
+            className='bg-white fixed top-[15%] left-auto z-40 p-4 rounded-xl'
             hidden={!active}
           >
             <div className='flex justify-between items-center border-b border-gray-200 py-3'>

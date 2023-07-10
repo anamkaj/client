@@ -12,20 +12,20 @@ export const Footer = () => {
             <p className=' font-bold text-xl'>8 (861) 298-34-28</p>
             <p className=' font-bold text-xl'> 8 (900) 268-93-60</p>
           </div>
-          <p className=' font-light text-xl mt-4'>
-            Напишите нам: info@tmk-v.ru
+          <p className=' font-thin text-xl mt-4 '>
+            Напишите нам: <span className=' font-semibold'>info@tmk-v.ru</span>
           </p>
         </div>
-        <div className=' flex flex-col items-center'>
+        <div className=' flex flex-col items-center mt-4'>
           <h2 className=' font-semibold text-lg '>Офис обслуживания</h2>
-          <span className=' font-thin'>
+          <span className=' font-thin text-sm lg:text-lg'>
             Часы работы: по будням с 9:30 до 18:00
           </span>
-          <p className=' font-light text-lg'>
+          <p className=' font-light text-sm lg:text-lg'>
             Адрес: г. Краснодар , Ростовское шоссе, 14 / 2
           </p>
         </div>
-        <div className=' flex flex-col items-center'>
+        <div className=' flex flex-col items-center mt-4'>
           <h2 className=' font-semibold text-lg '> Правовая информация</h2>
           <div className=' flex flex-col mt-2'>
             <Link

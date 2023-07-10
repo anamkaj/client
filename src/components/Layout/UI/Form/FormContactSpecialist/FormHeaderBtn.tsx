@@ -6,10 +6,10 @@ import { useClosePopupAll } from '../FormOrderOneProduct/close.allPopup'
 import { NameInput } from '../InputForm/Input/NameInput'
 import { PhoneInput } from '../InputForm/Input/PhoneInput'
 import { EmailInput } from '../InputForm/Input/EmailInput'
+import { AgreementForm } from '../AgreementForm'
 
 type PropForm = {
   setSpecialist?: React.Dispatch<React.SetStateAction<boolean>>
-  
 }
 
 export const FormHeaderBtn = ({ setSpecialist }: PropForm) => {
@@ -30,7 +30,7 @@ export const FormHeaderBtn = ({ setSpecialist }: PropForm) => {
   })
 
   return (
-    <div className='  mt-4'>
+    <div className=' mt-4 w-[350px] lg:w-[400px]'>
       <div>
         <form onSubmit={handleSubmit(onSubmitFormContact)}>
           <div className=' flex flex-col gap-2'>
@@ -57,13 +57,9 @@ export const FormHeaderBtn = ({ setSpecialist }: PropForm) => {
         </p>
       )}
 
-      <p className=' font-extralight text-xs break-before-all mt-4'>
-        Нажимая кнопку «Отправить», я соглашаюсь на получение информации от
-        <br />
-        интернет-магазина и уведомлений о состоянии моих заказов,
-        <br /> а также принимаю условия политики конфиденциальности <br /> и
-        пользовательского соглашения .
-      </p>
+      <div>
+        <AgreementForm />
+      </div>
     </div>
   )
 }

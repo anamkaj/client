@@ -10,7 +10,7 @@ export const BreadCrumbs = ({ id }: CrumbsProp) => {
   const { linkCrumb } = useCramsArray(id)
 
   return (
-    <div className='p-2'>
+    <div>
       <span>
         {' '}
         {id &&
