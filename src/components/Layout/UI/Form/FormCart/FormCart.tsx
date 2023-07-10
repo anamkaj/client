@@ -1,26 +1,25 @@
 import * as React from 'react'
 import { Checkbox } from './Checkbox'
 import { useForm } from 'react-hook-form'
-import { IFormCartPage, Person } from '../type.form'
+import { Person } from '../type.form'
 import { NameInput } from '../InputForm/Input/NameInput'
 import { PhoneInput } from '../InputForm/Input/PhoneInput'
 import { useFormCartPage } from '../hook/form.cart.page'
 import { EmailInput } from '../InputForm/Input/EmailInput'
-import ym from 'react-yandex-metrika'
 import { AgreementForm } from '../AgreementForm'
+import { useGoalYandexMetrika } from '../../../../../helpers/hook/goal.metrika'
 
 export const FormCart = () => {
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<Person>()
   const { onSubmitOrderCart, mutation } = useFormCartPage()
 
-  const sendGoal = () => {
-    ym('reachGoal', 'Event_21')
-  }
+  // Отправка достижения цели в Яндекс метрику
+  const { sendGoal } = useGoalYandexMetrika({ isValid, reset })
 
   return (
     <div className=' flex flex-col bg-white shadow-md p-4 md:mt-0'>
@@ -33,7 +32,7 @@ export const FormCart = () => {
       <div>
         <form
           onSubmit={handleSubmit(onSubmitOrderCart)}
-          className='relative  mt-8 space-y-4'
+          className='relative mt-8 space-y-4'
         >
           <div className='relative'>
             <label className='absolute px-2 ml-2 -mt-3 font-light text-gray-600 bg-white text-sm'>
@@ -59,8 +58,9 @@ export const FormCart = () => {
           </div>
 
           <button
+            disabled={mutation.isSuccess}
             className=' w-full border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline'
-            onClick={() => sendGoal()}
+            onClick={() => sendGoal('Event_21')}
           >
             Отправить
           </button>

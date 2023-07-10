@@ -8,26 +8,30 @@ import { PhoneInput } from '../InputForm/Input/PhoneInput'
 import { Person } from '../type.form'
 import { useFormHeaderBtn } from './form.btn.header.query.hook'
 import { AgreementForm } from '../AgreementForm'
+import { useGoalYandexMetrika } from '../../../../../helpers/hook/goal.metrika'
 
 type PropForm = {
   setSpecialist?: React.Dispatch<React.SetStateAction<boolean>>
 }
+
+// Форма запроса выезда специалиста , кнопка в хедере "Монтаж и Установка"
 
 export const FormInstallSpecialist = ({ setSpecialist }: PropForm) => {
   const {
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<Person>()
 
   const { onSubmitFormContact, mutation } = useFormHeaderBtn()
+  // Отправка достижения цели в Яндекс метрику
+  const { sendGoal } = useGoalYandexMetrika({ isValid, reset })
 
   // Автозакрытие всех popup через 2 сек
   useClosePopupAll({
     mutation,
     setSpecialist,
-    reset,
   })
   // Форма Монтаж и установка
 
@@ -40,7 +44,11 @@ export const FormInstallSpecialist = ({ setSpecialist }: PropForm) => {
             <NameInput register={register} errors={errors} />
             <PhoneInput register={register} errors={errors} />
             <EmailInput register={register} errors={errors} />
-            <button className=' w-full border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline'>
+            <button
+              disabled={mutation.isSuccess}
+              onClick={() => sendGoal('Event_23')}
+              className=' w-full border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline'
+            >
               Отправить
             </button>
           </div>

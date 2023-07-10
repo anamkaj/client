@@ -8,6 +8,7 @@ import { NameInput } from '../InputForm/Input/NameInput'
 import { PhoneInput } from '../InputForm/Input/PhoneInput'
 import { EmailInput } from '../InputForm/Input/EmailInput'
 import { AgreementForm } from '../AgreementForm'
+import { useGoalYandexMetrika } from '../../../../../helpers/hook/goal.metrika'
 
 type PropForm = {
   status?: boolean
@@ -15,6 +16,8 @@ type PropForm = {
   setFastOrderModel?: React.Dispatch<React.SetStateAction<boolean>>
   price?: number
 }
+
+// Форма быстрый заказ , кнопка в карточку товара "Заявка на покупку товара"
 
 export const FormPerson = ({
   status,
@@ -26,17 +29,19 @@ export const FormPerson = ({
     register,
     handleSubmit,
     reset,
-    formState: { errors },
+    formState: { errors, isValid },
   } = useForm<Person>()
 
   //Отправка форм обратной связи на сервер
   const { mutation, onSubmitFastOrder } = useFormRequest({ product, price })
 
+  // Отправка достижения цели в Яндекс метрику
+  const { sendGoal } = useGoalYandexMetrika({ isValid, reset })
+
   // Автозакрытие всех popup через 2 сек
   useClosePopupAll({
     mutation,
     setFastOrderModel,
-    reset,
   })
 
   return (
@@ -47,7 +52,11 @@ export const FormPerson = ({
             <NameInput register={register} errors={errors} />
             <PhoneInput register={register} errors={errors} />
             {!status && <EmailInput register={register} errors={errors} />}
-            <button className=' w-full border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline'>
+            <button
+              disabled={mutation.isSuccess}
+              onClick={() => sendGoal('Event_24')}
+              className=' w-full border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline'
+            >
               Отправить
             </button>
           </div>

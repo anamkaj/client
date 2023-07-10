@@ -20,6 +20,7 @@ export const useFormCartPage = () => {
 
   const mutation = useMutation({
     mutationFn: (data: IFormCartPage) => FormServices.postFormCartPage(data),
+    mutationKey: ['pageCart'],
   })
 
   const onSubmitOrderCart: SubmitHandler<Person> = (data: Person) => {
