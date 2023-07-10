@@ -6,6 +6,8 @@ import { NameInput } from '../InputForm/Input/NameInput'
 import { PhoneInput } from '../InputForm/Input/PhoneInput'
 import { useFormCartPage } from '../hook/form.cart.page'
 import { EmailInput } from '../InputForm/Input/EmailInput'
+import ym from 'react-yandex-metrika'
+import { AgreementForm } from '../AgreementForm'
 
 export const FormCart = () => {
   const {
@@ -15,6 +17,10 @@ export const FormCart = () => {
     formState: { errors },
   } = useForm<Person>()
   const { onSubmitOrderCart, mutation } = useFormCartPage()
+
+  const sendGoal = () => {
+    ym('reachGoal', 'Event_21')
+  }
 
   return (
     <div className=' flex flex-col bg-white shadow-md p-4 md:mt-0'>
@@ -52,7 +58,10 @@ export const FormCart = () => {
             <Checkbox register={register} errors={errors} />
           </div>
 
-          <button className=' w-full border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline'>
+          <button
+            className=' w-full border border-indigo-500 bg-indigo-500 text-white rounded-md px-4 py-2 transition duration-500 ease select-none hover:bg-indigo-600 focus:outline-none focus:shadow-outline'
+            onClick={() => sendGoal()}
+          >
             Отправить
           </button>
 
@@ -70,13 +79,9 @@ export const FormCart = () => {
             </p>
           )}
 
-          <p className=' font-extralight text-xs break-before-all mt-4'>
-            Нажимая кнопку «Отправить», я соглашаюсь на получение информации от
-            <br />
-            интернет-магазина и уведомлений о состоянии моих заказов,
-            <br /> а также принимаю условия политики конфиденциальности <br /> и
-            пользовательского соглашения .
-          </p>
+          <div>
+            <AgreementForm />
+          </div>
         </form>
       </div>
     </div>

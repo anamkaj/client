@@ -29,6 +29,7 @@
     "react-router-dom": "^6.4.5",
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.8",
+    "react-yandex-metrika": "^2.6.0",
     "transliteration": "^2.3.5",
     "web-vitals": "^2.1.0"
   },

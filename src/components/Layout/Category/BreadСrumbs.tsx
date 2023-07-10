@@ -21,7 +21,7 @@ export const BreadCrumbs = ({ id }: CrumbsProp) => {
                 <Link
                   state={{ id: d.id, slug: d.slug }}
                   to={`/category/${d.slug}/${d.id}`}
-                  className=' font-medium text-xs lg:text-base text-gray-500 hover:text-gray-800 hover:underline'
+                  className=' font-medium text-xs lg:text-base text-gray-500 hover:text-gray-800 hover:underline p-2'
                   key={d.id}
                 >
                   {d.name + ' / '}

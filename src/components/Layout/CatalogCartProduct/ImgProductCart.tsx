@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 import { IGProduct } from '../../../helpers/Model/GetServer/model.products'
 import { useCountViewInc } from './hook/count.view.inc'
 
-
 interface ImgProp {
   data: IGProduct
   URL: string
 }
 export const ImgProductCart = ({ data, URL }: ImgProp) => {
   const { countViewInc } = useCountViewInc(data.id)
+  console.log(data)
   return (
     <>
       <Link

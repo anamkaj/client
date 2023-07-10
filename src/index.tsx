@@ -6,6 +6,7 @@ import { BrowserRouter, ScrollRestoration } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { store } from './store/Redux/configStor'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { YMInitializer } from 'react-yandex-metrika'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -21,6 +22,16 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <Provider store={store}>
         <BrowserRouter>
+          <YMInitializer
+            accounts={[44879992]}
+            options={{
+              clickmap: true,
+              trackLinks: true,
+              accurateTrackBounce: true,
+              webvisor: true,
+              trackHash: true,
+            }}
+          />
           <App />
         </BrowserRouter>
       </Provider>
