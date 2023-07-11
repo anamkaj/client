@@ -26,7 +26,7 @@ export const Popup = ({
 
   return (
     <div className=' w-[350px]  flex flex-wrap justify-center items-center my-2 mx-4 gap-2 '>
-      <div className=' flex flex-wrap justify-center'>
+      <div className=' flex flex-col items-center justify-center'>
         <img
           className=' w-[15vh]'
           src={`https://tmk-v.ru:8080/img/${product[0].imgFolder}/${product[0].imgLink[0]}`}
