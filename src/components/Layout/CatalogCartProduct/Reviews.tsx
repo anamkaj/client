@@ -10,7 +10,7 @@ interface IProductProps {
 
 export const Reviews = ({ data, URL }: IProductProps) => {
   return (
-    <div>
+    <>
       {data.countReviews !== 0 ? (
         <Link
           to={URL}
@@ -22,8 +22,8 @@ export const Reviews = ({ data, URL }: IProductProps) => {
           {data.countReviews} Отзыва{' '}
         </Link>
       ) : (
-        <span className='text-sm font-light '>Отзывов пока нет</span>
+        <span className='text-xs lg:text-sm font-light '>Отзывов пока нет</span>
       )}
-    </div>
+    </>
   )
 }

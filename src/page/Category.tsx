@@ -8,6 +8,7 @@ import { Description } from '../components/Layout/Category/Description'
 import { ProductList } from '../components/Layout/CatalogCartProduct/ProductList'
 import { LazyLoad } from '../components/Layout/LazyLoad/LazyLoad'
 import { MobileCatalog } from '../components/Layout/Category/Mobile/MobileCatalog'
+import { Head } from '../components/Layout/Head/Head'
 
 type CategoryProp = {
   isMobileScreen: boolean
@@ -40,6 +41,7 @@ export const Category = ({ isMobileScreen }: CategoryProp) => {
 
   return (
     <div className=' container mx-auto mt-5 mb-5'>
+      <Head title='Каталог товаров' />
       <BreadCrumbs id={Number(id)} />
       <Description category={category} id={id} />
 

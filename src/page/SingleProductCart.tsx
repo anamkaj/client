@@ -21,6 +21,7 @@ import { motion } from 'framer-motion'
 import { item } from '../components/Layout/UI/animation/category'
 import { useScrollToTop } from '../components/Layout/SingleCart/hook/scroll.elem'
 import { FormInstallSpecialist } from '../components/Layout/UI/Form/FormContactSpecialist/FormInstallSpecialist'
+import { Helmet } from 'react-helmet-async'
 
 type SingleCartProp = {
   isMobileScreen: boolean
@@ -65,6 +66,9 @@ export const SingleProductCart = ({
 
   return (
     <motion.div initial='hidden' animate='visible' variants={item}>
+      <Helmet>
+        <title>{product[0].title}</title>
+      </Helmet>
       <div className='container mx-auto p-4 mt-1 lg:mt-5'>
         <Crumbs id={product[0].categoryId} />
         <h1 className='font-bold text-2xl mt-5'>{product[0].title}</h1>

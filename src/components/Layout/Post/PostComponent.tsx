@@ -4,6 +4,7 @@ import { PostServices } from '../../../services/GET/get.post'
 import { useParams } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import { LazyLoad } from '../LazyLoad/LazyLoad'
+import { Head } from '../Head/Head'
 
 export const PostComponent = () => {
   const { id } = useParams()
@@ -21,6 +22,7 @@ export const PostComponent = () => {
     <div className=' mx-auto container mt-4'>
       {data?.map((x) => (
         <div key={x.id} className=' mt-8 flex flex-col items-center'>
+          <Head title={x.title} />
           <div className=' mt-4 mb-4 w-[30%] '>
             <img
               className=' rounded-lg shadow-sm'

@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Link } from 'react-router-dom'
 import { ButtonCard } from '../Button/ButtonCard/ButtonCard'
 import { ShortCharacteristics } from './ShortCharacteristics'

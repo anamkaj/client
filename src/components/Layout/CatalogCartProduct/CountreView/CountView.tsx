@@ -7,7 +7,7 @@ import { WatchProduct } from './WatchProduct'
 
 interface IProductProps {
   data: IGProduct
-  gridStore: boolean
+  gridStore?: boolean
   URL: string
 }
 

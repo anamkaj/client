@@ -2,14 +2,14 @@ import React from 'react'
 import { IGProduct } from '../../../helpers/Model/GetServer/model.products'
 import { ButtonCard } from './Button/ButtonCard/ButtonCard'
 import { CountView } from './CountreView/CountView'
-import { ArticleBadges, QuantityBadges, SalesBadges } from './Badges/Badges'
+import { ArticleBadges, QuantityBadges } from './Badges/Badges'
 import { FadeLoader } from 'react-spinners'
 import { ProductCartGrid } from './Grid/ProductCartGrid'
 import { motion } from 'framer-motion'
 import { variants } from '../UI/animation/category'
 import { ImgProductCart } from './ImgProductCart'
 import { TitleProductCart } from './TitleProductCart'
-import { translate } from './helper/translate.url'
+import urlSlug from 'url-slug'
 
 interface IProductProps {
   data: IGProduct
@@ -25,7 +25,7 @@ export const ProductsCart = ({
   nameCategory,
 }: IProductProps) => {
   //Ссылка для перехода в карточку товара
-  const URL = `/product/${nameCategory}/${translate(data.title)}/${data.id}`
+  const URL = `/product/${nameCategory}/${urlSlug(data.title)}/${data.id}`
 
   if (isLoading) {
     return (
@@ -68,7 +68,7 @@ export const ProductsCart = ({
 
         <CountView key={data.id} data={data} gridStore={gridStore} URL={URL} />
 
-        <SalesBadges data={data} />
+        {/* <SalesBadges data={data} /> */}
 
         {/* Блок с ценами и кнопка */}
         <div className='flex w-full items-center mt-auto mb-0 justify-between'>

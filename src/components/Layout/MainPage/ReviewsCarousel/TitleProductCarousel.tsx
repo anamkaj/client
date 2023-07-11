@@ -1,7 +1,7 @@
 import React from 'react'
 import { useOneProduct } from '../../SingleCart/hook/get.one.product'
 import { Link } from 'react-router-dom'
-import { translate } from '../../CatalogCartProduct/helper/translate.url'
+import urlSlug from 'url-slug'
 
 type TitleCarouselProp = {
   id: number
@@ -14,7 +14,7 @@ export const TitleProductCarousel = ({ id }: TitleCarouselProp) => {
       {data?.map((x) => {
         return (
           <Link
-            to={`/product/${translate(x.title)}/${x.id}`}
+            to={`/product/${urlSlug(x.title)}/${x.id}`}
             key={x.id}
             className=' flex gap-2 items-center'
           >

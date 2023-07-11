@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 import { store } from './store/Redux/configStor'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { YMInitializer } from 'react-yandex-metrika'
+import { HelmetProvider } from 'react-helmet-async'
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -32,7 +33,9 @@ root.render(
               trackHash: true,
             }}
           />
-          <App />
+          <HelmetProvider>
+            <App />
+          </HelmetProvider>
         </BrowserRouter>
       </Provider>
     </QueryClientProvider>

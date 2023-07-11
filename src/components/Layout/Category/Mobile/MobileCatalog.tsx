@@ -38,7 +38,7 @@ export const MobileCatalog = ({
               <img
                 className=' h-12 w-12 '
                 src={`https://tmk-v.ru:8080/img/${e.folderImg}/${e.img}`}
-                alt={''}
+                alt={e.name}
               />
             </div>
 

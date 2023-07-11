@@ -1,7 +1,8 @@
 import React from 'react'
 import { IGProduct } from '../../../helpers/Model/GetServer/model.products'
 import { Link } from 'react-router-dom'
-import { translate } from '../CatalogCartProduct/helper/translate.url'
+import urlSlug from 'url-slug'
+
 
 type ProductListProp = {
   data: IGProduct[] | undefined
@@ -13,7 +14,7 @@ export const ProductSearchList = ({ data }: ProductListProp) => {
       {data?.map((x) => {
         return (
           <Link
-            to={`/product/${translate(x.title)}/${x.id}`}
+            to={`/product/${urlSlug(x.title)}/${x.id}`}
             key={x.id}
             className=''
           >

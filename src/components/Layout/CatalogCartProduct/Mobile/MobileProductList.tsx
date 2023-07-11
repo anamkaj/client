@@ -1,6 +1,5 @@
 import React from 'react'
 import { IGProduct } from '../../../../helpers/Model/GetServer/model.products'
-import { translate } from '../helper/translate.url'
 import { FadeLoader } from 'react-spinners'
 import { motion } from 'framer-motion'
 import { variants } from '../../UI/animation/category'
@@ -8,8 +7,11 @@ import { ButtonCard } from '../Button/ButtonCard/ButtonCard'
 import { MobileImgProduct } from './MobileImgProduct'
 import { useCountViewInc } from '../hook/count.view.inc'
 import { MobileTitleProduct } from './MobileTitleProduct'
-import { QuantityBadges, SalesBadges } from '../Badges/Badges'
+import { QuantityBadges } from '../Badges/Badges'
 import { WatchProduct } from '../CountreView/WatchProduct'
+import urlSlug from 'url-slug'
+import { CountView } from '../CountreView/CountView'
+import { Reviews } from '../Reviews'
 
 interface IProductLsProp {
   data: IGProduct
@@ -22,7 +24,8 @@ export const MobileProductList = ({
   isLoading,
   nameCategory,
 }: IProductLsProp) => {
-  const URL = `/product/${nameCategory}/${translate(data?.title)}/${data?.id}`
+  //Ссылка для перехода в карточку товара
+  const URL = `/product/${nameCategory}/${urlSlug(data.title)}/${data.id}`
   const { countViewInc } = useCountViewInc(data.id)
 
   if (isLoading) {
@@ -52,14 +55,12 @@ export const MobileProductList = ({
 
         <MobileTitleProduct data={data} URL={URL} />
 
-        {/* Счетчики отзывов  */}
-
-        {/* <CountView key={data.id} data={data} gridStore={gridStore} URL={URL} /> */}
-
         {/*Счетчик просмотров*/}
-        <div className=' flex items-center justify-between mt-auto '>
+        <div className=' flex items-center justify-between mt-auto gap-2 '>
           <WatchProduct data={data} />
-          <SalesBadges data={data} />
+          {/* <SalesBadges data={data} /> */}
+          {/* Счетчики отзывов  */}
+          <Reviews data={data} URL={URL} />
         </div>
 
         {/* Блок с ценами и кнопка */}

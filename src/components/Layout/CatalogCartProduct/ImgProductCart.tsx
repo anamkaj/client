@@ -9,7 +9,6 @@ interface ImgProp {
 }
 export const ImgProductCart = ({ data, URL }: ImgProp) => {
   const { countViewInc } = useCountViewInc(data.id)
-  console.log(data)
   return (
     <>
       <Link

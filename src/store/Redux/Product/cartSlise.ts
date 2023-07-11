@@ -35,7 +35,6 @@ const cartSlice = createSlice({
 
     getLocalStore: (state: IPropStore) => {
       if (JSON.parse(localStorage.getItem('countCart') || '{}').length == 0) {
-        console.log('LocalHost == null')
       } else {
         state.cart = JSON.parse(localStorage.getItem('countCart') || '{}')
         state.total = JSON.parse(localStorage.getItem('totalCart') || '{}')

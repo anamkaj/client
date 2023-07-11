@@ -3,6 +3,7 @@ import { useQuery } from 'react-query'
 import { PostServices } from '../../../services/GET/get.post'
 import ReactMarkdown from 'react-markdown'
 import { LazyLoad } from '../LazyLoad/LazyLoad'
+import { Head } from '../Head/Head'
 
 export const PrivacyPolicy = () => {
   const { data, isLoading } = useQuery({
@@ -24,6 +25,7 @@ export const PrivacyPolicy = () => {
         {data?.map((x) => {
           return (
             <div>
+              <Head title={x.title} />
               <ReactMarkdown className=' font-semibold text-4xl'>
                 {x.title}
               </ReactMarkdown>
