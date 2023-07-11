@@ -25,19 +25,19 @@ export const Popup = ({
   )
 
   return (
-    <>
-      <div className=' flex my-2 mx-4 gap-2 '>
-        <div className=' '>
-          <img className=' w-[15vh]'
-            src={`https://tmk-v.ru:8080/img/${product[0].imgFolder}/${product[0].imgLink[0]}`}
-            alt={product[0].altImg}
-          />
-        </div>
-        <div className=' '>
-          <h2>
+    <div className=' w-[350px]  flex flex-wrap justify-center items-center my-2 mx-4 gap-2 '>
+      <div className=' flex flex-wrap justify-center'>
+        <img
+          className=' w-[15vh]'
+          src={`https://tmk-v.ru:8080/img/${product[0].imgFolder}/${product[0].imgLink[0]}`}
+          alt={product[0].altImg}
+        />
+
+        <div className=' flex flex-col justify-center items-center'>
+          <h2 className=' text-center'>
             {product[0].title.length > 50
-              ? product[0].title.slice(0, 50) + '...' 
-              : product[0].title} 
+              ? product[0].title.slice(0, 50) + '...'
+              : product[0].title}
           </h2>
           <div className=' mt-2'>
             <p className=' text-sm'>
@@ -47,32 +47,32 @@ export const Popup = ({
               ₽
             </p>
           </div>
-          <div>
+          <>
             <CounterProduct
               setCountPopupProduct={setCountPopupProduct}
               countPopupProduct={countPopupProduct}
               product={product}
             />
-          </div>
-        </div>
-        <div>
-          <div className=' flex flex-col items-end'>
-            <LinkToCart />
-            <ContinueShopping setActive={setActive} />
-          </div>
-          <div className='  w-[250px] font-light px-2  mt-4 '>
-            <p>
-              В вашей корзине
-              <span className=' font-bold'> {`${sumProductInStore}`} </span>
-              товара на сумму{' '}
-              <span className=' font-bold'>{`${totalStore.toLocaleString(
-                'ru',
-              )}`}</span>{' '}
-              ₽.
-            </p>
-          </div>
+          </>
         </div>
       </div>
-    </>
+      <div>
+        <div className=' flex flex-col'>
+          <LinkToCart />
+          <ContinueShopping setActive={setActive} />
+        </div>
+        <div className='  w-[250px] font-light px-2  mt-4 text-center '>
+          <p>
+            В вашей корзине
+            <span className=' font-bold'> {`${sumProductInStore}`} </span>
+            товара на сумму{' '}
+            <span className=' font-bold'>{`${totalStore.toLocaleString(
+              'ru',
+            )}`}</span>{' '}
+            ₽.
+          </p>
+        </div>
+      </div>
+    </div>
   )
 }
